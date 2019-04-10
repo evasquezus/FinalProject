@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   INDEX `role_id` (`role_id` ASC),
   INDEX `address_id_idx` (`address_id` ASC),
-  CONSTRAINT `FK_role_id`
+  CONSTRAINT `role_id`
     FOREIGN KEY (`role_id`)
     REFERENCES `role` (`id`)
     ON DELETE NO ACTION
