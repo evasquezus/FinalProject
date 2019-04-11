@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `register_date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `role_id` INT(11) NOT NULL,
   `address_id` INT NULL,
-  `authenticated` TINYINT NULL DEFAULT NULL,
+  `authenticated` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `role_id` (`role_id` ASC),
   INDEX `address_id_idx` (`address_id` ASC),
@@ -294,7 +294,6 @@ START TRANSACTION;
 USE `ebarterDB`;
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (1, 1, 'I will offer you a chair', 1, NULL);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (3, 1, 'I will offer a piece of gold', NULL, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (3, 1, 'I will offer 3 piece of gold', 1, NULL);
 
 COMMIT;
-
