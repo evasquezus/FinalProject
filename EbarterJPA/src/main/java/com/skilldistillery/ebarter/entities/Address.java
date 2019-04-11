@@ -1,10 +1,13 @@
 package com.skilldistillery.ebarter.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Address {
@@ -28,8 +31,8 @@ public class Address {
 	@Column(name = "phone")
 	private int phone;
 
-//	@OneToOne(mappedBy = "address")
-//	private User user;
+	@OneToMany(mappedBy = "address")
+	private List<User> user;
 
 	public Address() {
 		super();
@@ -95,20 +98,18 @@ public class Address {
 		this.phone = phone;
 	}
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	public List<User> getUser() {
+		return user;
+	}
+
+	public void setUser(List<User> user) {
+		this.user = user;
+	}
 
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", street=" + street + ", city=" + city + ", state=" + state + ", zipCode="
-				+ zipCode + ", phone=" + phone
-//				+ ", user=" + user
-				+ "]";
+				+ zipCode + ", phone=" + phone + ", user=" + user + "]";
 	}
 
 }

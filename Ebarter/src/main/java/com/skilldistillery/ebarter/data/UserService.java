@@ -10,4 +10,10 @@ public interface UserService {
 
 	User getUserById(int id);
 
+	User updateUser(int id, User book);
+
+	User createUser(User user);
+
+	boolean deleteUser(User user, int id);
+
 }
