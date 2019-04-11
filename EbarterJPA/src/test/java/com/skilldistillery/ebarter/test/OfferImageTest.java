@@ -37,5 +37,6 @@ public class OfferImageTest {
 		assertNotNull(offerImage);
 		assertEquals(1, offerImage.getId());
 		assertEquals("image.com", offerImage.getOfferImgUrl());
+//		this is comment
 	}
 }
