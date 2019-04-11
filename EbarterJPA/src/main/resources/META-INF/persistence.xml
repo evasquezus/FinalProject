@@ -10,13 +10,14 @@
 
 		<class>com.skilldistillery.ebarter.entities.User</class>
 		<class>com.skilldistillery.ebarter.entities.Address</class>
-		<class>com.skilldistillery.ebarter.entities.Bid</class>
-		<class>com.skilldistillery.ebarter.entities.BidImage</class>
-		<class>com.skilldistillery.ebarter.entities.BidStatus</class>
+		<class>com.skilldistillery.ebarter.entities.Offer</class>
+		<class>com.skilldistillery.ebarter.entities.Offer_Image</class>
+		<class>com.skilldistillery.ebarter.entities.Offer_Status</class>
 		<class>com.skilldistillery.ebarter.entities.Category</class>
 		<class>com.skilldistillery.ebarter.entities.Item</class>
-		<class>com.skilldistillery.ebarter.entities.ItemImage</class>
+		<class>com.skilldistillery.ebarter.entities.Item_Image</class>
 		<class>com.skilldistillery.ebarter.entities.Role</class>
+		<class>com.skilldistillery.ebarter.entities.Offer_Image</class>
 
 
 		<properties>

@@ -87,7 +87,7 @@ DROP TABLE IF EXISTS `item_image` ;
 
 CREATE TABLE IF NOT EXISTS `item_image` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `item_id` VARCHAR(45) NULL,
+  `item_id` INT(10) NULL,
   `item_image_url` VARCHAR(500) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -164,7 +164,7 @@ DROP TABLE IF EXISTS `offer_image` ;
 
 CREATE TABLE IF NOT EXISTS `offer_image` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `offer_id` VARCHAR(45) NULL,
+  `offer_id` INT(11) NOT NULL,
   `offer_image_url` VARCHAR(500) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -183,10 +183,10 @@ CREATE TABLE IF NOT EXISTS `offer` (
   `offer_status_id` INT NULL DEFAULT NULL,
   `offer_image_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `item_id_idx` (`offer_status_id` ASC),
   INDEX `offer_image)id_idx` (`offer_image_id` ASC),
+  INDEX `item_id_idx` (`item_id` ASC),
   CONSTRAINT `item_id`
-    FOREIGN KEY (`offer_status_id`)
+    FOREIGN KEY (`item_id`)
     REFERENCES `item` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -242,9 +242,19 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `user` (`id`, `user_name`, `password`, `active`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (1, 'cmoney', 'cmoney', 1, 'Young', 'Chen', 'young@ebarter.com', '2019-10-04', 1, 1, NULL);
-INSERT INTO `user` (`id`, `user_name`, `password`, `active`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (2, 'jmoney', 'jmoney', 1, 'Eric', 'Evasquezus', 'eric@ebarter.com', '2019-10-04', 1, 2, NULL);
-INSERT INTO `user` (`id`, `user_name`, `password`, `active`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (3, 'emoney', 'emoney', 1, 'John', 'Overberg', 'john@ebarter.com', '2019-10-04', 1, 3, NULL);
+INSERT INTO `user` (`id`, `user_name`, `password`, `active`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (1, 'cmoney', 'cmoney', true, 'Young', 'Chen', 'young@ebarter.com', '2019-10-04', 1, 1, NULL);
+INSERT INTO `user` (`id`, `user_name`, `password`, `active`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (2, 'jmoney', 'jmoney', true, 'Eric', 'Evasquezus', 'eric@ebarter.com', '2019-10-04', 1, 2, NULL);
+INSERT INTO `user` (`id`, `user_name`, `password`, `active`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (3, 'emoney', 'emoney', true, 'John', 'Overberg', 'john@ebarter.com', '2019-10-04', 1, 3, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `item_image`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ebarterDB`;
+INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (1, 1, 'itemimage.com');
 
 COMMIT;
 
@@ -282,7 +292,18 @@ COMMIT;
 START TRANSACTION;
 USE `ebarterDB`;
 INSERT INTO `offer_status` (`id`, `status_name`) VALUES (1, 'true');
-INSERT INTO `offer_status` (`id`, `status_name`) VALUES (2, 'false');
+INSERT INTO `offer_status` (`id`, `status_name`) VALUES (2, 'complete');
+INSERT INTO `offer_status` (`id`, `status_name`) VALUES (3, 'incomplete');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `offer_image`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ebarterDB`;
+INSERT INTO `offer_image` (`id`, `offer_id`, `offer_image_url`) VALUES (1, 1, 'image.com');
 
 COMMIT;
 
@@ -292,8 +313,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (1, 1, 'I will offer you a chair', 1, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (1, 1, 'I will offer you a chair', 1, 1);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (3, 1, 'I will offer 3 piece of gold', 1, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (3, 1, 'I will offer a piece of gold', 1, NULL);
 
 COMMIT;
+
