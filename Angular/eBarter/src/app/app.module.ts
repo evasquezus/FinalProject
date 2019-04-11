@@ -10,6 +10,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ItemDetailComponent,
     RegistrationComponent,
     NavbarComponent,
+    ProfileComponent,
 
   ],
   imports: [
