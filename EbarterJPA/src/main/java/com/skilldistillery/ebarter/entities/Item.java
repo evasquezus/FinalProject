@@ -39,6 +39,7 @@ public class Item {
 	private Category category;
 
 //	@ManyToOne(cascade = { CascadeType.ALL })
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -48,6 +49,7 @@ public class Item {
 	@JsonIgnore
 	private List<Offer> offer;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="item")
 	private List<Item_Image> itemImage;
 
