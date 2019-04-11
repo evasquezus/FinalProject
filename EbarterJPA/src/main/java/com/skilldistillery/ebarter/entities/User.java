@@ -1,6 +1,7 @@
 package com.skilldistillery.ebarter.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,9 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
@@ -47,11 +50,16 @@ public class User {
 
 	@ManyToOne
 	@JoinColumn(name = "role_id")
+	@JsonIgnore
 	private Role role;
 
-	@OneToOne
+	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "address_id")
 	private Address address;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Item> item;
 
 	public int getId() {
 		return id;
