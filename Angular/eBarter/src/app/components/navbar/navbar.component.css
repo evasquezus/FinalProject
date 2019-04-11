@@ -1,6 +1,15 @@
 
 #welcome {
-  font-weight: bold;
   font-style: italic;
-  color: white;
+}
+
+.spacer {
+  padding-left: 20px;
+}
+
+.navbar-text {
+  font-size: 100%;
+  font-weight: bold;
+  color: white !important;
+  display: inline-block;
 }
