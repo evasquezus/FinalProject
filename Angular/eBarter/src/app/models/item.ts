@@ -1,9 +1,8 @@
 export class Item {
   id: number;
-<<<<<<< HEAD
   name: string;
   description: string;
-  endDate: string;
+  endDate: Date;
   isActive: boolean;
   userId: number;
   categoryId: number;
@@ -13,7 +12,7 @@ export class Item {
     id?: number,
     name?: string,
     description?: string,
-    endDate?: string,
+    endDate?: Date,
     isActive?: boolean,
     userId?: number,
     categoryId?: number,
@@ -28,13 +27,5 @@ export class Item {
     this.categoryId = categoryId;
     this.itemImageId = itemImageId;
   }
-=======
-  description: string;
-  name: string;
-  endDate?: Date;
-  isActive?: boolean;
-  sellerId: number;
-  category?: number;
-  imageUrl?: string;
->>>>>>> fe556d397fd76313e2bfbd763c8351cf81dee8cb
+
 }
