@@ -19,17 +19,41 @@ img {
   -moz-box-shadow: 7px 2px 18px 5px rgba(0, 0, 0, 0.43);
   box-shadow: 7px 2px 18px 5px rgba(0, 0, 0, 0.43);
   border-radius: 8px;
-  margin-top: 10%;
+  margin-top: 4%;
   margin-left: 20%;
 }
 
 ul {
   text-align: center;
   position: relative;
-  bottom: 300px;
+  bottom: 310px;
   margin-left: 50%;
   width: 425px;
   height: 300px;
 }
 
+#currentOffers{
+width: 925px;
+margin-left: 20%;
+text-align: left;
+position: relative;
+bottom: 310px;
 
+}
+
+#tableForOffers{
+  border-style: solid;
+  text-align: center;
+  position: relative;
+  bottom: 210px;
+
+}
+.table-sm th, .table-sm td {
+  padding: 0.3rem;
+  text-align: center;
+
+}
+
+body{
+  background-color: #f0eeec!important;
+}

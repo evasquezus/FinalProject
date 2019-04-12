@@ -10,19 +10,49 @@
       type="image/svg+xml">
     <img src="..." class="img-fluid img-thumbnail" alt="...">
   </picture>
+  <ul class="list-group" id="information-on-item">
+    <h1>{{title}}</h1>
+    <li class="list-group-item">First item</li>
+    <li class="list-group-item">Second item</li>
+    <li class="list-group-item">Third item</li>
+    <li class="list-group-item">Fourth item</li>
+    <li class="list-group-item">Firth item</li>
+    <li class="list-group-item">Test item</li>
+    <br>
+    <button class="btn btn-success" data-toggle="modal" id="SubmitOffer">Submit Offer</button>
+  </ul>
 </div>
-<ul class="list-group" id="information-on-item">
-  <li class="list-group-item">First item</li>
-  <li class="list-group-item">Second item</li>
-  <li class="list-group-item">Third item</li>
-  <li class="list-group-item">Fourth item</li>
-  <li class="list-group-item">Firth item</li>
-  <li class="list-group-item">Test item</li>
-  <br>
-  <button class="btn btn-success" data-toggle="modal" id="SubmitOffer">Submit Offer</button>
-</ul>
-
-<div class="form-group" id="">
-  <label for="comment">Comment:</label>
-  <textarea class="form-control" rows="6" id="comment"></textarea>
+<br>
+<br>
+<div class="container" id="tableForOffers">
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">UserName</th>
+        <th scope="col">Offer</th>
+        <th scope="col">Accept</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td> <button class="btn btn-success">Accept</button></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Chair</td>
+        <td>Car</td>
+        <td> <button class="btn btn-success">Accept</button></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Chair</td>
+        <td>Car</td>
+        <td> <button class="btn btn-success">Accept</button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
