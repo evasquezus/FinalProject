@@ -37,12 +37,18 @@ h2 {
   margin-left: 10%;
   margin-right: -15%
 }
-#zipcode{
+#city{
   margin-left: 30%;
   margin-right: -35%
+}
+#zipcode{
+  margin-left: 10%;
+  margin-right: -15%
 }
 #submit{
   margin-left: 15%;
   margin-right: -35%
 }
+
+
 

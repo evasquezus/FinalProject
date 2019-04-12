@@ -6,7 +6,7 @@ export class User {
   firstName: string;
   lastName: string;
   email: string;
-  registerDate: Date;
+  registerDate: string;
   roleId: number;
   addressId: number;
   authenticated: boolean;
@@ -19,7 +19,7 @@ export class User {
     firstName?: string,
     lastName?: string,
     email?: string,
-    registerDate?: Date,
+    registerDate?: string,
     roleId?: number,
     addressId?: number,
     authenticated?: boolean) {
