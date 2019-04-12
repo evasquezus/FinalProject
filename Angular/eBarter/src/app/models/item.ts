@@ -27,4 +27,5 @@ export class Item {
     this.categoryId = categoryId;
     this.itemImageId = itemImageId;
   }
+
 }
