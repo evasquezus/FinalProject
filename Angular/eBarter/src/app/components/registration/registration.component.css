@@ -1,0 +1,48 @@
+form {
+    padding-right: 450px;
+    padding-left: 300px;
+}
+
+h2 {
+  padding-right: 500px;
+  padding-left: 350px;
+}
+
+
+#firstName{
+  margin-left: 10%;
+  margin-right: -15%
+}
+#lastName{
+  margin-left: 30%;
+  margin-right: -35%
+}
+#username{
+  margin-left: 10%;
+  margin-right: -15%
+}
+#password{
+  margin-left: 30%;
+  margin-right: -35%
+}
+#email{
+  margin-left: 10%;
+  margin-right: -15%
+}
+#street{
+  margin-left: 30%;
+  margin-right: -35%
+}
+#states{
+  margin-left: 10%;
+  margin-right: -15%
+}
+#zipcode{
+  margin-left: 30%;
+  margin-right: -35%
+}
+#submit{
+  margin-left: 15%;
+  margin-right: -35%
+}
+
