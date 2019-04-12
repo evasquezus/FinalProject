@@ -1,7 +1,53 @@
 <div class='container-fluid' id='navbardiv'>
-  <span *ngIf='mainnavbar' class="navbar navbar-dark bg-primary">
+  <div *ngIf='mainnavbar'>
+    <span class='float-left'>
+      <span href='#'>eBarter!</span>
+      <span class='spacer'></span>
+      <span ngbDropdown class="nav-item dropdown">
+        <a id="menudropdown" ngbDropdownToggle>Menu</a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem>List Item</button>
+          <button ngbDropdownItem>My Completed Deals</button>
+          <button ngbDropdownItem>My Profile</button>
+          <button ngbDropdownItem>Logout</button>
+        </div>
+      </span>
+    </span>
+      <span>The Web's Most Exciting Marketplace!</span>
+      <span class='float-right welcome'>Welcome USERNAME</span>
+  </div>
+
+    <div *ngIf='loginnavbar'>
+      <span class='float-left'>
+        <span href='#'>eBarter!</span>
+      </span>
+      <span class='welcome'>The Web's Most Exciting Marketplace!</span>
+      <span class='spacer'></span>
+      <span class='float-right'>
+          <form>
+            <input class='login-box' type="text" placeholder="Username" aria-label="Username">
+            <span class='spacer'></span>
+            <input class='login-box' type="text" placeholder="Password" aria-label="Password">
+            <span class='spacer'></span>
+            <button class="btn btn-warning" type="submit">Login</button>
+          </form>
+        </span>
+      </div>
+</div>
+
+
+
+
+
+
+
+
+  <!-- <span *ngIf='mainnavbar' id='navspan' class="navbar navbar-dark bg-primary nowrap">
+
       <a class="navbar-brand" href="#">eBarter!</a>
-      <span class='navbar-text'>
+      <span class='navbar-text nowrap'>
+      The Web's Most Exciting Marketplace!
+
         <div ngbDropdown class="nav-item dropdown">
           <a class="nav-link navbar-text" id="menudropdown" ngbDropdownToggle>Menu</a>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
@@ -12,13 +58,13 @@
            </div>
           </div>
     </span>
-    <span class='float-right navbar-text' id='welcome'>Welcome USERNAME
+    <span class='float-right navbar-text nowrap' id='welcome'>Welcome USERNAME
       <span class='spacer'></span>
         <button class="btn btn-warning my-2 my-sm-0" type="submit">Logout</button>
     </span>
-  </span>
+  </span> -->
 
-  <div *ngIf='loginnavbar' class="navbar navbar-dark bg-primary">
+  <!-- <div *ngIf='loginnavbar' class="navbar navbar-dark bg-primary nowrap">
     <a class="navbar-brand" href="#">eBarter</a>
       <span class='float-right'>
         <form class="form-inline my-2 my-lg-0">
@@ -29,4 +75,4 @@
         </form>
       </span>
   </div>
-</div>
+</div> -->
