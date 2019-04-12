@@ -11,6 +11,8 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ListItemComponent } from './components/list-item/list-item.component';
+import { CompletedComponent } from './components/completed/completed.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegistrationComponent,
     NavbarComponent,
     ProfileComponent,
+    ListItemComponent,
+    CompletedComponent,
 
   ],
   imports: [

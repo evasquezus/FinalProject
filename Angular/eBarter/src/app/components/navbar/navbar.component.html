@@ -1,15 +1,15 @@
 <div class='container-fluid' id='navbardiv'>
   <div *ngIf='mainnavbar'>
     <span class='float-left'>
-      <span href='#'>eBarter!</span>
+      <span (click)='navHome()'>eBarter!</span>
       <span class='spacer'></span>
       <span ngbDropdown class="nav-item dropdown">
         <a id="menudropdown" ngbDropdownToggle>Menu</a>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem>List Item</button>
-          <button ngbDropdownItem>My Completed Deals</button>
-          <button ngbDropdownItem>My Profile</button>
-          <button ngbDropdownItem>Logout</button>
+          <button (click)='navList()'ngbDropdownItem>List Item</button>
+          <button (click)='navCompleted()'ngbDropdownItem>My Completed Deals</button>
+          <button (click)='navProfile()'ngbDropdownItem>My Profile</button>
+          <button (click)='navLogout()'ngbDropdownItem>Logout</button>
         </div>
       </span>
     </span>
@@ -19,7 +19,7 @@
 
     <div *ngIf='loginnavbar'>
       <span class='float-left'>
-        <span href='#'>eBarter!</span>
+        <span (click)='navHome()'>eBarter!</span>
       </span>
       <span class='welcome'>The Web's Most Exciting Marketplace!</span>
       <span class='spacer'></span>
