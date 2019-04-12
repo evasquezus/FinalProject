@@ -19,13 +19,6 @@ export class ProfileComponent implements OnInit {
 
     user = new User();
     editUser = null;
-    firstName = new this.firstName();
-    lastName = new this.lastName();
-    password = new this.password();
-    email = new this.email();
-    street = new this.street();
-    states = new this.states();
-    zipcode = new this.zipcode();
 
 
   ngOnInit() {
