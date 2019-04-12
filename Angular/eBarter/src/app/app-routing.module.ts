@@ -6,6 +6,7 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 import { RegistrationComponent } from './components/registration/registration.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CompletedComponent } from './components/completed/completed.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: 'completed', component: CompletedComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'listitem', component: ListItemComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', component: HomepageComponent }
 ];
 

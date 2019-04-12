@@ -16,12 +16,12 @@ import com.skilldistillery.ebarter.entities.User;
 
 @RestController
 @RequestMapping("auth")
-@CrossOrigin({ "*", "http://localhost:4200" })
+@CrossOrigin({"*", "http://localhost:4200"})
 public class AuthController {
 
 	@Autowired
-	private AuthService authService;
-
+	AuthService authService;
+	
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public User register(@RequestBody User user, HttpServletResponse res) {
 
@@ -29,13 +29,17 @@ public class AuthController {
 	    res.setStatus(400);
 	  }
 
+	  System.out.println("AuthController.register(): " + user);
 	  user = authService.register(user);
 
 	  return user;
 	}
 
+
 	@RequestMapping(path = "/authenticate", method = RequestMethod.GET)
 	public Principal authenticate(Principal principal) {
+		System.out.println("in auth controller");
 	  return principal;
 	}
+
 }

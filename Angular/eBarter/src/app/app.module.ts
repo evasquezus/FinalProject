@@ -14,9 +14,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { CompletedComponent } from './components/completed/completed.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { LoginComponent } from './components/login/login.component';
 import { NgbdModalConfigComponent } from './components/ngbd-modal-config/ngbd-modal-config.component';
 import { NgbdCarouselBasicComponent } from './components/ngbd-carousel-basic/ngbd-carousel-basic.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -30,18 +31,18 @@ import { NgbdCarouselBasicComponent } from './components/ngbd-carousel-basic/ngb
     ProfileComponent,
     ListItemComponent,
     CompletedComponent,
+    LoginComponent,
     NgbdModalConfigComponent,
     NgbdCarouselBasicComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule,
   ],
   providers: [,
   DatePipe,
