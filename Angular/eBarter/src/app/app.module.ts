@@ -14,8 +14,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { CompletedComponent } from './components/completed/completed.component';
-
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgbdModalConfigComponent } from './components/ngbd-modal-config/ngbd-modal-config.component';
+import { NgbdCarouselBasicComponent } from './components/ngbd-carousel-basic/ngbd-carousel-basic.component';
 
 
 @NgModule({
@@ -29,6 +30,8 @@ import { CompletedComponent } from './components/completed/completed.component';
     ProfileComponent,
     ListItemComponent,
     CompletedComponent,
+    NgbdModalConfigComponent,
+    NgbdCarouselBasicComponent,
 
   ],
   imports: [
@@ -36,12 +39,14 @@ import { CompletedComponent } from './components/completed/completed.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule.forRoot(),
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
   ],
   providers: [,
   DatePipe,
   CurrencyPipe],
-bootstrap: [AppComponent]
+bootstrap: [AppComponent],
+
 })
 export class AppModule { }
