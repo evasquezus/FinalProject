@@ -1,3 +1,44 @@
 <div class='container-fluid'>
-<h2>User Profile></h2>
+<h2>User Profile</h2>
+</div>
+
+<button (click)="submitEditUser()" class="btn btn-primary">Edit Profile</button>
+
+<div id="info" *ngIf='editUser'>
+  <form>
+    <tbody>
+      <tr>
+        <td>First Name:</td>
+        <td><input type='text' name='firstName' value='{{user.firstName}}' [(ngModel)]='user.firstName'></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td><input type='text' name='lastName' value='{{user.lastName}}' [(ngModel)]='user.lastName'></td>
+      </tr>
+      <tr>
+        <td>Username:</td>
+        <td><input type='text' name='userName' value='{{user.userName}}' [(ngModel)]='user.userName'></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type='password' name='password' value='{{user.password}}' [(ngModel)]='user.password'></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type='email' name='email' value='{{user.email}}' [(ngModel)]='user.email'></td>
+      </tr>
+      <tr>
+        <td>Street:</td>
+        <td><input type='text' name='street' value='{{user.address.street}}' [(ngModel)]='user.address.street'></td>
+      </tr>
+      <tr>
+        <td>States:</td>
+        <td><input type='text' name='states' value='{{user.address.states}}' [(ngModel)]='user.address.states'></td>
+      </tr>
+      <tr>
+        <td>Zipcode:</td>
+        <td><input type='text' name='firstName' value='{{user.address.zipcode}}' [(ngModel)]='user.address.zipcode'></td>
+      </tr>
+    </tbody>
+  </form>
 </div>

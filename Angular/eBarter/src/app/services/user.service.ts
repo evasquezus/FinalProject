@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment.prod';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ import { DatePipe } from '@angular/common';
 export class UserService {
   private baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/users/';
+
+  constructor(private http: HttpClient, private dataPipe: DatePipe, private auth: AuthenticationService) { }
 
 
   public getAll() {
@@ -52,6 +55,25 @@ delete(id: number) {
     })
   );
 }
+getHttp() {
+  const credentials = this.auth.getCredentials();
+  return {
+    headers: {
+      Authorization: `Basic ${credentials}`,
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    }
+  };
+}
 
-constructor(private http: HttpClient, private dataPipe: DatePipe) { }
+getLoggedIn() {
+return this.http.get<User>(this.url + '/username', this.getHttp())
+    .pipe(
+          catchError((err: any) => {
+            console.log(err);
+            return throwError('Error in service index');
+          })
+     );
+  }
+
 }

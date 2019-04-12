@@ -8,7 +8,7 @@ export class Item {
   categoryId: number;
   itemImageId: number;
 
-  constructor (
+  constructor(
     id?: number,
     name?: string,
     description?: string,
