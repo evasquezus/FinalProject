@@ -12,6 +12,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ListItemComponent } from './components/list-item/list-item.component';
+import { CompletedComponent } from './components/completed/completed.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ItemDetailComponent,
     RegistrationComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    ListItemComponent,
+    CompletedComponent,
+
   ],
   imports: [
     BrowserModule,

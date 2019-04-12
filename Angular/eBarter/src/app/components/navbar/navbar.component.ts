@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +10,34 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class NavbarComponent implements OnInit {
-  disp_login_nav = true;
-  disp_main_nav = false;
+  loginnavbar = false;
+  mainnavbar = true;
 
 
   dropdown = true;
-  constructor() { }
+  constructor(private router: Router) { }
   ngOnInit() {
   }
 
+  navHome() {
+    this.router.navigate(['/home']);
+  }
+
+  navList() {
+    this.router.navigate(['/listitem']);
+  }
+
+  navCompleted() {
+    this.router.navigate(['/completed']);
+  }
+
+  navProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  navLogout() {
+    // TODO log user out
+    this.router.navigate(['/home'])
+
+  }
 }

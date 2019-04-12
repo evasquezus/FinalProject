@@ -29,7 +29,7 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "active")
+	@Column(name = "enabled")
 	private boolean active;
 
 	@Column(name = "first_name")
@@ -177,3 +177,5 @@ public class User {
 	}
 
 }
+
+

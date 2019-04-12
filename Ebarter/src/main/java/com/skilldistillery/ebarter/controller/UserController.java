@@ -1,5 +1,6 @@
 package com.skilldistillery.ebarter.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -38,13 +39,13 @@ public class UserController {
 	}
 
 	@GetMapping(path = "users/{id}")
-	public User getIndividualBook(@PathVariable("id") int id) {
+	public User getIndividualBook(@PathVariable("id") int id,Principal principal) {
 		User userRetrived = service.getUserById(id);
 		return userRetrived;
 	}
 
 	@DeleteMapping(path = "users/{id}")
-	public void deleteUser(@PathVariable("id") int id) {
+	public void deleteUser(@PathVariable("id") int id,Principal principal) {
 		try {
 			User user = service.getUserById(id);
 			user.setActive(false);
@@ -56,7 +57,7 @@ public class UserController {
 
 	@PutMapping(path = "users/{id}")
 	public User updateUser(@PathVariable("id") int id, @RequestBody User userToBeUpdated,
-			HttpServletResponse response) {
+			HttpServletResponse response,Principal principal) {
 		try {
 			Role role = roleService.getRoleById(1);
 			userToBeUpdated.setRole(role);
@@ -72,7 +73,7 @@ public class UserController {
 	}
 
 	@PostMapping(path = "users")
-	public User addUser(@RequestBody User userToBeAdded, HttpServletResponse response) {
+	public User addUser(@RequestBody User userToBeAdded, HttpServletResponse response,Principal principal) {
 		Role role = roleService.getRoleById(1);
 		userToBeAdded.setRole(role);
 		User newUser = service.createUser(userToBeAdded);

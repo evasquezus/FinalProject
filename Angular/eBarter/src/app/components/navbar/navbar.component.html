@@ -1,49 +1,78 @@
+<div class='container-fluid' id='navbardiv'>
+  <div *ngIf='mainnavbar'>
+    <span class='float-left'>
+      <span (click)='navHome()'>eBarter!</span>
+      <span class='spacer'></span>
+      <span ngbDropdown class="nav-item dropdown">
+        <a id="menudropdown" ngbDropdownToggle>Menu</a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button (click)='navList()'ngbDropdownItem>List Item</button>
+          <button (click)='navCompleted()'ngbDropdownItem>My Completed Deals</button>
+          <button (click)='navProfile()'ngbDropdownItem>My Profile</button>
+          <button (click)='navLogout()'ngbDropdownItem>Logout</button>
+        </div>
+      </span>
+    </span>
+      <span>The Web's Most Exciting Marketplace!</span>
+      <span class='float-right welcome'>Welcome USERNAME</span>
+  </div>
+
+    <div *ngIf='loginnavbar'>
+      <span class='float-left'>
+        <span (click)='navHome()'>eBarter!</span>
+      </span>
+      <span class='welcome'>The Web's Most Exciting Marketplace!</span>
+      <span class='spacer'></span>
+      <span class='float-right'>
+          <form>
+            <input class='login-box' type="text" placeholder="Username" aria-label="Username">
+            <span class='spacer'></span>
+            <input class='login-box' type="text" placeholder="Password" aria-label="Password">
+            <span class='spacer'></span>
+            <button class="btn btn-warning" type="submit">Login</button>
+          </form>
+        </span>
+      </div>
+</div>
 
 
-    <span *ngIf='disp_main_nav' class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+
+
+
+
+
+
+  <!-- <span *ngIf='mainnavbar' id='navspan' class="navbar navbar-dark bg-primary nowrap">
+
+      <a class="navbar-brand" href="#">eBarter!</a>
+      <span class='navbar-text nowrap'>
+      The Web's Most Exciting Marketplace!
+
+        <div ngbDropdown class="nav-item dropdown">
+          <a class="nav-link navbar-text" id="menudropdown" ngbDropdownToggle>Menu</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>List Item</button>
+            <button ngbDropdownItem>My Completed Deals</button>
+            <button ngbDropdownItem>My Profile</button>
+            <button ngbDropdownItem>Logout</button>
+           </div>
+          </div>
+    </span>
+    <span class='float-right navbar-text nowrap' id='welcome'>Welcome USERNAME
+      <span class='spacer'></span>
+        <button class="btn btn-warning my-2 my-sm-0" type="submit">Logout</button>
+    </span>
+  </span> -->
+
+  <!-- <div *ngIf='loginnavbar' class="navbar navbar-dark bg-primary nowrap">
     <a class="navbar-brand" href="#">eBarter</a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-              <li ngbDropdown class="nav-item dropdown">
-                <!-- <button class="btn btn-primary" id="menudropdown" ngbDropdownToggle>Menu</button> -->
-                <a class="nav-link" id="menudropdown" ngbDropdownToggle>Menu</a>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                  <button ngbDropdownItem>List Item</button>
-                  <button ngbDropdownItem>My Completed Deals</button>
-                  <button ngbDropdownItem>My Profile</button>
-                  <button ngbDropdownItem>Logout</button>
-                </div>
-              </li>
-
-      </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
-      <span class='span-inline my-2 my-lg-0' id='welcome'>Welcome USERNAME</span>
-    </div>
-  </span>
-
-  <span *ngIf='disp_login_nav' class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">eBarter</a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-
-      <span class='pull-right'>
+      <span class='float-right'>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Username" aria-label="Username">
           <input class="form-control mr-sm-2" type="search" placeholder="Password" aria-label="Password">
+          <span class='spacer'></span>
           <button class="btn btn-warning my-2 my-sm-0" type="submit">Login</button>
         </form>
       </span>
-
-
-    </span>
+  </div>
+</div> -->
