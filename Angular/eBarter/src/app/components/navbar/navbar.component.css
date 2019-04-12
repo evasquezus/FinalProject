@@ -17,6 +17,10 @@
   padding-left: 30px;
 }
 
+.spacer-sm {
+  padding-left: 15px;
+}
+
 .navbar-text {
   white-space: nowrap;
   font-size: 100%;
@@ -32,4 +36,8 @@
 .login-box {
   width: 150px;
   height: 28px;
+}
+
+#login-button, #register-button {
+widows: 80px;
 }
