@@ -1,0 +1,38 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Fill up in order to submit</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()">
+      Description
+      <br>
+      <input type="text">
+      <br>
+      Image Url
+      <br>
+      <input type="text">
+      <br>
+      <input type="hidden">
+      <!-- //Below is the data we need for sending in a offer -->
+      <!-- {
+        "id": 1,
+        "description": "I will offer you a chair",
+        "item": {
+            "id": 1,
+            "description": "A dark wood computer desk",
+            "name": "computer desk",
+            "endDate": "2019-10-04T07:00:00.000+0000",
+            "active": true
+        } -->
+      <br>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="('Save click')">Submit</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-success" (click)="open(content)">Submit Offer</button>

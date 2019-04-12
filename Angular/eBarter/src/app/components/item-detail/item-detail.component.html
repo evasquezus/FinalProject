@@ -1,3 +1,61 @@
-<p>
-  item-detail works!
-</p>
+<!-- <div class="container float-left">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <img src="https://www.broadwayproscooters.com/media/catalog/product/cache/1/image/445x/602f0fa2c1f0d1ba5e241f914e856ff9/e/n/env1417.jpeg  " alt="First slide">
+      </div>
+    </div> -->
+<div class="imageLocation">
+  ​<picture>
+    <source
+      srcset="https://www.dunkindonuts.com/content/dam/dd/img/heros-lifestyle/standard/hero-ddcard-lp-donuts-card-640x640.jpg"
+      type="image/svg+xml">
+    <img src="..." class="img-fluid img-thumbnail" alt="...">
+  </picture>
+  <ul class="list-group" id="information-on-item">
+    <h1>{{title}}</h1>
+    <li class="list-group-item">First item</li>
+    <li class="list-group-item">Second item</li>
+    <li class="list-group-item">Third item</li>
+    <li class="list-group-item">Fourth item</li>
+    <li class="list-group-item">Firth item</li>
+    <li class="list-group-item">Test item</li>
+    <app-ngbd-modal-config></app-ngbd-modal-config>
+    <br>
+    <!-- <button class="btn btn-success" data-toggle="modal" id="SubmitOffer">Submit Offer</button> -->
+  </ul>
+</div>
+
+<br>
+<br>
+<div class="container" id="tableForOffers">
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">UserName</th>
+        <th scope="col">Offer</th>
+        <th scope="col">Accept</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td> <button class="btn btn-success">Accept</button></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Chair</td>
+        <td>Car</td>
+        <td> <button class="btn btn-success">Accept</button></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Chair</td>
+        <td>Car</td>
+        <td> <button class="btn btn-success">Accept</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-ngbd-carousel-basic></app-ngbd-carousel-basic>
