@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 
 
 export class NavbarComponent implements OnInit {
-  loginnavbar = false;
-  mainnavbar = true;
+  loginnavbar = true;
+  mainnavbar = false;
 
 
   dropdown = true;
@@ -38,6 +38,9 @@ export class NavbarComponent implements OnInit {
   navLogout() {
     // TODO log user out
     this.router.navigate(['/home'])
+  }
 
+  navRegister() {
+    this.router.navigate(['/register'])
   }
 }
