@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class NavbarComponent implements OnInit {
-  loginnavbar = false;
-  mainnavbar = true;
+  loginnavbar = true;
+  mainnavbar = false;
 
 
   dropdown = true;
