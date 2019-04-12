@@ -34,12 +34,11 @@ import { CompletedComponent } from './components/completed/completed.component';
     HttpClientModule,
     NgbModule.forRoot(),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [,
   DatePipe,
-  CurrencyPipe
-],
+  CurrencyPipe],
 bootstrap: [AppComponent]
 })
 export class AppModule { }

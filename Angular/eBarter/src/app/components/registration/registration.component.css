@@ -1,8 +1,8 @@
 form {
     padding-top: 5px;
-    padding-right: 850px;
+    padding-right: 300px;
     padding-bottom: 15px;
-    padding-left: 700px;
+    padding-left: 570px;
 }
 
 h2 {
@@ -11,3 +11,38 @@ h2 {
   padding-bottom: 15px;
   padding-left: 700px;
 }
+
+
+#firstName{
+  margin-left: 10%;
+  margin-right: -15%
+}
+#lastName{
+  margin-left: 30%;
+  margin-right: -30%
+}
+#username{
+  margin-left: 10%;
+  margin-right: -15%
+}
+#password{
+  margin-left: 30%;
+  margin-right: -30%
+}
+#email{
+  margin-left: 10%;
+  margin-right: -15%
+}
+#street{
+  margin-left: 30%;
+  margin-right: -30%
+}
+#states{
+  margin-left: 10%;
+  margin-right: -15%
+}
+#zipcode{
+  margin-left: 30%;
+  margin-right: -30%
+}
+

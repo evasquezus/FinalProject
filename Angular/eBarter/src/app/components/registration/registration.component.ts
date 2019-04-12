@@ -18,7 +18,10 @@ export class RegistrationComponent implements OnInit {
     username: ['', Validators.required],
     address: ['', Validators.required],
     password: ['', [Validators.required, Validators.minLength(6)]],
-
+    email: ['', Validators.required],
+    street: ['', Validators.required],
+    states: ['', Validators.required],
+    zipcode: ['', Validators.required]
   });
 
   loading = false;
