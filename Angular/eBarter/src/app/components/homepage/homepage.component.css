@@ -1,0 +1,62 @@
+/* img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+} */
+
+.carousel {
+  margin-left: 5%;
+  max-width: 500px;
+  max-height: 500px;
+  vertical-align: middle;
+}
+
+.card-deck {
+  margin-left: 30%;
+  bottom: 710px;
+  position: relative;
+}
+
+body {
+  background-color: #edeff0 ;
+}
+
+button{
+text-align: center;
+position: relative;
+}
+/*
+form {
+  text-align: center;
+  position: relative;
+  bottom: 100px;
+  width: 425px;
+  height: 300px;
+  margin: 30px auto 0;
+  background-color: #e2e2e2;
+  -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
+  box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
+
+} */
+
+form img,
+form input {
+  display: inline-block;
+}
+
+h2{
+  position: relative;
+  bottom: 210px;
+  margin-left: 45%;
+}
+.list-group {
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+#sideBarLeft{
+  position: relative;
+  bottom: 150px;
+  margin-left: 3%;
+}

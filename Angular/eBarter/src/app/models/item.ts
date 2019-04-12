@@ -27,4 +27,13 @@ export class Item {
     this.categoryId = categoryId;
     this.itemImageId = itemImageId;
   }
+
+  description: string;
+  name: string;
+  endDate?: Date;
+  isActive?: boolean;
+  sellerId: number;
+  category?: number;
+  imageUrl?: string;
+
 }
