@@ -19,19 +19,14 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username, password) {
-    // Make credentials
     const credentials = this.generateBasicAuthCredentials(username, password);
-    // Send credentials as Authorization header (this is spring security convention
-    // for basic auth)
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Basic ${credentials}`,
-        'X-Requested-With': 'XMLHttpRequest'
       })
     };
-        // create request to authenticate credentials
     return this.http
-        .get(this.baseUrl + 'authenticate', httpOptions)
+        .get(this.baseUrl + 'auth/authenticate', httpOptions)
         .pipe(
           tap((res) => {
             localStorage.setItem('credentials' , credentials);
@@ -47,9 +42,6 @@ export class AuthService {
     register(user: User) {
       // create request to register a new account
       console.log('authService.register(): user:');
-      console.log(user);
-
-
       return this.http.post(this.baseUrl + 'register', user)
       .pipe(
           catchError((err: any) => {
@@ -68,6 +60,14 @@ export class AuthService {
         return true;
       }
       return false;
+    }
+
+    getCredName() {
+      const cred = localStorage.getItem('credentials');
+      const plainText = atob(cred);
+      const num = plainText.search(':');
+      const credName = plainText.substring(0, num);
+      return credName;
     }
 
     generateBasicAuthCredentials(username, password) {
