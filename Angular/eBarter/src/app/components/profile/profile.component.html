@@ -28,15 +28,15 @@
             </tr>
             <tr>
               <td>Street:</td>
-              <td class="rightTable">{{user.addressId.street}}</td>
+              <td class="rightTable">{{user.address.street}}</td>
             </tr>
             <tr>
               <td>States:</td>
-              <td class="rightTable">{{user.addressId.states}}</td>
+              <td class="rightTable">{{user.address.state}}</td>
             </tr>
             <tr>
               <td>Zipcode:</td>
-              <td class="rightTable">{{user.addressId.zipcode}}</td>
+              <td class="rightTable">{{user.address.zipCode}}</td>
             </tr>
 
           </table>
@@ -83,15 +83,15 @@
 
                 <tr>
                   <td>States:</td>
-                  <td><input type='text' name='states' value='{{user.address.states}}'
-                      [(ngModel)]='user.address.states'>
+                  <td><input type='text' name='states' value='{{user.address.state}}'
+                      [(ngModel)]='user.address.state'>
                   </td>
                 </tr>
 
                 <tr>
                   <td>Zipcode:</td>
-                  <td><input type='text' name='firstName' value='{{user.address.zipcode}}'
-                      [(ngModel)]='user.address.zipcode'></td>
+                  <td><input type='text' name='firstName' value='{{user.address.zipCode}}'
+                      [(ngModel)]='user.address.zipCode'></td>
                 </tr>
               </tbody>
             </table>
