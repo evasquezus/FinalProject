@@ -9,7 +9,7 @@ import { Item } from 'src/app/models/item';
 })
 export class HomepageComponent implements OnInit {
   items: Item[];
-  bookservice: any;
+  itemservices: any;
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
