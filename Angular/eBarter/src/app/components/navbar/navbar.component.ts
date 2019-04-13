@@ -1,7 +1,8 @@
-import { AuthService } from './../../services/auth.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -16,20 +17,26 @@ export class NavbarComponent implements OnInit {
   loginnavbar = true;
   mainnavbar = false;
   logincombo = {username: '', password: ''};
+  displayName = null;
 
   dropdown = true;
   constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
-  if(this.auth.checkLogin()){
-    this.loginnavbar = false;
-    this.mainnavbar = true;
+  this.setNavbar();
   }
-  else {
-    this.loginnavbar = true;
-    this.mainnavbar = false;
-    this.navHome();
-  }
+
+  setNavbar() {
+    if(this.auth.checkLogin()){
+      this.loginnavbar = false;
+      this.mainnavbar = true;
+      this.displayName = this.auth.getCredName();
+    }
+    else {
+      this.loginnavbar = true;
+      this.mainnavbar = false;
+      this.navHome();
+    }
   }
 
   navHome() {
@@ -50,7 +57,8 @@ export class NavbarComponent implements OnInit {
 
   navLogout() {
     this.auth.logout();
-    this.router.navigate(['/home'])
+    this.setNavbar();
+    this.navHome();
   }
 
   navRegister() {
@@ -60,17 +68,16 @@ export class NavbarComponent implements OnInit {
   navLogin(form: NgForm) {
     const username = this.logincombo.username;
     const password = this.logincombo.password;
-
-
-    console.log('name: ' + username);
-    console.log('password ' + password);
-
-    if(!this.auth.checkLogin()) {
-      console.log('login failed');
-      this.logincombo.username = '';
-      this.logincombo.password = '';
-    }
-
+    let res = this.auth.login(username, password).subscribe(
+      data => {
+        console.log('authenticated');
+        this.setNavbar();
+      },
+      err => {
+        console.log('authentication failed');
+      }
+    );
+    console.log(res);
     }
 
   // clearForm() {
