@@ -1,9 +1,11 @@
-/* img {
+img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
   width: 50%;
-} */
+  border-style: solid black;
+}
 
 .carousel {
   margin-left: 5%;
@@ -12,10 +14,21 @@
   vertical-align: middle;
 }
 
+.card-deck[_ngcontent-c2] .card[_ngcontent-c2] {
+  display: -webkit-box;
+  flex: 1 0 0%;
+  flex-direction: column;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  max-width: 320px;
+}
+
 .card-deck {
   margin-left: 30%;
   bottom: 710px;
   position: relative;
+  text-align: center;
 }
 
 body {
@@ -23,8 +36,12 @@ body {
 }
 
 button{
-text-align: center;
+/* text-align: center; */
 position: relative;
+}
+.card-body{
+text-align: left;
+padding-left: 50px;
 }
 /*
 form {
@@ -59,4 +76,15 @@ h2{
   position: relative;
   bottom: 150px;
   margin-left: 3%;
+}
+
+.card-deck .card {
+  display: -webkit-box;
+  flex: 1 0 0%;
+  flex-direction: column;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  max-width: 500px;
+
 }

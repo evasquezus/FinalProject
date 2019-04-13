@@ -14,6 +14,7 @@ export class ItemService {
 
   private baseUrl = 'http://localhost:8085/';
   itemUrl = this.baseUrl + 'api/items';
+  // specificItem = itemUrl +
   // private baseUrl = environment.baseUrl;
   // private url = this.baseUrl + 'api/users/';
   constructor(private http: HttpClient, private auth: AuthenticationService) { }
@@ -27,6 +28,18 @@ export class ItemService {
       })
     };
     return this.http.get<Item[]>(this.itemUrl, httpOptions);
+  }
+
+  getSpecificItem(item: Item | number): Observable<Item> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${this.auth.getCredentials()}`
+      })
+    };
+    const id = typeof item === 'number' ? item : item.id;
+    const url = `${this.itemUrl}/${id}`;
+    return this.http.get<Item>(url, httpOptions);
   }
 
   saveItem(item: Item): Observable<Item> {

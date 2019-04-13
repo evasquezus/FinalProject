@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NgbdModalConfigComponent } from './components/ngbd-modal-config/ngbd-modal-config.component';
 import { NgbdCarouselBasicComponent } from './components/ngbd-carousel-basic/ngbd-carousel-basic.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgbdRatingBasicComponent } from './components/ngbd-rating-basic/ngbd-rating-basic.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LoginComponent,
     NgbdModalConfigComponent,
     NgbdCarouselBasicComponent,
+    NgbdRatingBasicComponent,
   ],
   imports: [
     BrowserModule,
