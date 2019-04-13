@@ -1,3 +1,5 @@
+import { Address } from './address';
+
 export class User {
   id: number;
   userName: string;
@@ -10,6 +12,7 @@ export class User {
   roleId: number;
   addressId: number;
   authenticated: boolean;
+  address: Address;
 
   constructor(
     id?: number,
@@ -22,7 +25,8 @@ export class User {
     registerDate?: string,
     roleId?: number,
     addressId?: number,
-    authenticated?: boolean) {
+    authenticated?: boolean,
+    address?: Address) {
       this.id = id;
       this.userName = userName;
       this.password = password;
@@ -34,5 +38,6 @@ export class User {
       this.roleId = roleId;
       this.addressId = addressId;
       this.authenticated = authenticated;
+      this.address = address;
     }
 }
