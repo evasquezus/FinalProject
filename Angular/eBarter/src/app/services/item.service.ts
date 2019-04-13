@@ -1,30 +1,50 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Item } from '../models/item';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from './authentication.service';
 
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-};
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
+
   private baseUrl = 'http://localhost:8085/';
-  itemUrl = this.baseUrl +  'api/items';
-  constructor(private http: HttpClient) { }
+  itemUrl = this.baseUrl + 'api/items';
+  // private baseUrl = environment.baseUrl;
+  // private url = this.baseUrl + 'api/users/';
+  constructor(private http: HttpClient, private auth: AuthenticationService) { }
+
 
   getItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.itemUrl);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${this.auth.getCredentials()}`
+      })
+    };
+    return this.http.get<Item[]>(this.itemUrl, httpOptions);
   }
 
   saveItem(item: Item): Observable<Item> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${this.auth.getCredentials()}`
+      })
+    };
     return this.http.post<Item>(this.itemUrl, item, httpOptions);
   }
   removeItem(item: Item | number): Observable<Item> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${this.auth.getCredentials()}`
+      })
+    };
     const id = typeof item === 'number' ? item : item.id;
     const url = `${this.itemUrl}/${id}`;
 
@@ -32,6 +52,12 @@ export class ItemService {
   }
 
   updateItem(item: Item): Observable<Item> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${this.auth.getCredentials()}`
+      })
+    };
     const url = `${this.itemUrl}/${item.id}`;
 
     return this.http.put<Item>(url, item, httpOptions);
