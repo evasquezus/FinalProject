@@ -1,9 +1,10 @@
+import { AuthService } from './auth.service';
 import { User } from './../models/user';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { throwError, Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 import { AuthenticationService } from './authentication.service';
 
@@ -11,10 +12,11 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = environment.baseUrl;
+  // private baseUrl = environment.baseUrl;
+  private baseUrl = 'http://localhost:8085/';
   private url = this.baseUrl + 'api/users/';
 
-  constructor(private http: HttpClient, private dataPipe: DatePipe, private auth: AuthenticationService) { }
+  constructor(private http: HttpClient, private dataPipe: DatePipe, private auth: AuthenticationService, private as: AuthService) { }
 
 
   public getAll() {
@@ -36,8 +38,14 @@ register(user: User) {
 }
 
 update(user: User) {
-  const httpOptions = { headers: {'Content-type': 'application/json'}};
-  return this.http.put<User>('${this.url}/${user.id}', user, httpOptions).pipe(
+  const credentials = this.as.getCredentials();
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Basic ${credentials}`
+    })
+  };
+  return this.http.put<User>(`${this.url}${user.id}`, user, httpOptions).pipe(
     catchError((err: any) => {
       console.error('UserService.update(): Error');
       console.error(err);
@@ -76,4 +84,14 @@ return this.http.get<User>(this.url + '/username', this.getHttp())
      );
   }
 
+  getUserByUserName(userName): Observable<User> {
+    const credentials = this.as.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${credentials}`
+      })
+    };
+    return this.http.get<User>(this.url + 'username/' + userName, httpOptions);
+    }
 }

@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skilldistillery.ebarter.data.AddressService;
 import com.skilldistillery.ebarter.data.RoleService;
 import com.skilldistillery.ebarter.data.UserService;
+import com.skilldistillery.ebarter.entities.Address;
 import com.skilldistillery.ebarter.entities.Role;
 import com.skilldistillery.ebarter.entities.User;
 
@@ -31,6 +33,9 @@ public class UserController {
 
 	@Autowired
 	RoleService roleService;
+	
+	@Autowired
+	AddressService addressService;
 
 	@GetMapping(path = "users")
 	public List<User> index() {
@@ -58,11 +63,14 @@ public class UserController {
 	@PutMapping(path = "users/{id}")
 	public User updateUser(@PathVariable("id") int id, @RequestBody User userToBeUpdated,
 			HttpServletResponse response,Principal principal) {
+			Address address = userToBeUpdated.getAddress();
 		try {
-			Role role = roleService.getRoleById(1);
-			userToBeUpdated.setRole(role);
+//			Role role = roleService.getRoleById(1);
+//			userToBeUpdated.setRole(role);
 			userToBeUpdated = service.updateUser(id, userToBeUpdated);
-			response.setStatus(200);
+			address = addressService.updateAddress(address);
+			userToBeUpdated.setAddress(address);
+			response.setStatus(200);			
 			return userToBeUpdated;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,6 +87,12 @@ public class UserController {
 		User newUser = service.createUser(userToBeAdded);
 		response.setStatus(201);
 		return newUser;
+	}
+	
+	@GetMapping(path = "users/username/{userName}")
+	public User getByUserName(@PathVariable("userName") String userName, Principal principal) {
+		User userRetrived = service.findByUserName(userName);
+		return userRetrived;
 	}
 
 }

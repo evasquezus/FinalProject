@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -13,8 +14,12 @@ export class ItemService {
 
 
   private baseUrl = 'http://localhost:8085/';
-  itemUrl = this.baseUrl + 'api/items';
-  // specificItem = itemUrl +
+
+
+   itemUrl = this.baseUrl + 'api/items';
+
+
+    // specificItem = itemUrl +
   // private baseUrl = environment.baseUrl;
   // private url = this.baseUrl + 'api/users/';
   constructor(private http: HttpClient, private auth: AuthenticationService) { }

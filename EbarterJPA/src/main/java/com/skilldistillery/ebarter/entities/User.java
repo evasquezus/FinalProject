@@ -50,11 +50,11 @@ public class User {
 
 	@ManyToOne
 	@JoinColumn(name = "role_id")
-	@JsonIgnore
+//	@JsonIgnore
 	private Role role;
 
 	@ManyToOne
-	@JsonIgnore
+//	@JsonIgnore
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
