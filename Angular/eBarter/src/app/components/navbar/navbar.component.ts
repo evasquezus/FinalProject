@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
   displayName = null;
 
   dropdown = true;
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor(private us: UserService, private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
   this.setNavbar();
@@ -80,8 +81,19 @@ export class NavbarComponent implements OnInit {
     console.log(res);
     }
 
-  // clearForm() {
-  //   this.namebox.textContent = '';
-  //   this.passwordbox.textContent = '';
-  // }
+    // DELETE THIS CRAP BELOW
+
+  navGetUser(){
+    let response = this.us.getUserByUserName('testuser');
+    response.subscribe(
+      data => {
+        console.log(data);
+
+
+
+      }
+    )
+
+  }
+
 }

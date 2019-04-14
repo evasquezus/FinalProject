@@ -15,5 +15,7 @@ public interface UserService {
 	User createUser(User user);
 
 	boolean deleteUser(User user, int id);
+	
+	User findByUserName(String userName);
 
 }

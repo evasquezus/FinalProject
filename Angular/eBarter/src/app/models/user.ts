@@ -1,8 +1,9 @@
 import { Address } from './address';
+import { Role } from './role';
 
 export class User {
   id: number;
-  userName: string;
+  username: string;
   password: string;
   active: boolean;
   firstName: string;
@@ -13,6 +14,7 @@ export class User {
   addressId: number;
   authenticated: boolean;
   address: Address;
+  role: Role;
 
   constructor(
     id?: number,
@@ -23,20 +25,19 @@ export class User {
     lastName?: string,
     email?: string,
     registerDate?: string,
-    roleId?: number,
-    addressId?: number,
     authenticated?: boolean,
+    role?: Role,
     address?: Address) {
       this.id = id;
-      this.userName = userName;
+      this.username = userName;
       this.password = password;
       this.active = active;
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
       this.registerDate = registerDate;
-      this.roleId = roleId;
-      this.addressId = addressId;
+      this.role = role;
+      // this.addressId = addressId;
       this.authenticated = authenticated;
       this.address = address;
     }
