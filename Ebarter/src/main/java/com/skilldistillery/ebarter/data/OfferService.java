@@ -15,5 +15,5 @@ public interface OfferService {
 	Offer updateOffer(int id, Offer offer);
 
 	boolean deleteOffer(int id);
-
+	
 }

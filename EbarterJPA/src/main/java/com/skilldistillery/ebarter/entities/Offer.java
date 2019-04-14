@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Offer {
 
@@ -21,6 +23,7 @@ public class Offer {
 	@Column(name = "description")
 	private String description;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "item_id")
 	private Item item;

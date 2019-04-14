@@ -44,10 +44,9 @@ public class Item {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@OneToMany
-	@JoinColumn(name = "item")
 	@JsonIgnore
-	private List<Offer> offer;
+	@OneToMany (mappedBy = "item")
+	private List<Offer> offers;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="item")
@@ -110,11 +109,11 @@ public class Item {
 	}
 
 	public List<Offer> getOffer() {
-		return offer;
+		return offers;
 	}
 
 	public void setOffer(List<Offer> offer) {
-		this.offer = offer;
+		this.offers = offer;
 	}
 
 	public List<Item_Image> getItemImage() {
@@ -136,7 +135,7 @@ public class Item {
 		result = prime * result + id;
 		result = prime * result + ((itemImage == null) ? 0 : itemImage.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((offer == null) ? 0 : offer.hashCode());
+		result = prime * result + ((offers == null) ? 0 : offers.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
@@ -179,10 +178,10 @@ public class Item {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (offer == null) {
-			if (other.offer != null)
+		if (offers == null) {
+			if (other.offers != null)
 				return false;
-		} else if (!offer.equals(other.offer))
+		} else if (!offers.equals(other.offers))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -195,7 +194,7 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", description=" + description + ", name=" + name + ", endDate=" + endDate
-				+ ", active=" + active + ", category=" + category + ", user=" + user + ", offer=" + offer
+				+ ", active=" + active + ", category=" + category + ", user=" + user + ", offer=" + offers
 				+ ", itemImage=" + itemImage + "]";
 	}
 
@@ -209,7 +208,7 @@ public class Item {
 		this.active = active;
 		this.category = category;
 		this.user = user;
-		this.offer = offer;
+		this.offers = offer;
 		this.itemImage = itemImage;
 	}
 
