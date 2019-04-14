@@ -1,4 +1,64 @@
-<body>
+  <div class='container'>
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div id="box" class="col-sm-7">
+          <h2>User Profile</h2>
+          <br>
+          <table class="table table-striped">
+            <tr>
+              <td>
+                <h4>Username:</h4>
+              </td>
+              <td><input type='text' [(ngModel)]='user.username'/></td>
+            </tr>
+            <tr>
+              <td>First Name:</td>
+              <td><input type='text' [(ngModel)]='user.firstName'/></td>
+            </tr>
+            <tr>
+              <td>Last Name:</td>
+              <td><input type='text' [(ngModel)]='user.lastName'/></td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td><input type='text' [(ngModel)]='user.email'/></td>
+            </tr>
+            <tr>
+              <td>Street:</td>
+              <td><input type='text' [(ngModel)]='user.address.street'/></td>
+            </tr>
+            <tr>
+              <td>Street 2:</td>
+              <td><input type='text' [(ngModel)]='user.address.street2'/></td>
+            </tr>
+            <tr>
+              <td>City:</td>
+              <td><input type='text' [(ngModel)]='user.address.city'/></td>
+            </tr>
+            <tr>
+            <tr>
+              <td>State:</td>
+              <td><input type='text' [(ngModel)]='user.address.state'/></td>
+            </tr>
+            <tr>
+              <td>Zipcode:</td>
+              <td><input type='text' [(ngModel)]='user.address.zipCode'/></td>
+            </tr>
+            <tr>
+              <td>phone:</td>
+              <td><input type='text' [(ngModel)]='user.address.phone'/></td>
+            </tr>
+          </table>
+          <br>
+          <button (click)="updateUser()" class="btn btn-primary">Submit Changes</button>
+          <span class='spacer'></span>
+          <button (click)="navHome()" class="btn btn-primary">Cancel</button>
+        </div>
+  </div>
+  </div>
+
+
+<!-- <body>
   <div class='container'>
     <div class="row">
       <div class="col-sm-3"></div>
@@ -12,7 +72,7 @@
               <td>
                 <h4>Username:</h4>
               </td>
-              <td class="rightTable">{{user.userName}}</td>
+              <td class="rightTable">{{user.username}}</td>
             </tr>
             <tr>
               <td>First Name:</td>
@@ -43,7 +103,8 @@
         </div>
 
 
-        <button (click)="selectEditUser()" class="btn btn-primary">Edit Profile</button>
+        <button (click)="selectEditUser()" class="btn btn-primary">Submit Changes</button>
+        <button (click)="navHome()" class="btn btn-primary">Cancel</button>
 
         <div id="info" *ngIf='editUser'>
           <form>
@@ -109,4 +170,4 @@
     <br>
     <br>
   </div>
-</body>
+</body> -->

@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Address {
 
@@ -18,6 +20,9 @@ public class Address {
 
 	@Column(name = "street")
 	private String street;
+	
+	@Column(name = "street_2")
+	private String street2;
 
 	@Column(name = "city")
 	private String city;
@@ -31,6 +36,7 @@ public class Address {
 	@Column(name = "phone")
 	private int phone;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "address")
 	private List<User> user;
 
@@ -64,6 +70,14 @@ public class Address {
 
 	public void setStreet(String street) {
 		this.street = street;
+	}
+	
+	public String getStreet2() {
+		return street2;
+	}
+
+	public void setStreet2(String street2) {
+		this.street2 = street2;
 	}
 
 	public String getCity() {
@@ -108,8 +122,8 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", street=" + street + ", city=" + city + ", state=" + state + ", zipCode="
-				+ zipCode + ", phone=" + phone + ", user=" + user + "]";
+		return "Address [id=" + id + ", street=" + street + ", street2=" + street2 + ", city=" + city + ", state="
+				+ state + ", zipCode=" + zipCode + ", phone=" + phone + "]";
 	}
 
 }

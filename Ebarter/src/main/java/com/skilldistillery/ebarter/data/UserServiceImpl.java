@@ -51,7 +51,8 @@ public class UserServiceImpl implements UserService {
 			managed.setEmail(user.getEmail());
 			managed.setFirstName(user.getFirstName());
 			managed.setLastName(user.getLastName());
-			repo.saveAndFlush(user);
+			repo.saveAndFlush(managed);
+			return managed;
 		}
 		return null;
 	}
@@ -66,6 +67,12 @@ public class UserServiceImpl implements UserService {
 			deleted = true;
 		}
 		return deleted;
+	}
+	
+	public User findByUserName(String userName) {
+		User user = null;
+		user = repo.findByUsername(userName);
+		return user;
 	}
 
 }
