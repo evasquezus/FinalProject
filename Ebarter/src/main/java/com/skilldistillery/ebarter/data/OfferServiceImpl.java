@@ -10,7 +10,7 @@ import com.skilldistillery.ebarter.entities.Offer;
 import com.skilldistillery.ebarter.repositories.OfferRepository;
 
 @Service
-public class OfficerServiceImpl implements OfferService {
+public class OfferServiceImpl implements OfferService {
 
 	@Autowired
 	OfferRepository repo;
@@ -61,5 +61,7 @@ public class OfficerServiceImpl implements OfferService {
 		}
 		return deleted;
 	}
+	
+
 
 }

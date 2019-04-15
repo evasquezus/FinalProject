@@ -69,5 +69,7 @@ public class OfferController {
 		response.setStatus(201);
 		return offer;
 	}
+	
+
 
 }
