@@ -28,12 +28,16 @@ public class Offer {
 	@JoinColumn(name = "item_id")
 	private Item item;
 
-	@OneToMany(mappedBy="offer")
+	@OneToMany(mappedBy = "offer")
 	private List<Offer_Image> offerImg;
 
 	@ManyToOne
-	@JoinColumn(name="offer_status_id")
+	@JoinColumn(name = "offer_status_id")
 	private Offer_Status offerStatus;
+
+	@ManyToOne
+	@JoinColumn(name = "user_offer_id")
+	private User user;
 
 	public int getId() {
 		return id;
@@ -73,6 +77,14 @@ public class Offer {
 
 	public void setOfferStatus(Offer_Status offerStatus) {
 		this.offerStatus = offerStatus;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
@@ -124,7 +136,7 @@ public class Offer {
 	@Override
 	public String toString() {
 		return "Offer [id=" + id + ", description=" + description + ", item=" + item + ", offerImg=" + offerImg
-				+ ", offerStatus=" + offerStatus + "]";
+				+ ", offerStatus=" + offerStatus + ", user=" + user + "]";
 	}
 
 	public Offer(int id, String description, Item item, List<Offer_Image> offerImg, Offer_Status offerStatus) {
@@ -139,6 +151,16 @@ public class Offer {
 	public Offer() {
 		super();
 	}
-	
-	
+
+	public Offer(int id, String description, Item item, List<Offer_Image> offerImg, Offer_Status offerStatus,
+			User user) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.item = item;
+		this.offerImg = offerImg;
+		this.offerStatus = offerStatus;
+		this.user = user;
+	}
+
 }
