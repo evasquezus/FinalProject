@@ -23,7 +23,14 @@ export class UserService {
 
 
   public getAll() {
-    return this.http.get<User[]>('${config.apiUrl}/users');
+    const credentials = this.as.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${credentials}`
+      })
+    };
+    return this.http.get<User[]>(this.url, httpOptions);
   }
 
   public getById(id: number) {
@@ -34,57 +41,57 @@ export class UserService {
         return throwError('Error in UserService.getById()');
       })
     );
-}
+  }
 
-register(user: User) {
-  return this.http.post('${config.apiUrl}/users/register', user);
-}
+  register(user: User) {
+    return this.http.post('${config.apiUrl}/users/register', user);
+  }
 
-update(user: User) {
-  const credentials = this.as.getCredentials();
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Basic ${credentials}`
-    })
-  };
-  return this.http.put<User>(`${this.url}${user.id}`, user, httpOptions).pipe(
-    catchError((err: any) => {
-      console.error('UserService.update(): Error');
-      console.error(err);
-      return throwError('Error in UserService.update()');
-    })
-  );
-}
+  update(user: User) {
+    const credentials = this.as.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${credentials}`
+      })
+    };
+    return this.http.put<User>(`${this.url}${user.id}`, user, httpOptions).pipe(
+      catchError((err: any) => {
+        console.error('UserService.update(): Error');
+        console.error(err);
+        return throwError('Error in UserService.update()');
+      })
+    );
+  }
 
-delete(id: number) {
-  return this.http.delete('${this.url}/${id}').pipe(
-    catchError((err: any) => {
-      console.error('UserService.destroy(): Error');
-      console.error(err);
-      return throwError('Error in UserService.update()');
-    })
-  );
-}
-getHttp() {
-  const credentials = this.auth.getCredentials();
-  return {
-    headers: {
-      Authorization: `Basic ${credentials}`,
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest'
-    }
-  };
-}
+  delete(id: number) {
+    return this.http.delete('${this.url}/${id}').pipe(
+      catchError((err: any) => {
+        console.error('UserService.destroy(): Error');
+        console.error(err);
+        return throwError('Error in UserService.update()');
+      })
+    );
+  }
+  getHttp() {
+    const credentials = this.auth.getCredentials();
+    return {
+      headers: {
+        Authorization: `Basic ${credentials}`,
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    };
+  }
 
-getLoggedIn() {
-return this.http.get<User>(this.url + '/username', this.getHttp())
-    .pipe(
-          catchError((err: any) => {
-            console.log(err);
-            return throwError('Error in service index');
-          })
-     );
+  getLoggedIn() {
+    return this.http.get<User>(this.url + '/username', this.getHttp())
+      .pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('Error in service index');
+        })
+      );
   }
 
   getUserByUserName(userName): Observable<User> {
@@ -96,15 +103,15 @@ return this.http.get<User>(this.url + '/username', this.getHttp())
       })
     };
     return this.http.get<User>(this.url + 'username/' + userName, httpOptions);
-    }
+  }
 
-    // getUserNameForOffers(item: Item): Observable<Item[]> {
-    //   const httpOptions = {
-    //     headers: new HttpHeaders({
-    //       'Content-Type': 'application/json',
-    //       Authorization: `Basic ${this.auth.getCredentials()}`
-    //     })
-    //   };
-    //   return this.http.get<Item[]>(this.offerUrl, httpOptions);
-    // }
+  // getUserNameForOffers(item: Item): Observable<Item[]> {
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       Authorization: `Basic ${this.auth.getCredentials()}`
+  //     })
+  //   };
+  //   return this.http.get<Item[]>(this.offerUrl, httpOptions);
+  // }
 }

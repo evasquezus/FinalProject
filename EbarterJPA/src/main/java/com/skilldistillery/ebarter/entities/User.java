@@ -32,7 +32,7 @@ public class User {
 	private String password;
 
 	@Column(name = "enabled")
-	private boolean active;
+	private boolean enabled;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -66,28 +66,10 @@ public class User {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "user")
-	private List<Offer> offer;	
-
+	private List<Offer> offer;
 
 	public List<Item> getItem() {
 		return item;
-	}
-
-	public User(int id, String username, String password, boolean active, String firstName, String lastName,
-			String email, Date registerDate, Boolean authenticated, Role role, Address address, List<Item> item) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.active = active;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.registerDate = registerDate;
-		this.authenticated = authenticated;
-		this.role = role;
-		this.address = address;
-		this.item = item;
 	}
 
 	public void setItem(List<Item> item) {
@@ -118,12 +100,12 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isActive() {
-		return active;
+	public boolean getEnabled() {
+		return enabled;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public String getFirstName() {
@@ -182,12 +164,31 @@ public class User {
 		this.address = address;
 	}
 
+	public User(int id, String username, String password, boolean enabled, String firstName, String lastName,
+			String email, Date registerDate, Boolean authenticated, Role role, Address address, List<Item> item,
+			List<Offer> offer) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.registerDate = registerDate;
+		this.authenticated = authenticated;
+		this.role = role;
+		this.address = address;
+		this.item = item;
+		this.offer = offer;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + active
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
 				+ ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", registerDate="
 				+ registerDate + ", authenticated=" + authenticated + ", role=" + role + ", address=" + address
-				+ ", item=" + item + "]";
+				+ ", item=" + item + ", offer=" + offer + "]";
 	}
 
 	public User() {

@@ -53,7 +53,7 @@ public class UserController {
 	public void deleteUser(@PathVariable("id") int id,Principal principal) {
 		try {
 			User user = service.getUserById(id);
-			user.setActive(false);
+			user.setEnabled(false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
