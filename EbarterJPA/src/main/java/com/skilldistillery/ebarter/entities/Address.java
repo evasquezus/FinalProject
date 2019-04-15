@@ -34,7 +34,7 @@ public class Address {
 	private String zipCode;
 
 	@Column(name = "phone")
-	private int phone;
+	private String phone;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "address")
@@ -44,7 +44,7 @@ public class Address {
 		super();
 	}
 
-	public Address(int id, String street, String city, String state, String zipCode, int phone, Address address,
+	public Address(int id, String street, String city, String state, String zipCode, String phone, Address address,
 			User user) {
 		super();
 		this.id = id;
@@ -104,11 +104,11 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
