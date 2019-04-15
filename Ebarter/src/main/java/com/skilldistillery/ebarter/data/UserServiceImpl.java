@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 	public User createUser(User user) {
 		if (user.getEmail() != null & user.getFirstName() != null && user.getLastName() != null
 				&& user.getUsername() != null) {
-			user.setActive(true);
+			user.setEnabled(true);
 			repo.saveAndFlush(user);
 			return user;
 		}
@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService {
 		Optional<User> opt = repo.findById(id);
 		if (opt.isPresent()) {
 			User managed = opt.get();
+			managed.setEnabled(user.getEnabled());
 			managed.setUsername(user.getUsername());
 			managed.setEmail(user.getEmail());
 			managed.setFirstName(user.getFirstName());
@@ -63,7 +64,7 @@ public class UserServiceImpl implements UserService {
 	public boolean deleteUser(User user, int id) {
 		boolean deleted = false;
 		if (repo.existsById(id)) {
-			user.setActive(false);
+			user.setEnabled(false);
 			deleted = true;
 		}
 		return deleted;

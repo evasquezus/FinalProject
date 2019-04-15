@@ -30,7 +30,7 @@ public class User {
 	private String password;
 
 	@Column(name = "enabled")
-	private boolean active;
+	private boolean enabled;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -85,12 +85,12 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isActive() {
-		return active;
+	public boolean getEnabled() {
+		return enabled;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public String getFirstName() {
@@ -151,7 +151,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + active
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + enabled
 				+ ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", registerDate="
 				+ registerDate + ", authenticated=" + authenticated + ", role=" + role + ", address=" + address + "]";
 	}
@@ -162,7 +162,7 @@ public class User {
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.active = active;
+		this.enabled = enabled;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
