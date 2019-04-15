@@ -1,3 +1,15 @@
 .spacer {
   padding-left: 20px;
 }
+
+.spacer-sm {
+  padding-left: 10px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
