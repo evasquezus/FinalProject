@@ -20,8 +20,15 @@ export class UserService {
 
 
   public getAll() {
-    return this.http.get<User[]>('${config.apiUrl}/users');
-  }
+    const credentials = this.as.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${credentials}`
+      })
+    };
+    return this.http.get<User[]>(this.url, httpOptions);
+      }
 
   public getById(id: number) {
     return this.http.get(`${this.url}/${id}`).pipe(

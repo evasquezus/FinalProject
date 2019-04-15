@@ -5,7 +5,7 @@ export class User {
   id: number;
   username: string;
   password: string;
-  active: boolean;
+  enabled: boolean;
   firstName: string;
   lastName: string;
   email: string;
@@ -20,7 +20,7 @@ export class User {
     id?: number,
     userName?: string,
     password?: string,
-    active?: boolean,
+    enabled?: boolean,
     firstName?: string,
     lastName?: string,
     email?: string,
@@ -31,7 +31,7 @@ export class User {
       this.id = id;
       this.username = userName;
       this.password = password;
-      this.active = active;
+      this.enabled = enabled;
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;

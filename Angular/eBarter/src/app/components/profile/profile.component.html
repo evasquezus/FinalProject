@@ -9,49 +9,81 @@
               <td>
                 <h4>Username:</h4>
               </td>
-              <td><input type='text' [(ngModel)]='user.username'/></td>
+              <td *ngIf='!isAdmin'>
+                <input type='text' [(ngModel)]='user.username'/>
+              </td>
+              <td *ngIf='isAdmin'>
+                <select (change)='getSelectedUser($event)'>
+                  <option *ngFor='let user of userList' value={{user.username}}>{{user.username}}</option>
+                </select>
+                <span class='spacer-sm'></span>
+                <span id='active-flag' [ngClass]='activeFormat'>{{displayActive}}</span>
+                </td>
             </tr>
             <tr>
               <td>First Name:</td>
-              <td><input type='text' [(ngModel)]='user.firstName'/></td>
+              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.firstName'/></td>
+              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.firstName'/></td>
+
             </tr>
             <tr>
               <td>Last Name:</td>
-              <td><input type='text' [(ngModel)]='user.lastName'/></td>
+              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.lastName'/></td>
+              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.lastName'/></td>
+
             </tr>
             <tr>
               <td>Email:</td>
-              <td><input type='text' [(ngModel)]='user.email'/></td>
+              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.email'/></td>
+              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.email'/></td>
+
             </tr>
             <tr>
               <td>Street:</td>
-              <td><input type='text' [(ngModel)]='user.address.street'/></td>
+              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.street'/></td>
+              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.street'/></td>
+
             </tr>
             <tr>
               <td>Street 2:</td>
-              <td><input type='text' [(ngModel)]='user.address.street2'/></td>
+              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.street2'/></td>
+              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.street2'/></td>
+
             </tr>
             <tr>
               <td>City:</td>
-              <td><input type='text' [(ngModel)]='user.address.city'/></td>
+              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.city'/></td>
+              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.city'/></td>
+
             </tr>
             <tr>
             <tr>
               <td>State:</td>
-              <td><input type='text' [(ngModel)]='user.address.state'/></td>
+              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.state'/></td>
+              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.state'/></td>
+
             </tr>
             <tr>
               <td>Zipcode:</td>
-              <td><input type='text' [(ngModel)]='user.address.zipCode'/></td>
+              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.zipCode'/></td>
+              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.zipCode'/></td>
+
             </tr>
             <tr>
               <td>phone:</td>
-              <td><input type='text' [(ngModel)]='user.address.phone'/></td>
+              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.phone'/></td>
+              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.phone'/></td>
+
             </tr>
           </table>
           <br>
-          <button (click)="updateUser()" class="btn btn-primary">Submit Changes</button>
-          <span class='spacer'></span>
+          <button *ngIf='!isAdmin'(click)="updateUser()" class="btn btn-primary">Submit Changes</button>
+          <button *ngIf='isAdmin'(click)="updateSelectedUser()" class="btn btn-primary">Submit Changes</button>
+          <span class='spacer-sm'></span>
+          <button *ngIf='isAdmin' (click)="deactivateUser()" class="btn btn-danger">Deactivate User</button>
+          <span *ngIf='isAdmin' class='spacer-sm'></span>
+          <button *ngIf='isAdmin' (click)="activateUser()" class="btn btn-warning">Activate User</button>
+          <span *ngIf='isAdmin' class='spacer-sm'></span>
           <button (click)="navHome()" class="btn btn-primary">Cancel</button>
         </div>
   </div>
