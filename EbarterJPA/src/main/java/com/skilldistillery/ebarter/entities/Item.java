@@ -39,7 +39,7 @@ public class Item {
 	private Category category;
 //
 //	@ManyToOne(cascade = { CascadeType.ALL })
-	@JsonIgnore
+//	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
