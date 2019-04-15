@@ -16,6 +16,10 @@ export class ItemDetailComponent implements OnInit {
   ngOnInit() {
     this.itemService.getSpecificItem(1).subscribe(item => {
       this.item = item;
+      localStorage.setItem('itemId', item.id.toString());
+      localStorage.setItem('itemName', item.name);
+      localStorage.setItem('seller', item.user.username);
+
     });
   }
 }
