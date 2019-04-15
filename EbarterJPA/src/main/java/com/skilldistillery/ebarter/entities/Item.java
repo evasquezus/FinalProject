@@ -44,7 +44,7 @@ public class Item {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@JsonIgnore
+//	@JsonIgnore
 	@OneToMany (mappedBy = "item")
 	private List<Offer> offers;
 	

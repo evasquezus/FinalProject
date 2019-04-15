@@ -14,7 +14,9 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 public class User {
@@ -57,9 +59,40 @@ public class User {
 //	@JsonIgnore
 	@JoinColumn(name = "address_id")
 	private Address address;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Item> item;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "user")
+	private List<Offer> offer;	
+
+
+	public List<Item> getItem() {
+		return item;
+	}
+
+	public User(int id, String username, String password, boolean active, String firstName, String lastName,
+			String email, Date registerDate, Boolean authenticated, Role role, Address address, List<Item> item) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.active = active;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.registerDate = registerDate;
+		this.authenticated = authenticated;
+		this.role = role;
+		this.address = address;
+		this.item = item;
+	}
+
+	public void setItem(List<Item> item) {
+		this.item = item;
+	}
 
 	public int getId() {
 		return id;
@@ -153,23 +186,8 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + active
 				+ ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", registerDate="
-				+ registerDate + ", authenticated=" + authenticated + ", role=" + role + ", address=" + address + "]";
-	}
-
-	public User(int id, String username, String password, boolean active, String firstName, String lastName,
-			String email, Date registerDate, Boolean authenticated, Role role, Address address) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.active = active;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.registerDate = registerDate;
-		this.authenticated = authenticated;
-		this.role = role;
-		this.address = address;
+				+ registerDate + ", authenticated=" + authenticated + ", role=" + role + ", address=" + address
+				+ ", item=" + item + "]";
 	}
 
 	public User() {
@@ -177,5 +195,3 @@ public class User {
 	}
 
 }
-
-

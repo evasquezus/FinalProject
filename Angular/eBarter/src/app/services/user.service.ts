@@ -7,6 +7,8 @@ import { throwError, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 import { AuthenticationService } from './authentication.service';
+import { Item } from '../models/item';
+import { Offer } from '../models/offer';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,7 @@ export class UserService {
   // private baseUrl = environment.baseUrl;
   private baseUrl = 'http://localhost:8085/';
   private url = this.baseUrl + 'api/users/';
+  private offerUrl = this.baseUrl + 'api/offers/';
 
   constructor(private http: HttpClient, private dataPipe: DatePipe, private auth: AuthenticationService, private as: AuthService) { }
 
@@ -89,9 +92,19 @@ return this.http.get<User>(this.url + '/username', this.getHttp())
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Basic ${credentials}`
+        Authorization: `Basic ${credentials}`
       })
     };
     return this.http.get<User>(this.url + 'username/' + userName, httpOptions);
     }
+
+    // getUserNameForOffers(item: Item): Observable<Item[]> {
+    //   const httpOptions = {
+    //     headers: new HttpHeaders({
+    //       'Content-Type': 'application/json',
+    //       Authorization: `Basic ${this.auth.getCredentials()}`
+    //     })
+    //   };
+    //   return this.http.get<Item[]>(this.offerUrl, httpOptions);
+    // }
 }

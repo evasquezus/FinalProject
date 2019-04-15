@@ -182,9 +182,11 @@ CREATE TABLE IF NOT EXISTS `offer` (
   `description` VARCHAR(200) NOT NULL,
   `offer_status_id` INT NULL DEFAULT NULL,
   `offer_image_id` INT NULL,
+  `user_offer_id` INT(11) NULL,
   PRIMARY KEY (`id`),
   INDEX `offer_image)id_idx` (`offer_image_id` ASC),
   INDEX `item_id_idx` (`item_id` ASC),
+  INDEX `user_id_idx` (`user_offer_id` ASC),
   CONSTRAINT `item_id`
     FOREIGN KEY (`item_id`)
     REFERENCES `item` (`id`)
@@ -198,6 +200,11 @@ CREATE TABLE IF NOT EXISTS `offer` (
   CONSTRAINT `offer_image_id`
     FOREIGN KEY (`offer_image_id`)
     REFERENCES `offer_image` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `user_offer_id`
+    FOREIGN KEY (`user_offer_id`)
+    REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -313,9 +320,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (1, 1, 'I will offer you a chair', 1, 1);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`) VALUES (3, 1, 'I will offer a piece of gold', 1, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (1, 1, 'I will offer you a chair', 1, 1, 1);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL, 1);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (3, 1, 'I will offer a piece of gold', 1, NULL, NULL);
 
 COMMIT;
 
