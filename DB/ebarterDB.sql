@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   `city` VARCHAR(15) NOT NULL,
   `state` VARCHAR(10) NOT NULL,
   `zip_code` INT(11) NOT NULL,
-  `phone` INT(20) NULL DEFAULT NULL,
+  `phone` VARCHAR(15) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -219,9 +219,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (1, '123 ebarter st', NULL, 'Denver', 'Co', 80237, 303-330-0303);
-INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (2, '456 ebarter st', NULL, 'Denver', 'Co', 80237, 303-123-4566);
-INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (3, '789 ebarter st', NULL, 'Denver', 'Co', 80237, 719-181-8181);
+INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (1, '123 ebarter st', NULL, 'Denver', 'Co', 80237, '303-330-0303');
+INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (2, '456 ebarter st', NULL, 'Denver', 'Co', 80237, '303-123-4566');
+INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (3, '789 ebarter st', NULL, 'Denver', 'Co', 80237, '719-181-8181');
 
 COMMIT;
 
@@ -232,7 +232,7 @@ COMMIT;
 START TRANSACTION;
 USE `ebarterDB`;
 INSERT INTO `role` (`id`, `name`) VALUES (1, 'admin');
-INSERT INTO `role` (`id`, `name`) VALUES (2, 'buyer');
+INSERT INTO `role` (`id`, `name`) VALUES (2, 'user');
 
 COMMIT;
 
