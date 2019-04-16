@@ -43,7 +43,6 @@ export class UserService {
     );
   }
 
-<<<<<<< HEAD
 register(user: User) {
   const credentials = this.as.getCredentials();
   const httpOptions = {
@@ -61,11 +60,6 @@ register(user: User) {
     })
   );
 }
-=======
-  register(user: User) {
-    return this.http.post('${config.apiUrl}/users/register', user);
-  }
->>>>>>> 20497f4f68c1b07399654c6ad64b234006b5178b
 
   update(user: User) {
     const credentials = this.as.getCredentials();
