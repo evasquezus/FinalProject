@@ -11,7 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 public class Offer {
@@ -23,7 +24,8 @@ public class Offer {
 	@Column(name = "description")
 	private String description;
 
-	@JsonIgnore
+//	@JsonIgnore
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	@JoinColumn(name = "item_id")
 	private Item item;
@@ -38,6 +40,18 @@ public class Offer {
 	@ManyToOne
 	@JoinColumn(name = "user_offer_id")
 	private User user;
+	
+	@Column(name="bidder_id")
+	private int bidderId;
+	
+
+	public int getBidderId() {
+		return bidderId;
+	}
+
+	public void setBidderId(int bidderId) {
+		this.bidderId = bidderId;
+	}
 
 	public int getId() {
 		return id;
@@ -146,6 +160,7 @@ public class Offer {
 		this.item = item;
 		this.offerImg = offerImg;
 		this.offerStatus = offerStatus;
+		this.bidderId = 0;
 	}
 
 	public Offer() {
@@ -161,6 +176,7 @@ public class Offer {
 		this.offerImg = offerImg;
 		this.offerStatus = offerStatus;
 		this.user = user;
+		this.bidderId = 0;
 	}
 
 }
