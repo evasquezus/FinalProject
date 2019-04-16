@@ -4,6 +4,7 @@ import { Item } from 'src/app/models/item';
 import { ItemNoAuthService } from 'src/app/services/item-no-auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -14,7 +15,12 @@ export class HomepageComponent implements OnInit {
   items: Item[];
   itemservices: any;
   itemsNoAuth: Item[];
-  constructor(private itemService: ItemService, private itemNoAuthService: ItemNoAuthService, private alertService: AlertService ) { }
+  selectedItem: Item;
+
+  constructor(private itemService: ItemService,
+              private itemNoAuthService: ItemNoAuthService,
+              private alertService: AlertService,
+              private router: Router) { }
 
   ngOnInit() {
     this.itemService.getItems().subscribe(items => {
@@ -38,7 +44,13 @@ export class HomepageComponent implements OnInit {
   }
 
   popUpEnsureUserRegisters() {
-    (confirm('You will have to register first'));
+    // (confirm('You will have to register first'));
+  }
+
+  navItem(item: Item) {
+    const id = item.id.toString();
+    localStorage.setItem('selectedId', id);
+    this.router.navigate(['/item']);
   }
 }
 
