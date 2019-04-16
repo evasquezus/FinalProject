@@ -55,9 +55,9 @@ public class ItemTest {
 		assertEquals("furniture", item.getCategory().getName());
 	}
 
-	@Test
-	public void test_item_map_offer_onetomany_association() {
-		assertNotNull(item);
-		assertEquals("furniture", item.getOffer().get(1));
-	}
+//	@Test
+//	public void test_item_map_offer_onetomany_association() {
+//		assertNotNull(item);
+//		assertEquals("furniture", item.getOffer().get(1));
+//	}
 }
