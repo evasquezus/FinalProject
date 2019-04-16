@@ -15,11 +15,10 @@ export class ItemService {
 
   private baseUrl = 'http://localhost:8085/';
 
+  itemUrl = this.baseUrl + 'api/items';
 
-   itemUrl = this.baseUrl + 'api/items';
 
-
-    // specificItem = itemUrl +
+  // specificItem = itemUrl +
   // private baseUrl = environment.baseUrl;
   // private url = this.baseUrl + 'api/users/';
   constructor(private http: HttpClient, private auth: AuthenticationService) { }

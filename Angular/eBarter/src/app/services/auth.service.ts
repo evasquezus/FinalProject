@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user.service';
 import { User } from './../models/user';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -85,6 +86,21 @@ export class AuthService {
       const credName = plainText.substring(0, num);
       return credName;
     }
+
+    // getCurrentUser() {
+    //   const userName = this.getCredName();
+    //   let user = null;
+    //   let response = this.userService.getUserByUserName(userName);
+    //   response.subscribe(
+    //     data => {
+    //       user = data;
+    //     },
+    //     error=> {
+    //       console.log('error in auth.service.getCurrentUser()');
+
+    //     });
+    //   return user;
+    // }
 
     generateBasicAuthCredentials(username, password) {
       return btoa(`${username}:${password}`);
