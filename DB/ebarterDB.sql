@@ -222,6 +222,7 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+<<<<<<< Updated upstream
 
 -- Data for table `item_image`
 -- -----------------------------------------------------
@@ -234,6 +235,8 @@ COMMIT;
 
 -- -----------------------------------------------------
 
+=======
+>>>>>>> Stashed changes
 -- Data for table `category`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -287,12 +290,18 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (1, 'https://i5.walmartimages.com/dfw/4ff9c6c9-bda4/k2-_3116e9d1-dc49-4894-a444-9848c59cac16.v1.jpg');
 INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (2, 'https://www.royaloakindia.com/subcatimages/ROYIND-entertainment-units-4.jpg');
 INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (3, 'https://summitsports.scene7.com/is/image/SummitSports/158524_158524_1?$256$');
 INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (4, 'https://c1.neweggimages.com/ProductImage/A8A1_130871576090458906twjovYE66t.jpg');
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 COMMIT;
 
