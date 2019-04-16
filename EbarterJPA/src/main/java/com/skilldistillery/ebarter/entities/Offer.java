@@ -41,6 +41,8 @@ public class Offer {
 	@JoinColumn(name = "user_offer_id")
 	private User user;
 
+
+
 	public int getId() {
 		return id;
 	}

@@ -1,10 +1,11 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+
+import { User } from 'src/app/models/user';
+import { Address } from 'src/app/models/address';
+// import { LoginComponent } from '../login/login.component';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { first } from 'rxjs/operators';
 import { UserService } from 'src/app/services/user.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-registration',
@@ -12,62 +13,50 @@ import { AlertService } from 'src/app/services/alert.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  registerForm: FormGroup  = this.formBuilder.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    username: ['', Validators.required],
-    address: ['', Validators.required],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    email: ['', Validators.required],
-    street: ['', Validators.required],
-    states: ['', Validators.required],
-    zipcode: ['', Validators.required]
-  });
 
-  loading = false;
-  submitted = false;
+  newUser: User = new User();
+  address: Address = new Address();
 
   constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
+    private authService: AuthService,
+    // private login: LoginComponent,
     private userService: UserService,
-    private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private router: Router
+
   ) {}
 
-  ngOnInit() {
-    // this.registerForm = this.formBuilder.group({
-    //   firstName: ['', Validators.required],
-    //   lastName: ['', Validators.required],
-    //   username: ['', Validators.required],
-    //   password: ['', [Validators.required, Validators.minLength(6)]]
-    // });
-  }
-  get form() {
-    return this.registerForm.controls;
-  }
+  ngOnInit() {}
 
   onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-
-    this.loading = true;
-    this.userService
-      .register(this.registerForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Registration successful', true);
-          this.router.navigate(['/login']);
+    // const response = this.userService.register(this.user);
+    console.log('register.component.onSubmit() sending data');
+    console.log(this.newUser);
+    this.authService.register(this.newUser).subscribe(
+      data => {
+        this.authService.login(this.newUser.username, this.newUser.password).subscribe(
+          date2 => {
+            // this.router.navigate([{outlets: {home: 'home', user: null}}])
+            this.router.navigateByUrl('/home');
         },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        }
-      );
-  }
+          err2 => console.log(err2)
+        );
+        // this.newUser = new User();
+        // this.user = data;
+        // console.log(data);
+      },
+      error => {
+        console.log('error in register.component.onSubmit()');
+      }
+    );
+  // }this.user.address = this.address;
+  // this.login.user = this.user;
+  // this.authService.register(this.user).subscribe( data => {
+  //   this.user = data;
+  //   this.login.login();
+  //   // this.router.navigateByUrl('userRegister');
+  // },
+  // error => console.log(error)
+
+  // );
+}
 }

@@ -15,14 +15,20 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   private baseUrl = 'http://localhost:8085/';
+  private noAuthUrl = this.baseUrl + 'auth/register';
   // private baseUrl = environment.baseUrl;
+  private url = this.baseUrl + 'api/users/';
+
 
   constructor(private http: HttpClient) { }
 
   login(username, password) {
     const credentials = this.generateBasicAuthCredentials(username, password);
+    console.log('AuthService.login(): ' + credentials);
+
     const httpOptions = {
       headers: new HttpHeaders({
+        'Content-Type': 'application/json',
         'Authorization': `Basic ${credentials}`,
       })
     };
@@ -40,16 +46,26 @@ export class AuthService {
         );
     }
 
-    register(user: User) {
+    register(user) {
       // create request to register a new account
-      console.log('authService.register(): user:');
-      return this.http.post(this.baseUrl + 'register', user)
-      .pipe(
-          catchError((err: any) => {
-            console.log(err);
-            return throwError('AuthService.register(): error registering user.');
-          })
-        );
+      const credentials = this.getCredentials();
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          // 'Authorization': `Basic ${credentials}`
+        })
+      };
+      return this.http.post<User>(this.noAuthUrl, user).pipe(
+        tap((res) => {
+          // const user2 = res;
+          return res;
+        }),
+        catchError((err: any) => {
+          console.error('UserService.register(): Error');
+          console.error(err);
+          return throwError('Error in UserService.update()');
+        })
+      );
     }
 
     logout() {

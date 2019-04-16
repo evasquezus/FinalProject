@@ -1,124 +1,134 @@
-<h2>Register</h2>
 <br>
 <br>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div class="container">
 
-  <tr>
-    <td>
-      <div class="form-group" id="firstName">
-        <label for="firstName">First Name</label>
-        <input type="text" formControlName="firstName" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form.firstName.errors }" />
-        <div *ngIf="submitted && form['firstName'].errors" class="invalid-feedback">
-          <div *ngIf="form['firstName'].errors.required">First Name is required</div>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="form-group" id="lastName">
-        <label for="lastName">Last Name</label>
-        <input type="text" formControlName="lastName" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form.lastName.errors }" />
-        <div *ngIf="submitted && form['lastName'].errors" class="invalid-feedback">
-          <div *ngIf="form['lastName'].errors.required">Last Name is required</div>
-        </div>
-      </div>
-    </td>
-  </tr>
+  <div class="row">
+    <div class="col-sm-5"></div>
 
-  <tr>
-    <td>
-      <div class="form-group" id="username">
-        <label for="username">Username</label>
-        <input type="text" formControlName="username" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form.username.errors }" />
-        <div *ngIf="submitted && form['username'].errors" class="invalid-feedback">
-          <div *ngIf="form['username'].errors.required">Username is required</div>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="form-group" id="password">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
-        <div *ngIf="submitted && form['password'].errors" class="invalid-feedback">
-          <div *ngIf="form['password'].errors.required">Password is required</div>
-          <div *ngIf="form['password'].errors.minlength">Password must be at least 6 characters</div>
-        </div>
-      </div>
-    </td>
-  </tr>
+    <div class="registerDiv">
+      <h2>Register</h2>
+      <form>
 
-  <tr>
-    <td>
-      <div class="form-group" id="email">
-        <label for="email">Email</label>
-        <input type="email" formControlName="email" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
-        <div *ngIf="submitted && form['email'].errors" class="invalid-feedback">
-          <div *ngIf="form['email'].errors.required">Email is required</div>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="form-group" id="street">
-        <label for="street">Street</label>
-        <input type="street" formControlName="street" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form.street.errors }" />
-        <div *ngIf="submitted && form['street'].errors" class="invalid-feedback">
-          <div *ngIf="form['street'].errors.required">Streeg is required</div>
-        </div>
-      </div>
-    </td>
+        <tbody>
 
-  </tr>
+          <tr>
+            <td>
+              <div id="firstName">
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" [(ngModel)]="newUser.firstName">
+                <!-- [ngClass]="{ 'is-invalid': submitted && form.firstName.errors'}" /> -->
+                <!-- <div *ngIf="submitted && form['firstName'].errors" class="invalid-feedback">
+            <div *ngIf="form['firstName'].errors.required">First Name is required</div> -->
+              </div>
 
-  <tr>
-    <td>
-      <div class="form-group" id="states">
-        <label for="states">States</label>
-        <input type="states" formControlName="states" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form.states.errors }" />
-        <div *ngIf="submitted && form['states'].errors" class="invalid-feedback">
-          <div *ngIf="form['states'].errors.required">States is required</div>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="form-group" id="city">
-        <label for="city">City</label>
-        <input type="city" formControlName="city" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form.city.errors }" />
-        <div *ngIf="submitted && form['city'].errors" class="invalid-feedback">
-          <div *ngIf="form['city'].errors.required">City is required</div>
-        </div>
-      </div>
-    </td>
-  </tr>
+            </td>
+            <td>
+              <div id="lastName">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" [(ngModel)]="newUser.lastName" />
+                <!-- [ngClass]="{ 'is-invalid': submitted && form.lastName.errors }" /> -->
+                <!-- <div *ngIf="submitted && form['lastName'].errors" class="invalid-feedback">
+            <div *ngIf="form['lastName'].errors.required">Last Name is required</div> -->
+              </div>
 
-  <tr>
-  <td>
-    <div class="form-group" id="zipcode">
-      <label for="zipcode">Zipcode</label>
-      <input type="zipcode" formControlName="zipcode" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && form.zipcode.errors }" />
-      <div *ngIf="submitted && form['zipcode'].errors" class="invalid-feedback">
-        <div *ngIf="form['zipcode'].errors.required">Zipcode is required</div>
-      </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div id="username">
+                <label for="username">Username</label>
+                <input type="text" name="username" [(ngModel)]="newUser.username" />
+                <!-- [ngClass]="{ 'is-invalid': submitted && form.username.errors }" /> -->
+                <!-- <div *ngIf="submitted && form['username'].errors" class="invalid-feedback">
+            <div *ngIf="form['username'].errors.required">Username is required</div>-->
+              </div>
+
+            </td>
+            <td>
+              <div id="password">
+                <label for="password">Password</label>
+                <input type="password" name="password" [(ngModel)]="newUser.password" />
+                <!-- [ngClass]="{ 'is-invalid': submitted && form.password.errors }" /> -->
+                <!-- <div *ngIf="submitted && form['password'].errors" class="invalid-feedback">
+            <div *ngIf="form['password'].errors.required">Password is required</div>
+            <div *ngIf="form['password'].errors.minlength">Password must be at least 6 characters</div> -->
+              </div>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div id="email">
+                <label for="email">Email</label>
+                <input type="text" name="email" [(ngModel)]="newUser.email" />
+                <!-- [ngClass]="{ 'is-invalid': submitted && form.email.errors }" /> -->
+                <!-- <div *ngIf="submitted && form['email'].errors" class="invalid-feedback">
+            <div *ngIf="form['email'].errors.required">Email is required</div> -->
+              </div>
+
+            </td>
+            <td>
+              <div id="street">
+                <label for="street">Street</label>
+                <input type="text" name="street" [(ngModel)]="newUser.address.street" />
+                <!-- [ngClass]="{ 'is-invalid': submitted && form.street.errors }" /> -->
+                <!-- <div *ngIf="submitted && form['street'].errors" class="invalid-feedback">
+            <div *ngIf="form['street'].errors.required">Street is required</div> -->
+              </div>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td>
+              <div id="state">
+                <label for="state">States</label>
+                <input type="text" name="state" [(ngModel)]="newUser.address.state" />
+                <!-- [ngClass]="{ 'is-invalid': submitted && form.state.errors }" /> -->
+                <!-- <div *ngIf="submitted && form['state'].errors" class="invalid-feedback">
+            <div *ngIf="form['state'].errors.required">State is required</div> -->
+              </div>
+
+            </td>
+            <td>
+              <div id="city">
+                <label for="city">City</label>
+                <input type="text" name="city" [(ngModel)]="newUser.address.city" />
+                <!-- [ngClass]="{ 'is-invalid': submitted && form.city.errors }" /> -->
+                <!-- <div *ngIf="submitted && form['city'].errors" class="invalid-feedback">
+            <div *ngIf="form['city'].errors.required">City is required</div> -->
+              </div>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div id="zipcode">
+                <label for="zipcode">Zipcode</label>
+                <input type="number" name="zipcode" [(ngModel)]="newUser.address.zipCode" />
+                <!-- [ngClass]="{ 'is-invalid': submitted && form.zipcode.errors }" /> -->
+                <!-- <div *ngIf="submitted && form['zipcode'].errors" class="invalid-feedback">
+          <div *ngIf="form['zipcode'].errors.required">Zipcode is required</div> -->
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+        <br>
+        <tr>
+          <td>
+            <div class="form-group" id="submit">
+              <input type='submit' (click)='onSubmit()' class="btn btn-primary">
+
+              <a routerLink="/login" class="btn btn-link">Cancel</a>
+            </div>
+          </td>
+        </tr>
+
+      </form>
     </div>
-  </td>
-  </tr>
-  <br>
-  <tr>
-    <td>
-      <div class="form-group" id="submit">
-        <button [disabled]="loading" class="btn btn-primary">Register</button>
-        <img *ngIf="loading" class="pl-3"
-          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-        <a routerLink="/login" class="btn btn-link">Cancel</a>
-      </div>
-    </td>
-  </tr>
-
-</form>
+  </div>
+</div>

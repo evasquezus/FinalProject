@@ -51,7 +51,9 @@ public class Role {
 
 	@Override
 	public String toString() {
-		return "Role [id=" + id + ", name=" + name + ", users=" + users + "]";
+		return "Role [id=" + id + ", name=" + name
+//				+ ", users=" + users
+				+ "]";
 	}
 
 	public Role(int id, String name, List<User> users) {

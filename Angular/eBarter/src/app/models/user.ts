@@ -11,7 +11,7 @@ export class User {
   email: string;
   registerDate: string;
   roleId: number;
-  addressId: number;
+  // addressId: number;
   authenticated: boolean;
   address: Address;
   role: Role;
@@ -39,6 +39,6 @@ export class User {
       this.role = role;
       // this.addressId = addressId;
       this.authenticated = authenticated;
-      this.address = address;
+      this.address = address ? address : new Address();
     }
 }
