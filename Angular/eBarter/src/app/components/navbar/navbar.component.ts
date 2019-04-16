@@ -17,18 +17,18 @@ import { UserService } from 'src/app/services/user.service';
 export class NavbarComponent implements OnInit {
   loginnavbar = true;
   mainnavbar = false;
-  logincombo = {username: '', password: ''};
+  logincombo = { username: '', password: '' };
   displayName = null;
 
   dropdown = true;
   constructor(private us: UserService, private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
-  this.setNavbar();
+    this.setNavbar();
   }
 
   setNavbar() {
-    if(this.auth.checkLogin()){
+    if (this.auth.checkLogin()) {
       this.loginnavbar = false;
       this.mainnavbar = true;
       this.displayName = this.auth.getCredName();
@@ -53,7 +53,7 @@ export class NavbarComponent implements OnInit {
   }
 
   // click methods for item sorting
-// --------------------------------------------------
+  // --------------------------------------------------
   navBidding() {
 
   }
@@ -63,13 +63,13 @@ export class NavbarComponent implements OnInit {
   }
 
   navWon() {
-
+    this.router.navigate(['/itemsWon']);
   }
 
   navCompleted() {
     this.router.navigate(['/completed']);
   }
-// ----------------------------------------------------
+  // ----------------------------------------------------
   navLogout() {
     this.auth.logout();
     this.setNavbar();
@@ -95,11 +95,11 @@ export class NavbarComponent implements OnInit {
       }
     );
     console.log(res);
-    }
+  }
 
-    // DELETE THIS CRAP BELOW
+  // DELETE THIS CRAP BELOW
 
-  navGetUser(){
+  navGetUser() {
     let response = this.us.getUserByUserName('testuser');
     response.subscribe(
       data => {

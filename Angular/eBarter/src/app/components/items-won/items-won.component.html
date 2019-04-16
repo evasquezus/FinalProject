@@ -1,0 +1,43 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Test</h1>
+
+<div class="card-deck" style="width: 70rem;" *ngFor="let item of items">
+  <div class="card">
+    <img class="card-img-top"
+      src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
+      alt="Card image cap"href="#/" >
+    <div class="card-body">
+      <hr>
+    <!-- item.offer.user  -->
+    <div *ngIf="item.offer.length > 0">
+      <!-- {{item.offer.length}} -->
+      <div class="card" *ngFor="let offer of item.offer">
+        <ul>
+          <li *ngIf="item.offer.user === isBidder">{{offer.user.id}}</li>
+        </ul>
+      </div>
+
+    </div>
+
+      <!-- <h5 class="card-title"  *ngIf='item.offer.user.id == isBidder.id'>{{item.id}}</h5> -->
+      <!-- <p class="card-text">{{item.name}}</p>
+      <p class="card-text">{{item.description}}</p> -->
+      <a href="item" class="btn btn-success">
+        <input type="hidden" value="{{item.id}}">
+        <span class="button--inner" (click)="popUpEnsureUserRegisters(item)">Offer Up</span>
+      </a>
+      <br>
+      <hr>
+    </div>
+  </div>
+</div>

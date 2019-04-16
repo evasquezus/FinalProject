@@ -26,18 +26,18 @@ export class ItemDetailComponent implements OnInit {
 
 
   constructor(private itemService: ItemService,
-              private offerService: OfferServiceService,
-              private userService: UserService,
-              private authService: AuthService) { }
+    private offerService: OfferServiceService,
+    private userService: UserService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.getCurrentUser();
-    this.itemService.getSpecificItem(1).subscribe(
+    this.itemService.getSpecificItem(2).subscribe(
       item => {
         console.log('Item:');
         console.log(item);
         this.item = item;
-              }
+      }
     );
     this.itemService.getSpecificItem(1).subscribe(item => {
       this.item = item;
@@ -51,7 +51,7 @@ export class ItemDetailComponent implements OnInit {
   submitOffer(desc: string, imgUrl: string) {
     this.offer = null;
     console.log('submit offer: ' + this.offer);
-    }
+  }
 
 
   getCurrentUser() {
@@ -64,7 +64,7 @@ export class ItemDetailComponent implements OnInit {
         console.log('bidder: ' + this.bidder);
 
       },
-      error=> {
+      error => {
         console.log('error in auth.service.getCurrentUser()');
 
       });
