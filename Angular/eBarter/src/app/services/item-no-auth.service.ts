@@ -6,7 +6,7 @@ import { Item } from '../models/item';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,10 @@ export class ItemNoAuthService {
 
   getItems(): Observable<Item[]> {
     return this.http.get<Item[]>(this.itemUrlNoAuth);
-    console.log()
   }
 
-}
+  popUpEnsureUserRegisters() {
+
+    }
+  }
+

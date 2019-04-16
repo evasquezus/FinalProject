@@ -30,7 +30,9 @@
 <br>
 <br>
 <div class="col-md-3" id="sideBarLeft">
-  <p class="lead">Brands</p>
+  <br>
+  <br>
+  <p class="lead">Brand</p>
   <div class="list-group">
     <a class="list-group-item" href="#/">All</a>
     <a class="list-group-item ng-binding ng-scope" >Test
@@ -44,21 +46,21 @@
     </a><a class="list-group-item ng-binding ng-scope" href="#/">White
     </a>
   </div>
-  <p class="lead">Categories</p>
+  <p class="lead">Items</p>
   <div class="list-group">
     <a class="list-group-item"href="#/">All</a>
-    <a class="list-group-item ng-binding ng-scope" href="#/" >TEST SPORT SERIES
+    <a class="list-group-item ng-binding ng-scope" href="#/" >Current Offers On Items
       <!-- ngIf: category === vm.params.value --></a><!-- end ngRepeat: category in vm.categories --><a
-      class="list-group-item ng-binding ng-scope"href="#/">TEST SERIES
+      class="list-group-item ng-binding ng-scope"href="#/">Items Won
       <!-- ngIf: category === vm.params.value --></a><!-- end ngRepeat: category in vm.categories -->
   </div>
 </div>
 
-<div class="card-deck" style="width: 70rem;" *ngFor="let item of items">
+<div class="card-deck" style="width: 70rem;" *ngFor="let item of itemsNoAuth">
   <div class="card">
     <img class="card-img-top"
       src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
-      alt="Card image cap">
+      alt="Card image cap"href="#/" >
     <div class="card-body">
       <ngb-rating [(rate)]="currentRate"></ngb-rating>
       <hr>
@@ -68,7 +70,7 @@
       <p class="card-text">{{item.description}}</p>
       <a href="item" class="btn btn-success">
         <input type="hidden" value="{{item.id}}">
-        <span class="button--inner" >Offer Up</span>
+        <span class="button--inner" (click)="popUpEnsureUserRegisters(item)">Offer Up</span>
       </a>
       <br>
       <hr>
