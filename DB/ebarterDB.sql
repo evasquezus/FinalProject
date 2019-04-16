@@ -87,8 +87,7 @@ DROP TABLE IF EXISTS `item_image` ;
 
 CREATE TABLE IF NOT EXISTS `item_image` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `item_id` INT(10) NULL,
-  `item_image_url` VARCHAR(500) NOT NULL,
+  `item_image_url` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -123,8 +122,8 @@ CREATE TABLE IF NOT EXISTS `item` (
   `item_image_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `seller_id_idx` (`user_id` ASC),
-  INDEX `item_image_id_idx` (`item_image_id` ASC),
   INDEX `category_id_idx` (`category_id` ASC),
+  INDEX `item_image_id_idx` (`item_image_id` ASC),
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
@@ -270,10 +269,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
+
 INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (1, 1, 'https://i5.walmartimages.com/dfw/4ff9c6c9-bda4/k2-_3116e9d1-dc49-4894-a444-9848c59cac16.v1.jpg');
 INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (2, 2, 'https://www.royaloakindia.com/subcatimages/ROYIND-entertainment-units-4.jpg');
 INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (3, 3, 'https://summitsports.scene7.com/is/image/SummitSports/158524_158524_1?$256$');
 INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (4, 4, 'https://c1.neweggimages.com/ProductImage/A8A1_130871576090458906twjovYE66t.jpg');
+
 
 COMMIT;
 
@@ -333,8 +334,10 @@ COMMIT;
 START TRANSACTION;
 USE `ebarterDB`;
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`, `bidder_id`) VALUES (1, 1, 'I will offer you a chair', 1, 1, 1, 1);
+
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`, `bidder_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL, 1, 1);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`, `bidder_id`) VALUES (3, 1, 'I will offer a piece of gold', 1, NULL, NULL, 1);
+
 
 COMMIT;
 
