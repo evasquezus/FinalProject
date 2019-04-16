@@ -49,9 +49,20 @@ public class Item {
 	@OneToMany (mappedBy = "item")
 	private List<Offer> offers;
 	
+	@Column(name="image_url")
+	private String imageUrl;
+	
 //	@JsonIgnore
 //	@OneToMany(mappedBy="item")
 //	private List<Item_Image> itemImage;
+
+	public List<Offer> getOffers() {
+		return offers;
+	}
+
+	public void setOffers(List<Offer> offers) {
+		this.offers = offers;
+	}
 
 	public int getId() {
 		return id;
@@ -107,14 +118,6 @@ public class Item {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public List<Offer> getOffer() {
-		return offers;
-	}
-
-	public void setOffer(List<Offer> offer) {
-		this.offers = offer;
 	}
 
 //	public List<Item_Image> getItemImage() {
@@ -209,7 +212,7 @@ public class Item {
 		this.itemStatus = itemStatus;
 		this.category = category;
 		this.user = user;
-		this.offers = offer;
+		this.offers = offers;
 //		this.itemImage = itemImage;
 	}
 

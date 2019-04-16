@@ -35,4 +35,14 @@ export class OfferServiceService {
     };
     return this.http.get<Offer[]>(this.offerUrl, httpOptions);
   }
+
+  postNewOffer(offer: Offer) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${this.auth.getCredentials()}`
+      })
+    };
+    return this.http.get<Offer[]>(this.offerUrl, httpOptions);
+  }
 }
