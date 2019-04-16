@@ -1,33 +1,28 @@
 import { User } from './user';
+import { Offer } from './offer';
 
 export class Item {
   id: number;
-  name: string;
   description: string;
-  endDate: Date;
-  isActive: boolean;
+  name: string;
+  itemStatus: number;
   user: User;
-  categoryId: number;
-  itemImageId: number;
+  offers: Offer [];
 
   constructor(
-    id?: number,
-    name?: string,
-    description?: string,
-    endDate?: Date,
-    isActive?: boolean,
-    user?: User,
-    categoryId?: number,
-    itemImageId?: number,
+    id: number,
+    description: string,
+    name: string,
+    itemStatus: number,
+    user: User,
+    offers: Offer []
   ) {
     this.id = id;
-    this.name = name;
     this.description = description;
-    this.endDate = endDate;
-    this.isActive = isActive;
-    this.user= user;
-    this.categoryId = categoryId;
-    this.itemImageId = itemImageId;
+    this.name = name;
+    this.itemStatus = itemStatus;
+    this.user = user;
+    this.offers = offers;
   }
 
 }
