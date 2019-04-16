@@ -31,8 +31,8 @@ public class Item {
 	@Column(name = "end_date")
 	private Date endDate;
 
-	@Column(name = "is_active")
-	private boolean active;
+	@Column(name = "item_status")
+	private int itemStatus;
 
 	@JsonIgnore
 	@ManyToOne
@@ -49,9 +49,9 @@ public class Item {
 	@OneToMany (mappedBy = "item")
 	private List<Offer> offers;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy="item")
-	private List<Item_Image> itemImage;
+//	@JsonIgnore
+//	@OneToMany(mappedBy="item")
+//	private List<Item_Image> itemImage;
 
 	public int getId() {
 		return id;
@@ -85,12 +85,12 @@ public class Item {
 		this.endDate = endDate;
 	}
 
-	public boolean isActive() {
-		return active;
+	public int getItemStatus() {
+		return itemStatus;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setItemStatus(int status) {
+		this.itemStatus = status;
 	}
 
 	public Category getCategory() {
@@ -117,24 +117,24 @@ public class Item {
 		this.offers = offer;
 	}
 
-	public List<Item_Image> getItemImage() {
-		return itemImage;
-	}
-
-	public void setItemImage(List<Item_Image> itemImage) {
-		this.itemImage = itemImage;
-	}
+//	public List<Item_Image> getItemImage() {
+//		return itemImage;
+//	}
+//
+//	public void setItemImage(List<Item_Image> itemImage) {
+//		this.itemImage = itemImage;
+//	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (active ? 1231 : 1237);
+//		result = prime * result + (itemStatus ? 1231 : 1237);
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((itemImage == null) ? 0 : itemImage.hashCode());
+//		result = prime * result + ((itemImage == null) ? 0 : itemImage.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((offers == null) ? 0 : offers.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
@@ -150,8 +150,8 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		Item other = (Item) obj;
-		if (active != other.active)
-			return false;
+//		if (active != other.active)
+//			return false;
 		if (category == null) {
 			if (other.category != null)
 				return false;
@@ -169,11 +169,11 @@ public class Item {
 			return false;
 		if (id != other.id)
 			return false;
-		if (itemImage == null) {
-			if (other.itemImage != null)
-				return false;
-		} else if (!itemImage.equals(other.itemImage))
-			return false;
+//		if (itemImage == null) {
+//			if (other.itemImage != null)
+//				return false;
+//		} else if (!itemImage.equals(other.itemImage))
+//			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -195,22 +195,22 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", description=" + description + ", name=" + name + ", endDate=" + endDate
-				+ ", active=" + active + ", category=" + category + ", user=" + user + ", offer=" + offers
-				+ ", itemImage=" + itemImage + "]";
+				+ ", active=" + itemStatus + ", category=" + category + ", user=" + user + ", offer=" + offers
+				+ ", itemImage=" + "]";
 	}
 
-	public Item(int id, String description, String name, Date endDate, boolean active, Category category, User user,
-			List<Offer> offer, List<Item_Image> itemImage) {
+	public Item(int id, String description, String name, Date endDate, int itemStatus, Category category, User user,
+			List<Offer> offer) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.name = name;
 		this.endDate = endDate;
-		this.active = active;
+		this.itemStatus = itemStatus;
 		this.category = category;
 		this.user = user;
 		this.offers = offer;
-		this.itemImage = itemImage;
+//		this.itemImage = itemImage;
 	}
 
 	public Item() {

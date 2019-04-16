@@ -30,28 +30,16 @@ public class Offer {
 	@JoinColumn(name = "item_id")
 	private Item item;
 
-	@OneToMany(mappedBy = "offer")
-	private List<Offer_Image> offerImg;
-
-	@ManyToOne
-	@JoinColumn(name = "offer_status_id")
-	private Offer_Status offerStatus;
+//	@OneToMany(mappedBy = "offer")
+//	private List<Offer_Image> offerImg;
+//
+//	@ManyToOne
+//	@JoinColumn(name = "offer_status_id")
+//	private Offer_Status offerStatus;
 
 	@ManyToOne
 	@JoinColumn(name = "user_offer_id")
 	private User user;
-	
-	@Column(name="bidder_id")
-	private int bidderId;
-	
-
-	public int getBidderId() {
-		return bidderId;
-	}
-
-	public void setBidderId(int bidderId) {
-		this.bidderId = bidderId;
-	}
 
 	public int getId() {
 		return id;
@@ -77,21 +65,21 @@ public class Offer {
 		this.item = item;
 	}
 
-	public List<Offer_Image> getOfferImg() {
-		return offerImg;
-	}
-
-	public void setOfferImg(List<Offer_Image> offerImg) {
-		this.offerImg = offerImg;
-	}
-
-	public Offer_Status getOfferStatus() {
-		return offerStatus;
-	}
-
-	public void setOfferStatus(Offer_Status offerStatus) {
-		this.offerStatus = offerStatus;
-	}
+//	public List<Offer_Image> getOfferImg() {
+//		return offerImg;
+//	}
+//
+//	public void setOfferImg(List<Offer_Image> offerImg) {
+//		this.offerImg = offerImg;
+//	}
+//
+//	public Offer_Status getOfferStatus() {
+//		return offerStatus;
+//	}
+//
+//	public void setOfferStatus(Offer_Status offerStatus) {
+//		this.offerStatus = offerStatus;
+//	}
 
 	public User getUser() {
 		return user;
@@ -108,8 +96,8 @@ public class Offer {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((item == null) ? 0 : item.hashCode());
-		result = prime * result + ((offerImg == null) ? 0 : offerImg.hashCode());
-		result = prime * result + ((offerStatus == null) ? 0 : offerStatus.hashCode());
+//		result = prime * result + ((offerImg == null) ? 0 : offerImg.hashCode());
+//		result = prime * result + ((offerStatus == null) ? 0 : offerStatus.hashCode());
 		return result;
 	}
 
@@ -134,49 +122,43 @@ public class Offer {
 				return false;
 		} else if (!item.equals(other.item))
 			return false;
-		if (offerImg == null) {
-			if (other.offerImg != null)
-				return false;
-		} else if (!offerImg.equals(other.offerImg))
-			return false;
-		if (offerStatus == null) {
-			if (other.offerStatus != null)
-				return false;
-		} else if (!offerStatus.equals(other.offerStatus))
-			return false;
+//		if (offerImg == null) {
+//			if (other.offerImg != null)
+//				return false;
+//		} else if (!offerImg.equals(other.offerImg))
+//			return false;
+//		if (offerStatus == null) {
+//			if (other.offerStatus != null)
+//				return false;
+//		} else if (!offerStatus.equals(other.offerStatus))
+//			return false;
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Offer [id=" + id + ", description=" + description + ", item=" + item + ", offerImg=" + offerImg
-				+ ", offerStatus=" + offerStatus + ", user=" + user + "]";
-	}
 
-	public Offer(int id, String description, Item item, List<Offer_Image> offerImg, Offer_Status offerStatus) {
+
+
+	public Offer(int id, String description, Item item) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.item = item;
-		this.offerImg = offerImg;
-		this.offerStatus = offerStatus;
-		this.bidderId = 0;
+//		this.offerImg = offerImg;
+//		this.offerStatus = offerStatus;
 	}
 
 	public Offer() {
 		super();
 	}
 
-	public Offer(int id, String description, Item item, List<Offer_Image> offerImg, Offer_Status offerStatus,
-			User user) {
+	public Offer(int id, String description, Item item,	User user) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.item = item;
-		this.offerImg = offerImg;
-		this.offerStatus = offerStatus;
+//		this.offerImg = offerImg;
+//		this.offerStatus = offerStatus;
 		this.user = user;
-		this.bidderId = 0;
 	}
 
 }

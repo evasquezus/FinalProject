@@ -52,7 +52,7 @@ public class ItemController {
 	public void deleteItem(@PathVariable("id") int id) {
 		try {
 			Item item = service.getItemById(id);
-			item.setActive(false);
+			item.setItemStatus(3);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

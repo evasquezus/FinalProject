@@ -81,19 +81,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `item_image`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `item_image` ;
-
-CREATE TABLE IF NOT EXISTS `item_image` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `item_image_url` VARCHAR(1000) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `category`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `category` ;
@@ -116,22 +103,16 @@ CREATE TABLE IF NOT EXISTS `item` (
   `name` VARCHAR(20) NOT NULL,
   `description` VARCHAR(200) NULL DEFAULT NULL,
   `end_date` DATETIME NOT NULL,
-  `is_active` TINYINT(4) NULL DEFAULT NULL,
+  `item_status` TINYINT(4) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
   `category_id` INT NOT NULL,
-  `item_image_id` INT NULL DEFAULT NULL,
+  `image_url` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`),
   INDEX `seller_id_idx` (`user_id` ASC),
   INDEX `category_id_idx` (`category_id` ASC),
-  INDEX `item_image_id_idx` (`item_image_id` ASC),
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `item_image_id`
-    FOREIGN KEY (`item_image_id`)
-    REFERENCES `item_image` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `category_id`
@@ -144,14 +125,24 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `offer_status`
+-- Table `offer`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `offer_status` ;
+DROP TABLE IF EXISTS `offer` ;
 
-CREATE TABLE IF NOT EXISTS `offer_status` (
+CREATE TABLE IF NOT EXISTS `offer` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `status_name` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  `item_id` INT(11) NOT NULL,
+  `description` VARCHAR(200) NOT NULL,
+  `offer_status_id` INT NULL DEFAULT NULL,
+  `user_offer_id` INT(11) NULL,
+  `image_url` VARCHAR(1000) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `item_id_idx` (`item_id` ASC),
+  CONSTRAINT `item_id`
+    FOREIGN KEY (`item_id`)
+    REFERENCES `item` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -171,35 +162,14 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `offer`
+-- Table `item_image`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `offer` ;
+DROP TABLE IF EXISTS `item_image` ;
 
-CREATE TABLE IF NOT EXISTS `offer` (
+CREATE TABLE IF NOT EXISTS `item_image` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `item_id` INT(11) NOT NULL,
-  `description` VARCHAR(200) NOT NULL,
-  `offer_status_id` INT NULL DEFAULT NULL,
-  `offer_image_id` INT NULL,
-  `user_offer_id` INT(11) NULL,
-  PRIMARY KEY (`id`),
-  INDEX `offer_image)id_idx` (`offer_image_id` ASC),
-  INDEX `item_id_idx` (`item_id` ASC),
-  CONSTRAINT `item_id`
-    FOREIGN KEY (`item_id`)
-    REFERENCES `item` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `offer_status_id`
-    FOREIGN KEY (`offer_status_id`)
-    REFERENCES `offer_status` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `offer_image_id`
-    FOREIGN KEY (`offer_image_id`)
-    REFERENCES `offer_image` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `item_image_url` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -252,19 +222,6 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `item_image`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ebarterDB`;
-INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (1, 'https://i5.walmartimages.com/dfw/4ff9c6c9-bda4/k2-_3116e9d1-dc49-4894-a444-9848c59cac16.v1.jpg');
-INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (2, 'https://www.royaloakindia.com/subcatimages/ROYIND-entertainment-units-4.jpg');
-INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (3, 'https://summitsports.scene7.com/is/image/SummitSports/158524_158524_1?$256$');
-INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (4, 'https://c1.neweggimages.com/ProductImage/A8A1_130871576090458906twjovYE66t.jpg');
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `category`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -283,22 +240,22 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (1, 'computer desk', 'A dark wood computer desk', '2019-10-04', 1, 1, 1, 1);
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (2, 'tv stand', 'A tv stand', '2019-10-04', 1, 2, 1, 2);
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (3, 'snowboard', 'An old snowboard in good shape', '2019-10-04', 1, 1, 3, 3);
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', '2019-10-04', 1, 3, 2, 4);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'computer desk', 'A dark wood computer desk', '2019-10-04', 1, 1, 1, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A tv stand', '2019-10-04', 1, 2, 1, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'snowboard', 'An old snowboard in good shape', '2019-10-04', 1, 1, 3, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', '2019-10-04', 1, 3, 2, NULL);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `offer_status`
+-- Data for table `offer`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `offer_status` (`id`, `status_name`) VALUES (1, 'true');
-INSERT INTO `offer_status` (`id`, `status_name`) VALUES (2, 'complete');
-INSERT INTO `offer_status` (`id`, `status_name`) VALUES (3, 'incomplete');
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (1, 1, 'I will offer you a chair', 1, 1, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (2, 1, 'I will offer you a chicken ', 1, 1, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (3, 1, 'I will offer a piece of gold', 1, 2, NULL);
 
 COMMIT;
 
@@ -314,13 +271,14 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `offer`
+-- Data for table `item_image`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (1, 1, 'I will offer you a chair', 1, 1, 1);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL, 1);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (3, 1, 'I will offer a piece of gold', 1, NULL, 2);
+INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (1, 'https://i5.walmartimages.com/dfw/4ff9c6c9-bda4/k2-_3116e9d1-dc49-4894-a444-9848c59cac16.v1.jpg');
+INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (2, 'https://www.royaloakindia.com/subcatimages/ROYIND-entertainment-units-4.jpg');
+INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (3, 'https://summitsports.scene7.com/is/image/SummitSports/158524_158524_1?$256$');
+INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (4, 'https://c1.neweggimages.com/ProductImage/A8A1_130871576090458906twjovYE66t.jpg');
 
 COMMIT;
 

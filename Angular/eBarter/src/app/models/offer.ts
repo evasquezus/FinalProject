@@ -1,27 +1,23 @@
 import { User } from 'src/app/models/user';
+import { Item } from './item';
 export class Offer {
   id: number;
-  itemId: number;
   description: string;
-  offerStatusId: number;
-  offerImageId: number;
   user: User;
+  item: Item;
 
 
   constructor (
-    id?: number,
-    itemId?: number,
-    description?: string,
-    offerStatusId?: number,
-    user?: User,
+    id: number,
+    description: string,
+    user: User,
+    item: Item = null,
 
   ) {
     this.id = id;
-    this.itemId = itemId;
     this.description = description;
-    this.offerStatusId = offerStatusId;
-    // this.offerImageId = offerImageId;
     this.user = user;
+    this.item = item;
 
     }
 }

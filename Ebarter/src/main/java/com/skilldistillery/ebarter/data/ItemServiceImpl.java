@@ -37,7 +37,7 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public Item createItem(Item item) {
-		if (item.getName() != null && item.getDescription() != null & item.getCategory() != null) {
+		if (item.getName() != null && item.getDescription() != null) {
 
 			repo.saveAndFlush(item);
 			return item;
@@ -50,7 +50,7 @@ public class ItemServiceImpl implements ItemService {
 		Optional<Item> opt = repo.findById(id);
 		if (opt.isPresent()) {
 			Item managed = opt.get();
-			managed.setCategory(item.getCategory());
+//			managed.setCategory(item.getCategory());
 			managed.setDescription(item.getDescription());
 			managed.setName(item.getName());
 			managed.setEndDate(item.getEndDate());
@@ -63,7 +63,7 @@ public class ItemServiceImpl implements ItemService {
 	public boolean deleteItem(Item item, int id) {
 		boolean deleted = false;
 		if (repo.existsById(id)) {
-			item.setActive(false);
+			item.setItemStatus(3);
 			repo.flush();
 			deleted = true;
 		}
