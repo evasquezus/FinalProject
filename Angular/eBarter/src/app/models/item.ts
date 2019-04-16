@@ -1,10 +1,12 @@
+import { User } from './user';
+
 export class Item {
   id: number;
   name: string;
   description: string;
   endDate: Date;
   isActive: boolean;
-  userId: number;
+  user: User;
   categoryId: number;
   itemImageId: number;
 
@@ -14,7 +16,7 @@ export class Item {
     description?: string,
     endDate?: Date,
     isActive?: boolean,
-    userId?: number,
+    user?: User,
     categoryId?: number,
     itemImageId?: number,
   ) {
@@ -23,7 +25,7 @@ export class Item {
     this.description = description;
     this.endDate = endDate;
     this.isActive = isActive;
-    this.userId = userId;
+    this.user= user;
     this.categoryId = categoryId;
     this.itemImageId = itemImageId;
   }

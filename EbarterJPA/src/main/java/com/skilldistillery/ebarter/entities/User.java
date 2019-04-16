@@ -14,7 +14,9 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 public class User {
@@ -57,9 +59,22 @@ public class User {
 //	@JsonIgnore
 	@JoinColumn(name = "address_id")
 	private Address address;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Item> item;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "user")
+	private List<Offer> offer;
+
+	public List<Item> getItem() {
+		return item;
+	}
+
+	public void setItem(List<Item> item) {
+		this.item = item;
+	}
 
 	public int getId() {
 		return id;
@@ -149,15 +164,9 @@ public class User {
 		this.address = address;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", active=" + enabled
-				+ ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", registerDate="
-				+ registerDate + ", authenticated=" + authenticated + ", role=" + role + ", address=" + address + "]";
-	}
-
-	public User(int id, String username, String password, boolean active, String firstName, String lastName,
-			String email, Date registerDate, Boolean authenticated, Role role, Address address) {
+	public User(int id, String username, String password, boolean enabled, String firstName, String lastName,
+			String email, Date registerDate, Boolean authenticated, Role role, Address address, List<Item> item,
+			List<Offer> offer) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -170,6 +179,16 @@ public class User {
 		this.authenticated = authenticated;
 		this.role = role;
 		this.address = address;
+		this.item = item;
+		this.offer = offer;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", registerDate="
+				+ registerDate + ", authenticated=" + authenticated + ", role=" + role + ", address=" + address
+				+ ", item=" + item + ", offer=" + offer + "]";
 	}
 
 	public User() {
@@ -177,5 +196,3 @@ public class User {
 	}
 
 }
-
-
