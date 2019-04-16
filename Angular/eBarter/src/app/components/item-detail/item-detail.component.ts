@@ -1,3 +1,4 @@
+import { HomepageComponent } from './../homepage/homepage.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/item';
@@ -23,6 +24,8 @@ export class ItemDetailComponent implements OnInit {
   users: User[];
   address: Address;
   bidder: User;
+  message: string;
+
 
 
   constructor(private itemService: ItemService,
@@ -32,27 +35,33 @@ export class ItemDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrentUser();
-    this.itemService.getSpecificItem(2).subscribe(
+    const id = parseInt(localStorage.getItem('selectedId'));
+    localStorage.removeItem('selectedId');
+    this.itemService.getSpecificItem(id).subscribe(
       item => {
-        console.log('Item:');
-        console.log(item);
         this.item = item;
-      }
-    );
-    this.itemService.getSpecificItem(1).subscribe(item => {
-      this.item = item;
-      localStorage.setItem('itemId', item.id.toString());
-      localStorage.setItem('itemName', item.name);
-      localStorage.setItem('sellerName', item.user.username);
+        console.log(this.item);
 
-    });
+        localStorage.setItem('itemId', item.id.toString());
+        localStorage.setItem('itemName', item.name);
+        localStorage.setItem('sellerName', item.user.username);
+              }
+    );
   }
 
   submitOffer(desc: string, imgUrl: string) {
     this.offer = {
       id: 0, description: desc, item: this.item, offerStatus: 1, user: this.bidder, imgUrl: imgUrl};
     console.log('submit offer: ' + this.offer);
-  }
+    let response = this.offerService.postNewOffer(this.offer);
+    response.subscribe(
+      data => {
+        this.message = 'Your offer was submitted!';
+      },
+      error => {
+        this.message = 'Error submitting your offer';
+      });
+    }
 
 
   getCurrentUser() {

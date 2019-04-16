@@ -13,7 +13,7 @@ import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/item
 const routes: Routes = [
   { path: 'completed', component: CompletedComponent },
   { path: 'home', component: HomepageComponent },
-  { path: 'item', component: ItemDetailComponent},
+  { path: 'item', component: ItemDetailComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'listitem', component: ListItemComponent },

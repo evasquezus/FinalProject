@@ -37,12 +37,14 @@ export class OfferServiceService {
   }
 
   postNewOffer(offer: Offer) {
+    console.log('in offer service: ' + offer);
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
-    return this.http.get<Offer[]>(this.offerUrl, httpOptions);
+    return this.http.post<Offer>(this.offerUrl, offer, httpOptions);
   }
 }
