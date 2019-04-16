@@ -49,9 +49,20 @@ public class Item {
 	@OneToMany (mappedBy = "item")
 	private List<Offer> offers;
 	
+	@Column(name="image_url")
+	private String imageUrl;
+	
 //	@JsonIgnore
 //	@OneToMany(mappedBy="item")
 //	private List<Item_Image> itemImage;
+
+	public List<Offer> getOffers() {
+		return offers;
+	}
+
+	public void setOffers(List<Offer> offers) {
+		this.offers = offers;
+	}
 
 	public int getId() {
 		return id;
