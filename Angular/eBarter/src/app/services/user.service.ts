@@ -41,7 +41,21 @@ export class UserService {
 }
 
 register(user: User) {
-  return this.http.post('${config.apiUrl}/users/register', user);
+  const credentials = this.as.getCredentials();
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Basic ${credentials}`
+    })
+  };
+  console.log(user.firstName);
+  return this.http.post(`${this.url}${user.id}`, user, httpOptions).pipe(
+    catchError((err: any) => {
+      console.error('UserService.register(): Error');
+      console.error(err);
+      return throwError('Error in UserService.update()');
+    })
+  );
 }
 
 update(user: User) {

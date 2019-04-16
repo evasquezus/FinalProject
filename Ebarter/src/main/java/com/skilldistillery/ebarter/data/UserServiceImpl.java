@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.ebarter.entities.Address;
 import com.skilldistillery.ebarter.entities.User;
+import com.skilldistillery.ebarter.repositories.AddressRepository;
 import com.skilldistillery.ebarter.repositories.UserRepository;
 
 @Service
@@ -14,6 +16,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserRepository repo;
+	
+	@Autowired
+	AddressRepository addrRepo;
 
 	@Override
 	public List<User> getAllUsers() {
@@ -36,6 +41,12 @@ public class UserServiceImpl implements UserService {
 		if (user.getEmail() != null & user.getFirstName() != null && user.getLastName() != null
 				&& user.getUsername() != null) {
 			user.setEnabled(true);
+			if (user.getAddress() != null) {
+			   Address address = user.getAddress();
+			   addrRepo.saveAndFlush(address);
+			}
+			System.out.println("UserService.createUser():");
+			System.out.println(user);
 			repo.saveAndFlush(user);
 			return user;
 		}

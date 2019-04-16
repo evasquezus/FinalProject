@@ -44,13 +44,13 @@ public class UserController {
 	}
 
 	@GetMapping(path = "users/{id}")
-	public User getIndividualBook(@PathVariable("id") int id,Principal principal) {
+	public User getIndividualBook(@PathVariable("id") int id, Principal principal) {
 		User userRetrived = service.getUserById(id);
 		return userRetrived;
 	}
 
 	@DeleteMapping(path = "users/{id}")
-	public void deleteUser(@PathVariable("id") int id,Principal principal) {
+	public void deleteUser(@PathVariable("id") int id, Principal principal) {
 		try {
 			User user = service.getUserById(id);
 			user.setEnabled(false);
