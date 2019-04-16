@@ -83,6 +83,8 @@ export class NavbarComponent implements OnInit {
   navLogin(form: NgForm) {
     const username = this.logincombo.username;
     const password = this.logincombo.password;
+    console.log('navbar.navLogin(): ' + username + ' ' + password);
+
     let res = this.auth.login(username, password).subscribe(
       data => {
         console.log('authenticated');
