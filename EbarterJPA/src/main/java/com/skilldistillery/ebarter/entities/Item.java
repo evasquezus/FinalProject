@@ -49,6 +49,9 @@ public class Item {
 	@OneToMany (mappedBy = "item")
 	private List<Offer> offers;
 	
+//	@JsonIgnore
+//	@OneToMany(mappedBy="item")
+//	private List<Item_Image> itemImage;
 	@JsonIgnore
 	@OneToMany(mappedBy="item")
 	private List<Item_Image> itemImage;

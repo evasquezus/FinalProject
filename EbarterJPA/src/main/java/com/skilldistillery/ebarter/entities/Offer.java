@@ -41,6 +41,7 @@ public class Offer {
 	@JoinColumn(name = "user_offer_id")
 	private User user;
 	
+
 	@Column(name="bidder_id")
 	private int bidderId;
 	
@@ -52,6 +53,7 @@ public class Offer {
 	public void setBidderId(int bidderId) {
 		this.bidderId = bidderId;
 	}
+
 
 	public int getId() {
 		return id;
