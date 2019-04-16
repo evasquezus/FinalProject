@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ItemService } from 'src/app/services/item.service';
 import { Item } from 'src/app/models/item';
 import { ItemNoAuthService } from 'src/app/services/item-no-auth.service';
+import { AlertService } from 'src/app/services/alert.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-homepage',
@@ -12,7 +14,7 @@ export class HomepageComponent implements OnInit {
   items: Item[];
   itemservices: any;
   itemsNoAuth: Item[];
-  constructor(private itemService: ItemService, private itemNoAuthService: ItemNoAuthService) { }
+  constructor(private itemService: ItemService, private itemNoAuthService: ItemNoAuthService, private alertService: AlertService ) { }
 
   ngOnInit() {
     this.itemService.getItems().subscribe(items => {
@@ -20,7 +22,7 @@ export class HomepageComponent implements OnInit {
     });
     this.itemNoAuthService.getItems().subscribe(itemsNoAuth => {
       this.itemsNoAuth = itemsNoAuth;
-    })
+    });
   }
 
   removeItem(item: Item) {
@@ -34,4 +36,9 @@ export class HomepageComponent implements OnInit {
       });
     }
   }
+
+  popUpEnsureUserRegisters() {
+    (confirm('You will have to register first'));
+  }
 }
+

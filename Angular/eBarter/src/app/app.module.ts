@@ -19,6 +19,8 @@ import { NgbdModalConfigComponent } from './components/ngbd-modal-config/ngbd-mo
 import { NgbdCarouselBasicComponent } from './components/ngbd-carousel-basic/ngbd-carousel-basic.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgbdRatingBasicComponent } from './components/ngbd-rating-basic/ngbd-rating-basic.component';
+import { NgbdAlertCloseableComponent } from './components/ngbd-alert-closeable/ngbd-alert-closeable.component';
+import { NgbdAlertSelfclosingComponent } from './components/ngbd-alert-selfclosing/ngbd-alert-selfclosing.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { NgbdRatingBasicComponent } from './components/ngbd-rating-basic/ngbd-ra
     NgbdModalConfigComponent,
     NgbdCarouselBasicComponent,
     NgbdRatingBasicComponent,
+    NgbdAlertCloseableComponent,
+    NgbdAlertSelfclosingComponent,
   ],
   imports: [
     BrowserModule,

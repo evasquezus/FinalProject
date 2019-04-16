@@ -38,6 +38,10 @@ public class Offer {
 	@ManyToOne
 	@JoinColumn(name = "user_offer_id")
 	private User user;
+	
+//	@ManyToOne
+//	@JoinColumn(name = "user_offer_id")
+//	private User user;
 
 	public int getId() {
 		return id;

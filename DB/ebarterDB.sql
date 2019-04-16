@@ -183,10 +183,12 @@ CREATE TABLE IF NOT EXISTS `offer` (
   `offer_status_id` INT NULL DEFAULT NULL,
   `offer_image_id` INT NULL,
   `user_offer_id` INT(11) NULL,
+  `bidder_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `offer_image)id_idx` (`offer_image_id` ASC),
   INDEX `item_id_idx` (`item_id` ASC),
   INDEX `user_id_idx` (`user_offer_id` ASC),
+  INDEX `bidder_id_idx` (`bidder_id` ASC),
   CONSTRAINT `item_id`
     FOREIGN KEY (`item_id`)
     REFERENCES `item` (`id`)
@@ -204,6 +206,11 @@ CREATE TABLE IF NOT EXISTS `offer` (
     ON UPDATE NO ACTION,
   CONSTRAINT `user_offer_id`
     FOREIGN KEY (`user_offer_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `bidder_id`
+    FOREIGN KEY (`bidder_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -229,6 +236,7 @@ USE `ebarterDB`;
 INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (1, '123 ebarter st', NULL, 'Denver', 'Co', 80237, '303-330-0303');
 INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (2, '456 ebarter st', NULL, 'Denver', 'Co', 80237, '303-123-4566');
 INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (3, '789 ebarter st', NULL, 'Denver', 'Co', 80237, '719-181-8181');
+INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (4, '123 test st', NULL, 'Denver', 'Co', 80237, '123-456-7899');
 
 COMMIT;
 
@@ -252,6 +260,7 @@ USE `ebarterDB`;
 INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (1, 'cmoney', 'cmoney', true, 'Young', 'Chen', 'young@ebarter.com', '2019-10-04', 1, 1, NULL);
 INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (2, 'jmoney', 'jmoney', true, 'Eric', 'Evasquezus', 'eric@ebarter.com', '2019-10-04', 1, 2, NULL);
 INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (3, 'emoney', 'emoney', true, 'John', 'Overberg', 'john@ebarter.com', '2019-10-04', 1, 3, NULL);
+INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (4, 'testUser', '$2a$10$YUFXDUPQTu8cIEchxikbYedir5zm6cRPHPNKC8P6GKqLnJXrThPTi', true, 'test', 'user', 'test@gmail.com', '2019-10-04', 1, 4, NULL);
 
 COMMIT;
 
@@ -261,7 +270,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (1, 1, 'itemimage.com');
+INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (1, 1, 'https://i5.walmartimages.com/dfw/4ff9c6c9-bda4/k2-_3116e9d1-dc49-4894-a444-9848c59cac16.v1.jpg');
+INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (2, 2, 'https://www.royaloakindia.com/subcatimages/ROYIND-entertainment-units-4.jpg');
+INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (3, 3, 'https://summitsports.scene7.com/is/image/SummitSports/158524_158524_1?$256$');
+INSERT INTO `item_image` (`id`, `item_id`, `item_image_url`) VALUES (4, 4, 'https://c1.neweggimages.com/ProductImage/A8A1_130871576090458906twjovYE66t.jpg');
 
 COMMIT;
 
@@ -285,10 +297,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (1, 'computer desk', 'A dark wood computer desk', '2019-10-04', 1, 1, 1, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (2, 'tv stand', 'All glass tv stand', '2019-10-04', 1, 2, 1, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (3, 'snowboard', 'An old snowboard in good shape', '2019-10-04', 1, 1, 3, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', '2019-10-04', 1, 3, 2, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (1, 'computer desk', 'A dark wood computer desk', '2019-10-04', 1, 1, 1, 1);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (2, 'tv stand', 'A tv stand', '2019-10-04', 1, 2, 1, 2);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (3, 'snowboard', 'An old snowboard in good shape', '2019-10-04', 1, 1, 3, 3);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `is_active`, `user_id`, `category_id`, `item_image_id`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', '2019-10-04', 1, 3, 2, 4);
 
 COMMIT;
 
@@ -320,9 +332,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (1, 1, 'I will offer you a chair', 1, 1, 1);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL, 1);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (3, 1, 'I will offer a piece of gold', 1, NULL, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`, `bidder_id`) VALUES (1, 1, 'I will offer you a chair', 1, 1, 1, 1);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`, `bidder_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL, 1, 1);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`, `bidder_id`) VALUES (3, 1, 'I will offer a piece of gold', 1, NULL, NULL, 1);
 
 COMMIT;
 
