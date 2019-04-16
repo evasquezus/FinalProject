@@ -7,6 +7,7 @@ import { OfferServiceService } from 'src/app/services/offer-service.service';
 import { User } from 'src/app/models/user';
 import { Address } from 'src/app/models/address';
 import { UserService } from 'src/app/services/user.service';
+
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
@@ -22,6 +23,7 @@ export class ItemDetailComponent implements OnInit {
   users: User[];
   address: Address;
   bidder: User;
+
 
   constructor(private itemService: ItemService,
               private offerService: OfferServiceService,
@@ -47,12 +49,7 @@ export class ItemDetailComponent implements OnInit {
   }
 
   submitOffer(desc: string, imgUrl: string) {
-    this.offer = {id: 0,
-      itemId: this.item.id,
-      description: desc,
-      offerStatusId: 1,
-      offerImageId: 0,
-      user: this.bidder};
+    this.offer = null;
     console.log('submit offer: ' + this.offer);
     }
 
