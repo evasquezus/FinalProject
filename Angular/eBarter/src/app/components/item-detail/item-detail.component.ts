@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/item';
 import { ItemService } from 'src/app/services/item.service';
@@ -19,37 +20,56 @@ export class ItemDetailComponent implements OnInit {
   offers: Offer[] = [];
   offer: Offer;
   users: User[];
-  // user: User[] = ' ';
   address: Address;
-  constructor(private itemService: ItemService, private offerService: OfferServiceService, private userService: UserService) { }
+  bidder: User;
+
+  constructor(private itemService: ItemService,
+              private offerService: OfferServiceService,
+              private userService: UserService,
+              private authService: AuthService) { }
 
   ngOnInit() {
+    this.getCurrentUser();
     this.itemService.getSpecificItem(1).subscribe(
       item => {
         console.log('Item:');
         console.log(item);
-
         this.item = item;
-        this.offerService.getOffersForItems(this.item).subscribe(
-          offers => {
-            this.offers = offers;
-            console.log(offers);
-          }
-        );
-          // this.userService.getUserNameForOffers(this.item).subscribe(
-          //   user => {
-          //     this.user = user;
-          //     console.log(user);
-          //   }
-          // );
-      }
+              }
     );
     this.itemService.getSpecificItem(1).subscribe(item => {
       this.item = item;
       localStorage.setItem('itemId', item.id.toString());
       localStorage.setItem('itemName', item.name);
-      localStorage.setItem('seller', item.user.username);
+      localStorage.setItem('sellerName', item.user.username);
 
     });
+  }
+
+  submitOffer(desc: string, imgUrl: string) {
+    this.offer = {id: 0,
+      itemId: this.item.id,
+      description: desc,
+      offerStatusId: 1,
+      offerImageId: 0,
+      user: this.bidder};
+    console.log('submit offer: ' + this.offer);
+    }
+
+
+  getCurrentUser() {
+    const userName = this.authService.getCredName();
+    let response = this.userService.getUserByUserName(userName);
+    response.subscribe(
+      data => {
+        this.bidder = data;
+        localStorage.setItem('bidderName', this.bidder.username);
+        console.log('bidder: ' + this.bidder);
+
+      },
+      error=> {
+        console.log('error in auth.service.getCurrentUser()');
+
+      });
   }
 }

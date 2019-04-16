@@ -6,12 +6,14 @@
       <span ngbDropdown class="nav-item dropdown">
         <a id="menudropdown" ngbDropdownToggle>Menu</a>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button (click)='navList()'ngbDropdownItem>List Item</button>
-          <button (click)='navCompleted()'ngbDropdownItem>My Completed Deals</button>
+          <button (click)='navList()'ngbDropdownItem>List New Item</button>
+          <button (click)='navHome()'ngbDropdownItem>View All Available Items</button>
+          <button (click)='navBidding()'ngbDropdownItem>View Items I Bid On</button>
+          <button (click)='navSelling()'ngbDropdownItem>View Items I Am Selling</button>
+          <button (click)='navWon()'ngbDropdownItem>View Items I Won</button>
+          <button (click)='navCompleted()'ngbDropdownItem>View My Completed Deals</button>
           <button (click)='navProfile()'ngbDropdownItem>My Profile</button>
           <button (click)='navLogout()'ngbDropdownItem>Logout</button>
-          <!-- DELETE LINE BELOW -->
-          <button (click)='navGetUser()'ngbDropdownItem>Get User (for testing)</button>
         </div>
       </span>
     </span>
