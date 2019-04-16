@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
   // click methods for item sorting
   // --------------------------------------------------
   navBidding() {
-
+    this.router.navigate(['/biddingOn']);
   }
 
   navSelling() {

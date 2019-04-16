@@ -1,4 +1,4 @@
-.card-deck{
+#showOffersForItemsThisUserIsbiddingOn{
   display: -webkit-box;
   flex: 1 0 0%;
   flex-direction: column;
@@ -8,3 +8,4 @@
   max-width: 320px;
   margin-top: 30px;
 }
+

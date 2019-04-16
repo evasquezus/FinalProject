@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CompletedComponent } from './components/completed/completed.component';
 import { LoginComponent } from './components/login/login.component';
 import { ItemsWonComponent } from './components/items-won/items-won.component';
+import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
 
 const routes: Routes = [
   { path: 'completed', component: CompletedComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'listitem', component: ListItemComponent },
   { path: 'login', component: LoginComponent },
   { path: 'itemsWon', component: ItemsWonComponent },
+  { path: 'biddingOn', component: ItemsImBiddingOnComponent },
   { path: '', component: HomepageComponent }
 ];
 
