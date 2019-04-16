@@ -3,21 +3,27 @@ import { Item } from './item';
 export class Offer {
   id: number;
   description: string;
-  user: User;
   item: Item;
+  offerStatus: number;
+  user: User;
+  imgUrl: string;
 
 
   constructor (
     id: number,
     description: string,
-    user: User,
     item: Item = null,
+    offerStatus: number = 1,
+    user: User,
+    imgUrl: string
 
   ) {
     this.id = id;
     this.description = description;
-    this.user = user;
     this.item = item;
+    this.offerStatus = offerStatus;
+    this.user = user;
+    this.imgUrl = imgUrl;
 
     }
 }
