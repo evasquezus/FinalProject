@@ -48,14 +48,28 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/listitem']);
   }
 
-  navCompleted() {
-    this.router.navigate(['/completed']);
-  }
-
   navProfile() {
     this.router.navigate(['/profile']);
   }
 
+  // click methods for item sorting
+// --------------------------------------------------
+  navBidding() {
+
+  }
+
+  navSelling() {
+
+  }
+
+  navWon() {
+
+  }
+
+  navCompleted() {
+    this.router.navigate(['/completed']);
+  }
+// ----------------------------------------------------
   navLogout() {
     this.auth.logout();
     this.setNavbar();

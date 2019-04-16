@@ -17,7 +17,8 @@ export class NgbdModalConfigComponent implements OnInit {
   itemId: string
   itemName: string;
   sellerName: string;
-  bidder = new User();
+  bidderName: string;
+  showResult: boolean = false;
 
   constructor(config: NgbModalConfig,
               private modalService: NgbModal,
@@ -33,28 +34,25 @@ export class NgbdModalConfigComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCurrentUser();
-    this.sellerName = localStorage.getItem('seller');
+    this.bidderName = localStorage.getItem('bidderName');
+    console.log('modal bidderName: ' + this.bidderName);
+    this.sellerName = localStorage.getItem('sellerName');
+    console.log('modal sellerName: ' + this.sellerName);
     this.itemName = localStorage.getItem('itemName');
-  }
+    console.log('modal itemName: ' + this.itemName);
+    localStorage.removeItem('bidderName');
+    localStorage.removeItem('sellerName');
+    localStorage.removeItem('itemName')
 
-  getCurrentUser() {
-    const userName = this.authService.getCredName();
-    let response = this.userService.getUserByUserName(userName);
-    response.subscribe(
-      data => {
-        this.bidder = data;
-        console.log('bidder: ' + this.bidder);
-
-      },
-      error=> {
-        console.log('error in auth.service.getCurrentUser()');
-
-      });
   }
 
   submitOffer(form: NgForm) {
+    const desc = form.value.description;
+    const imgUrl = form.value.imgUrl;
+    console.log('modal form: ' + desc + ' ' + imgUrl);
+    this.itemDetailComp.submitOffer(desc, imgUrl);
 
+    this.showResult = true;
   }
 
 }

@@ -256,10 +256,19 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6990de387c76d3550fb0d4a21997d581f2b62d0a
 INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (1, 'https://i5.walmartimages.com/dfw/4ff9c6c9-bda4/k2-_3116e9d1-dc49-4894-a444-9848c59cac16.v1.jpg');
 INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (2, 'https://www.royaloakindia.com/subcatimages/ROYIND-entertainment-units-4.jpg');
 INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (3, 'https://summitsports.scene7.com/is/image/SummitSports/158524_158524_1?$256$');
 INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (4, 'https://c1.neweggimages.com/ProductImage/A8A1_130871576090458906twjovYE66t.jpg');
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6990de387c76d3550fb0d4a21997d581f2b62d0a
 
 COMMIT;
 
@@ -318,9 +327,18 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
+<<<<<<< HEAD
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (1, 1, 'I will offer you a chair', 1, 1, 1);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL, 1);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (3, 1, 'I will offer a piece of gold', 1, NULL, 2);
+=======
+
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (1, 1, 'I will offer you a chair', 1, 1, 1);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (2, 1, 'I will offer you a chicken ', 1, NULL, 1);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `offer_image_id`, `user_offer_id`) VALUES (3, 1, 'I will offer a piece of gold', 1, NULL, 2);
+
+
+>>>>>>> 6990de387c76d3550fb0d4a21997d581f2b62d0a
 
 COMMIT;
 

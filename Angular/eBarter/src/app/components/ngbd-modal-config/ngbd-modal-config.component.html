@@ -7,16 +7,16 @@
   </div>
   <div class="modal-body">
     <form #offerForm='ngForm'>
-      <h3>Offer from: {{bidder.username}}</h3>
+      <h3>Offer from: {{bidderName}}</h3>
       <h3>To: {{sellerName}}</h3>
       <h3>For: {{itemName}}</h3>
       Description
       <br>
-      <input type="text" name='description'/>
+      <input type="text" name='description' ngModel/>
       <br>
       Image Url
       <br>
-      <input type="text" name='imgUrl'/>
+      <input type="text" name='imgUrl'ngModel/>
       <br>
       <input type="hidden">
       <!-- //Below is the data we need for sending in a offer -->
@@ -31,10 +31,13 @@
             "active": true
         } -->
       <br>
+      <button type="button" class="btn btn-success" (click)='submitOffer(offerForm)'>Submit</button>
     </form>
   </div>
+  <div *ngIf = 'showResult'>
+    <h3>Your offer was submitted!</h3>
+  </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-success" (click)='submitOffer(offerForm)'>Submit</button>
   </div>
 </ng-template>
 

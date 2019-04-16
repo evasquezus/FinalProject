@@ -33,12 +33,11 @@ public class OfferServiceImpl implements OfferService {
 
 	@Override
 	public Offer createOffer(Offer offer) {
-		if (offer.getDescription() != null) {
-			offer.setDescription(offer.getDescription());
+//		if (offer.getDescription() != null) {
+//			offer.setDescription(offer.getDescription());
 			repo.saveAndFlush(offer);
 			return offer;
-		}
-		return null;
+//		}
 	}
 
 	@Override
