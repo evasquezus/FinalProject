@@ -33,9 +33,17 @@ public class Offer {
 //	@OneToMany(mappedBy = "offer")
 //	private List<Offer_Image> offerImg;
 //
-//	@ManyToOne
-//	@JoinColumn(name = "offer_status_id")
-//	private Offer_Status offerStatus;
+
+	@Column(name = "offer_status_id")
+	private Integer offerStatus;
+
+	public Integer getOfferStatus() {
+		return offerStatus;
+	}
+
+	public void setOfferStatus(Integer offerStatus) {
+		this.offerStatus = offerStatus;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "user_offer_id")

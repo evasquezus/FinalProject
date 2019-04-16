@@ -120,14 +120,6 @@ public class Item {
 		this.user = user;
 	}
 
-	public List<Offer> getOffer() {
-		return offers;
-	}
-
-	public void setOffer(List<Offer> offer) {
-		this.offers = offer;
-	}
-
 //	public List<Item_Image> getItemImage() {
 //		return itemImage;
 //	}
@@ -220,7 +212,7 @@ public class Item {
 		this.itemStatus = itemStatus;
 		this.category = category;
 		this.user = user;
-		this.offers = offer;
+		this.offers = offers;
 //		this.itemImage = itemImage;
 	}
 
