@@ -7,13 +7,10 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ProfileComponent } from './components/profile/profile.component';
 import { CompletedComponent } from './components/completed/completed.component';
 import { LoginComponent } from './components/login/login.component';
-
 import { DummyComponent } from './components/dummy/dummy.component';
 import { ItemsWonComponent } from './components/items-won/items-won.component';
 import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
 
-import { ItemsWonComponent } from './components/items-won/items-won.component';
-import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
 
 
 const routes: Routes = [
