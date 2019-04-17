@@ -9,6 +9,8 @@ import { CompletedComponent } from './components/completed/completed.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { DummyComponent } from './components/dummy/dummy.component';
+import { ItemsWonComponent } from './components/items-won/items-won.component';
+import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
 
 import { ItemsWonComponent } from './components/items-won/items-won.component';
 import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
@@ -22,12 +24,9 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'listitem', component: ListItemComponent },
   { path: 'login', component: LoginComponent },
-
   { path: 'dummy', component: DummyComponent},
-
   { path: 'itemsWon', component: ItemsWonComponent },
   { path: 'biddingOn', component: ItemsImBiddingOnComponent },
-
   { path: '', component: HomepageComponent }
 ];
 

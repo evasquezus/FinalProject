@@ -121,7 +121,6 @@ export class NavbarComponent implements OnInit {
     console.log(res);
   }
 
-
     // getCurrentUser() {
     //   let response = this.userService.getUserByUserName(this.displayName);
     //   response.subscribe(

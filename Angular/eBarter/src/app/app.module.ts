@@ -23,6 +23,8 @@ import { NgbdAlertCloseableComponent } from './components/ngbd-alert-closeable/n
 import { NgbdAlertSelfclosingComponent } from './components/ngbd-alert-selfclosing/ngbd-alert-selfclosing.component';
 
 import { DummyComponent } from './components/dummy/dummy.component';
+import { ItemsWonComponent } from './components/items-won/items-won.component';
+import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
 
 import { ItemsWonComponent } from './components/items-won/items-won.component';
 import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
@@ -46,12 +48,9 @@ import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/item
     NgbdRatingBasicComponent,
     NgbdAlertCloseableComponent,
     NgbdAlertSelfclosingComponent,
-
     DummyComponent,
-
     ItemsWonComponent,
     ItemsImBiddingOnComponent,
-
   ],
   imports: [
     BrowserModule,

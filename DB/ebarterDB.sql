@@ -218,11 +218,11 @@ INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `las
 INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (4, 'testUser', '$2a$10$YUFXDUPQTu8cIEchxikbYedir5zm6cRPHPNKC8P6GKqLnJXrThPTi', true, 'test', 'user', 'test@gmail.com', '2019-10-04', 1, 4, NULL);
 INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (5, ' offeruser', '$2a$10$Q0VRQjr7CF4iUl6xbPX8kO3Z4uTFPY5CM30vsgQLG4BlhSyBw3Nli', true, 'offer', 'user', 'offeruser@ebarter.com', '2019-10-04', 2, NULL, NULL);
 
-
 COMMIT;
 
 
 -- -----------------------------------------------------
+
 -- Data for table `category`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -260,7 +260,6 @@ INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_of
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (3, 1, 'I will offer a piece of gold', 1, 2, NULL);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (4, 1, 'test', 1, 4, NULL);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (5, 5, 'offer to test item 5', 1, 4, NULL);
-
 
 COMMIT;
 
