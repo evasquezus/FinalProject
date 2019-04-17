@@ -8,6 +8,7 @@ export class Item {
   itemStatus?: number;
   user?: User;
   offers?: Offer [];
+  imageUrl?: string;
 
   constructor(
     id?: number,
@@ -15,7 +16,8 @@ export class Item {
     name?: string,
     itemStatus?: number,
     user?: User,
-    offers?: Offer []
+    offers?: Offer [],
+    imageUrl?: string
   ) {
     this.id = id;
     this.description = description;
@@ -23,6 +25,7 @@ export class Item {
     this.itemStatus = itemStatus;
     this.user = user;
     this.offers = offers;
+    this.imageUrl = imageUrl;
   }
 
 }
