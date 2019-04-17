@@ -16,7 +16,7 @@ export class ItemsImBiddingOnComponent implements OnInit {
 
   item: Item;
   items: Item[];
-  offers: Offer[] = [];
+  offers: Offer[];
   offer: Offer;
   users: User[];
   isBidder: User;

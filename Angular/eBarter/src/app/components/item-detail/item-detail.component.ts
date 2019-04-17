@@ -8,6 +8,7 @@ import { OfferServiceService } from 'src/app/services/offer-service.service';
 import { User } from 'src/app/models/user';
 import { Address } from 'src/app/models/address';
 import { UserService } from 'src/app/services/user.service';
+import { OfferService } from 'src/app/services/offer.service';
 
 @Component({
   selector: 'app-item-detail',
@@ -29,9 +30,10 @@ export class ItemDetailComponent implements OnInit {
 
 
   constructor(private itemService: ItemService,
-    private offerService: OfferServiceService,
-    private userService: UserService,
-    private authService: AuthService) { }
+              private offerService: OfferService,
+              private offerOfferService: OfferServiceService,
+              private userService: UserService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.getCurrentUser();
@@ -41,19 +43,44 @@ export class ItemDetailComponent implements OnInit {
       item => {
         this.item = item;
         console.log(this.item);
+        console.log("*********************************");
+        this.offerService.getSpecificItemOffers(this.item).subscribe(
+          offers => {
+            this.offers = offers;
+            console.log(offers);
+            console.log(this.offers);
+          }
+        );
 
         localStorage.setItem('itemId', item.id.toString());
         localStorage.setItem('itemName', item.name);
         localStorage.setItem('sellerName', item.user.username);
               }
     );
+    this.itemService.getItems().subscribe(items => {
+      this.items = items;
+      console.log(this.items);
+    });
+    // this.offerService.getOffersForItems(this.item).subscribe(
+    //   offers => {
+    //     this.offers = offers;
+    //     console.log(offers);
+    //   }
+    // )
+    this.userService.getAll().subscribe(
+      users => {
+        this.users = users;
+        console.log(users);
+      }
+    );
+
   }
 
   submitOffer(desc: string, imgUrl: string) {
     this.offer = {
       id: 0, description: desc, item: this.item, offerStatus: 1, user: this.bidder, imgUrl: imgUrl};
     console.log('submit offer: ' + this.offer);
-    let response = this.offerService.postNewOffer(this.offer);
+    let response = this.offerOfferService.postNewOffer(this.offer);
     response.subscribe(
       data => {
         this.message = 'Your offer was submitted!';

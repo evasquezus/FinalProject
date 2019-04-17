@@ -16,12 +16,12 @@ export class ListItemComponent implements OnInit {
   item = new Item();
   items: Item[];
   user = new User();
+  bidder: User;
 
   constructor(
     private userService: UserService,
-    private authService: AuthenticationService,
     private itemService: ItemService,
-    private auth: AuthService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
@@ -35,12 +35,13 @@ export class ListItemComponent implements OnInit {
 
   // addItem(name: string, description: string, endDate: Date, user_id: number) {
   addItem(item: Item) {
-    console.log(item.name, item.description, item.endDate, item.user);
+    console.log(item.name, item.description, item.user);
     // this.user.id
     // TODO: when new Item model class pulled, uncomment:
     // this.item.user = this.getCurrentUser();
-    this.item.user = this.user;
-    if (!item.name && !item.description && !item.endDate && !item.user) {
+    this.item.user = this.bidder;
+    this.item.itemStatus = 1;
+    if (!item.name && !item.description && !item.user) {
       alert('Please fill in the form completly');
     } else {
       // this.itemService.saveItem({ na;me, description, endDate, user_id} as Item).subscribe
@@ -52,21 +53,37 @@ export class ListItemComponent implements OnInit {
         );
     }
   }
+  // getCurrentUser() {
+  //   const userName = this.auth.getCredName();
+  //   let response =  this.userService.getUserByUserName(userName);
+  //   // let response = this.userService.getUserByUserName(userName);
+  //   response.subscribe(
+  //     data => {
+  //      this.user = data;
+  //      console.log('role id: ' + this.user.role.id);
+  //      console.log(data);
+  //     //  return this.userService.getUserByUserName(userName);
+  //     },
+  //     error => {
+  //     }
+  //   );
+
+  // }
+
   getCurrentUser() {
-    const userName = this.auth.getCredName();
-    let response =  this.userService.getUserByUserName(userName);
-    // let response = this.userService.getUserByUserName(userName);
+    const userName = this.authService.getCredName();
+    let response = this.userService.getUserByUserName(userName);
     response.subscribe(
       data => {
-       this.user = data;
-       console.log('role id: ' + this.user.role.id);
-       console.log(data);
-      //  return this.userService.getUserByUserName(userName);
+        this.bidder = data;
+        localStorage.setItem('bidderName', this.bidder.username);
+        console.log('bidder: ' + this.bidder);
+
       },
       error => {
-      }
-    );
+        console.log('error in auth.service.getCurrentUser()');
 
+      });
   }
 }
 

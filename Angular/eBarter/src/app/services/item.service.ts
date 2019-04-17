@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Item } from '../models/item';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
+import { Offer } from '../models/offer';
 
 
 @Injectable({
