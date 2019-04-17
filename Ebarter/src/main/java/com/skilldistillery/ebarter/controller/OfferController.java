@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skilldistillery.ebarter.data.ItemService;
 import com.skilldistillery.ebarter.data.OfferService;
+import com.skilldistillery.ebarter.entities.Item;
 import com.skilldistillery.ebarter.entities.Offer;
+import com.skilldistillery.ebarter.repositories.OfferRepository;
 
 @RestController
 @RequestMapping("api")
@@ -25,6 +28,10 @@ public class OfferController {
 
 	@Autowired
 	OfferService service;
+	
+	@Autowired
+	ItemService itemService;
+	
 
 	@GetMapping(path = "offers")
 	public List<Offer> index() {
@@ -37,6 +44,14 @@ public class OfferController {
 		Offer offerRetrived = service.getOfferById(id);
 		response.setStatus(200);
 		return offerRetrived;
+	}
+	
+	@GetMapping(path = "items/{id}/offers")
+	public List<Offer> getOffersForItem(@PathVariable("id") int id, HttpServletResponse response) {
+		Item itemRetrived = itemService.getItemById(id);
+		List<Offer> offersForItem = service.getAllOffersForSpecificItem(itemRetrived);
+		response.setStatus(200);
+		return offersForItem;
 	}
 
 	@DeleteMapping(path = "offers/{id}")

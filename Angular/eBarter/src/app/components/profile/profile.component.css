@@ -13,3 +13,18 @@
 .red {
   color: red;
 }
+
+#info{
+  margin-top: -15%;
+}
+#activeuser{
+  margin-left: 100%;
+  margin-top: -12%;
+  margin-right: -100%;
+}
+#cancel{
+  margin-left: 144%;
+  margin-top: -12%;
+}
+
+

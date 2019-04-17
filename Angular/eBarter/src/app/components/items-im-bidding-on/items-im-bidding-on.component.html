@@ -1,0 +1,57 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- <div id="showOffersForItemsThisUserIsbiddingOn"class="card-deck" style="width: 70rem;" *ngFor="let item of items">
+  <div class="card">
+    <img class="card-img-top"
+      src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
+      alt="Card image cap" href="#/">
+    <div class="card-body">
+      <hr>
+      <div *ngIf="item.offer.length > 0">
+        <div class="card" *ngFor="let offer of item.offer">
+          <ul>
+            <li *ngIf="offer.user.id == isBidder.id">{{item.name}}</li>
+            <li *ngIf="offer.user.id == isBidder.id">{{item.description}}</li>
+            <li *ngIf="offer.user.id == isBidder.id">{{offer.description}}</li>
+          </ul>
+        </div>
+      </div>
+      <br>
+      <hr>
+    </div>
+  </div>
+</div> -->
+<div id="showOffersForItemsThisUserHasWon" class="card-deck" style="width: 70rem;" *ngFor="let item of items">
+
+  <div *ngIf="item.itemStatus == 1">
+    <!-- <h1>{{item.description}}</h1> -->
+    <div *ngIf="item.offers.length > 0">
+      <div *ngFor="let offer of item.offers">
+        <br>
+        <br>
+        <br>
+        <!-- <div *ngIf="offer.offer_status_id == 2"> -->
+        <!-- <h1>{{offer.offer_status_id}}</h1> -->
+        <h1>Items Bid On</h1>
+        <img class="card-img-top" *ngIf="offer.user.id == isBidder.id"
+          src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
+          alt="Card image cap" href="#/">
+        <span *ngIf="offer.user.id == isBidder.id">{{item.name}}</span>
+        <br>
+        <span *ngIf="offer.user.id == isBidder.id">{{item.description}}</span>
+        <br>
+        <span *ngIf="offer.user.id == isBidder.id">{{offer.description}}</span>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

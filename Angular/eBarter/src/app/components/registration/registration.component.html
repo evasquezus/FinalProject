@@ -7,41 +7,39 @@
 
     <div class="registerDiv">
       <h2>Register</h2>
-      <form>
 
-        <tbody>
 
-          <tr>
-            <td>
-              <div id="firstName">
-                <label for="firstName">First Name</label>
-                <input type="text" name="firstName" [(ngModel)]="newUser.firstName">
-                <!-- [ngClass]="{ 'is-invalid': submitted && form.firstName.errors'}" /> -->
-                <!-- <div *ngIf="submitted && form['firstName'].errors" class="invalid-feedback">
-            <div *ngIf="form['firstName'].errors.required">First Name is required</div> -->
+      <form [formGroup]="angForm" novalidate>
+        <tr>
+          <td>
+            <div class="form-group" id="firstName">
+                <label class="center-block">First Name:
+                <input class="form-control" type="text" formControlName="firstName" [(ngModel)]="newUser.firstName">
+              </label>
+              </div>
+              <div *ngIf="angForm.controls['firstName'].invalid && (angForm.controls['firstName'].dirty || angForm.controls['firstName'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['firstName'].errors.required">First name is required.</div>
               </div>
 
             </td>
             <td>
-              <div id="lastName">
-                <label for="lastName">Last Name</label>
-                <input type="text" name="lastName" [(ngModel)]="newUser.lastName" />
-                <!-- [ngClass]="{ 'is-invalid': submitted && form.lastName.errors }" /> -->
-                <!-- <div *ngIf="submitted && form['lastName'].errors" class="invalid-feedback">
-            <div *ngIf="form['lastName'].errors.required">Last Name is required</div> -->
-              </div>
+              <div class="form-group" id="lastName">
+                <label for="lastName">Last Name
+                  <input class="form-control" type="text" formControlName="lastName" [(ngModel)]="newUser.lastName" />
+                </label>
+                </div>
+                <div *ngIf="angForm.controls['lastName'].invalid && (angForm.controls['lastName'].dirty || angForm.controls['lastName'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['lastName'].errors.required">Last name is required.</div>
+                  </div>
 
             </td>
           </tr>
 
           <tr>
             <td>
-              <div id="username">
+              <div class="form-name" id="username">
                 <label for="username">Username</label>
                 <input type="text" name="username" [(ngModel)]="newUser.username" />
-                <!-- [ngClass]="{ 'is-invalid': submitted && form.username.errors }" /> -->
-                <!-- <div *ngIf="submitted && form['username'].errors" class="invalid-feedback">
-            <div *ngIf="form['username'].errors.required">Username is required</div>-->
               </div>
 
             </td>
@@ -49,10 +47,6 @@
               <div id="password">
                 <label for="password">Password</label>
                 <input type="password" name="password" [(ngModel)]="newUser.password" />
-                <!-- [ngClass]="{ 'is-invalid': submitted && form.password.errors }" /> -->
-                <!-- <div *ngIf="submitted && form['password'].errors" class="invalid-feedback">
-            <div *ngIf="form['password'].errors.required">Password is required</div>
-            <div *ngIf="form['password'].errors.minlength">Password must be at least 6 characters</div> -->
               </div>
 
             </td>
@@ -63,9 +57,6 @@
               <div id="email">
                 <label for="email">Email</label>
                 <input type="text" name="email" [(ngModel)]="newUser.email" />
-                <!-- [ngClass]="{ 'is-invalid': submitted && form.email.errors }" /> -->
-                <!-- <div *ngIf="submitted && form['email'].errors" class="invalid-feedback">
-            <div *ngIf="form['email'].errors.required">Email is required</div> -->
               </div>
 
             </td>
@@ -73,9 +64,6 @@
               <div id="street">
                 <label for="street">Street</label>
                 <input type="text" name="street" [(ngModel)]="newUser.address.street" />
-                <!-- [ngClass]="{ 'is-invalid': submitted && form.street.errors }" /> -->
-                <!-- <div *ngIf="submitted && form['street'].errors" class="invalid-feedback">
-            <div *ngIf="form['street'].errors.required">Street is required</div> -->
               </div>
             </td>
 
@@ -86,9 +74,6 @@
               <div id="state">
                 <label for="state">States</label>
                 <input type="text" name="state" [(ngModel)]="newUser.address.state" />
-                <!-- [ngClass]="{ 'is-invalid': submitted && form.state.errors }" /> -->
-                <!-- <div *ngIf="submitted && form['state'].errors" class="invalid-feedback">
-            <div *ngIf="form['state'].errors.required">State is required</div> -->
               </div>
 
             </td>
@@ -96,9 +81,6 @@
               <div id="city">
                 <label for="city">City</label>
                 <input type="text" name="city" [(ngModel)]="newUser.address.city" />
-                <!-- [ngClass]="{ 'is-invalid': submitted && form.city.errors }" /> -->
-                <!-- <div *ngIf="submitted && form['city'].errors" class="invalid-feedback">
-            <div *ngIf="form['city'].errors.required">City is required</div> -->
               </div>
 
             </td>
@@ -109,14 +91,11 @@
               <div id="zipcode">
                 <label for="zipcode">Zipcode</label>
                 <input type="number" name="zipcode" [(ngModel)]="newUser.address.zipCode" />
-                <!-- [ngClass]="{ 'is-invalid': submitted && form.zipcode.errors }" /> -->
-                <!-- <div *ngIf="submitted && form['zipcode'].errors" class="invalid-feedback">
-          <div *ngIf="form['zipcode'].errors.required">Zipcode is required</div> -->
               </div>
             </td>
           </tr>
 
-        </tbody>
+
         <br>
         <tr>
           <td>

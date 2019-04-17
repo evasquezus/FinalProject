@@ -6,6 +6,7 @@ import { Address } from 'src/app/models/address';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -14,6 +15,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegistrationComponent implements OnInit {
 
+  angForm: FormGroup;
+
   newUser: User = new User();
   address: Address = new Address();
 
@@ -21,9 +24,16 @@ export class RegistrationComponent implements OnInit {
     private authService: AuthService,
     // private login: LoginComponent,
     private userService: UserService,
-    private router: Router
-
-  ) {}
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.createForm();
+  }
+  createForm() {
+    this.angForm = this.fb.group({
+      name: ['', Validators.required ]
+    });
+  }
 
   ngOnInit() {}
 
