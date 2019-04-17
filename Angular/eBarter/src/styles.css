@@ -3,3 +3,95 @@ body {
   font-family: 'Ubuntu', serif;
 
 }
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 50%;
+  border-style: solid black;
+}
+
+.carousel {
+  margin-left: 5%;
+  max-width: 500px;
+  max-height: 500px;
+  vertical-align: middle;
+}
+
+.card-deck[_ngcontent-c2] .card[_ngcontent-c2] {
+  display: -webkit-box;
+  flex: 1 0 0%;
+  flex-direction: column;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  max-width: 320px;
+  margin-top: 30px;
+}
+
+.card-deck {
+  margin-left: 30%;
+  bottom: 710px;
+  position: relative;
+  text-align: center;
+
+}
+
+body {
+  background-color: #edeff0 ;
+}
+
+button{
+/* text-align: center; */
+position: relative;
+}
+.card-body{
+text-align: left;
+padding-left: 50px;
+}
+/*
+form {
+  text-align: center;
+  position: relative;
+  bottom: 100px;
+  width: 425px;
+  height: 300px;
+  margin: 30px auto 0;
+  background-color: #e2e2e2;
+  -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
+  box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
+
+} */
+
+form img,
+form input {
+  display: inline-block;
+}
+
+h2{
+  position: relative;
+  bottom: 210px;
+  margin-left: 45%;
+}
+.list-group {
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+#sideBarLeft{
+  position: relative;
+  bottom: 150px;
+  margin-left: 3%;
+}
+
+.card-deck .card {
+  display: -webkit-box;
+  flex: 1 0 0%;
+  flex-direction: column;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  max-width: 500px;
+
+}

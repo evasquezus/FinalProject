@@ -22,6 +22,8 @@
         </div>
       </div>
       <br> -->
+
+
 <div class="imageLocation">
   ​<picture>
     <source
@@ -32,7 +34,7 @@
   <ul class="list-group" id="information-on-item">
     <li class="list-group-item">{{item.description}}</li>
     <li class="list-group-item">{{item.name}}</li>
-    <li class="list-group-item">{{item.endDate}}</li>
+    <!-- <li class="list-group-item">{{item.endDate}}</li> -->
     <br>
     <app-ngbd-modal-config></app-ngbd-modal-config>
     <br>
@@ -44,29 +46,34 @@
 <br>
 <br>
  <div class="container" *ngFor="let offer of offers" id="tableForOffers">
-  <table class="table table-sm">
+   <!-- <h1>{{offer.id}}</h1> -->
+<!-- //*ngFor="let item of items" -->
+  <table class="table table-sm"  >
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">UserName</th>
         <th scope="col">Offer Description</th>
-        <th scope="col">User</th>
+        <th scope="col">Location</th>
         <th scope="col">Accept</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{offer.id}}</th>
-        <td>{{offer.user.username}}</td>
-        <td>{{offer.description}}</td>
-        <td>{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}</td>
-        <td> <button class="btn btn-success" disabled>Accept</button></td>
+        <th >{{offer.id}}</th>
+        <td >{{offer.user.username}}</td>
+        <td >{{offer.description}}</td>
+        <td >{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}</td>
+        <!-- <td *ngFor="let item of items"> -->
+          <!-- <p *ngFor="let user of users"></p> -->
+          <button class="btn btn-success">Accept</button>
+          <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
       </tr>
     </tbody>
   </table>
 </div>
 
-<br>
+<!-- <br>
 <br>
 <div class="container" *ngFor="let user of users" id="tableForOffers">
   <table class="table table-sm">
@@ -81,6 +88,6 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
  <!-- <app-ngbd-carousel-basic></app-ngbd-carousel-basic> -->
 

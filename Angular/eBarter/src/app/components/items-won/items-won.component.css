@@ -1,0 +1,14 @@
+/* #showOffersForItemsThisUserHasWon{
+  margin-left: 500px;
+} */
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+  size: 400px;
+  border-radius: 10%;
+}
+span[_ngcontent-c2] {
+  text-align: center;
+  margin-left: 10px;
+}
