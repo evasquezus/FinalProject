@@ -21,6 +21,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgbdRatingBasicComponent } from './components/ngbd-rating-basic/ngbd-rating-basic.component';
 import { NgbdAlertCloseableComponent } from './components/ngbd-alert-closeable/ngbd-alert-closeable.component';
 import { NgbdAlertSelfclosingComponent } from './components/ngbd-alert-selfclosing/ngbd-alert-selfclosing.component';
+import { DummyComponent } from './components/dummy/dummy.component';
+import { ItemsWonComponent } from './components/items-won/items-won.component';
+import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
+
+
 
 
 @NgModule({
@@ -40,6 +45,9 @@ import { NgbdAlertSelfclosingComponent } from './components/ngbd-alert-selfclosi
     NgbdRatingBasicComponent,
     NgbdAlertCloseableComponent,
     NgbdAlertSelfclosingComponent,
+    DummyComponent,
+    ItemsWonComponent,
+    ItemsImBiddingOnComponent,
   ],
   imports: [
     BrowserModule,

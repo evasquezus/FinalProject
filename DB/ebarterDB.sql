@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -229,3 +230,5 @@ INSERT INTO `category` (`id`, `name`) VALUES (5, 'clothing');
 
 COMMIT;
 
+=======
+>>>>>>> ec667c2f9ec2a20f07d6342b1a0d26c12dee961a

@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.ebarter.entities.Item;
 import com.skilldistillery.ebarter.entities.Offer;
+import com.skilldistillery.ebarter.repositories.ItemRepository;
 import com.skilldistillery.ebarter.repositories.OfferRepository;
 
 @Service
@@ -14,6 +16,10 @@ public class OfferServiceImpl implements OfferService {
 
 	@Autowired
 	OfferRepository repo;
+	
+	@Autowired
+	ItemRepository itemRepo;
+	
 
 	@Override
 	public List<Offer> getAllOffers() {
@@ -60,7 +66,13 @@ public class OfferServiceImpl implements OfferService {
 		}
 		return deleted;
 	}
-	
+
+
+	@Override
+	public List<Offer> getAllOffersForSpecificItem(Item item) {
+		return item.getOffers();
+	}
+
 
 
 }
