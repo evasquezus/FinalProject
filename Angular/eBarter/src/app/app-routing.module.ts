@@ -7,6 +7,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ProfileComponent } from './components/profile/profile.component';
 import { CompletedComponent } from './components/completed/completed.component';
 import { LoginComponent } from './components/login/login.component';
+import { DummyComponent } from './components/dummy/dummy.component';
 
 const routes: Routes = [
   { path: 'completed', component: CompletedComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'listitem', component: ListItemComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'dummy', component: DummyComponent},
   { path: '', component: HomepageComponent }
 ];
 

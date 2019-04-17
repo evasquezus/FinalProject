@@ -38,7 +38,7 @@ export class OfferServiceService {
 
   postNewOffer(offer: Offer) {
     console.log('in offer service: ' + offer);
-
+    console.log('in service imgUrl: ' + offer.imgUrl);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
