@@ -20,7 +20,7 @@ import { HomepageComponent } from '../homepage/homepage.component';
 export class NavbarComponent implements OnInit {
   loginnavbar = true;
   mainnavbar = false;
-  logincombo = {username: '', password: ''};
+  logincombo = { username: '', password: '' };
   displayName = null;
   currentUser: User;
 
@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
               private share: ShareService) { }
 
   ngOnInit() {
-  this.setNavbar();
+    this.setNavbar();
   }
 
   setNavbar() {
@@ -68,9 +68,9 @@ export class NavbarComponent implements OnInit {
   }
 
   // click methods for item sorting
-// --------------------------------------------------
+  // --------------------------------------------------
   navBidding() {
-
+    this.router.navigate(['/biddingOn']);
   }
 
   navSelling() {
@@ -78,13 +78,13 @@ export class NavbarComponent implements OnInit {
   }
 
   navWon() {
-
+    this.router.navigate(['/itemsWon']);
   }
 
   navCompleted() {
     this.router.navigate(['/completed']);
   }
-// ----------------------------------------------------
+  // ----------------------------------------------------
   navLogout() {
     this.auth.logout();
     this.setNavbar();
@@ -117,7 +117,7 @@ export class NavbarComponent implements OnInit {
       }
     );
     console.log(res);
-    }
+  }
 
     // getCurrentUser() {
     //   let response = this.userService.getUserByUserName(this.displayName);
