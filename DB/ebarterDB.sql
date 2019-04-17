@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -194,11 +193,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'computer desk', 'A dark wood computer desk', 1, 1, 1, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A tv stand', 1, 2, 1, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'snowboard', 'An old snowboard in good shape', 1, 1, 3, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', 1, 3, 2, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (5, 'test item', 'a test item', 1, 4, 1, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'computer desk', 'A dark wood computer desk', 1, 1, 1, 'https://thatnthisdotcom.files.wordpress.com/2019/01/img-0323.jpg?w=1024');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A coffee table', 1, 2, 1, 'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiK34bVtNfhAhVvwMQHHViXBxMQjRx6BAgBEAU&url=http%3A%2F%2Flunarpodcasts.site%2Fold-door-coffee-table%2F&psig=AOvVaw2qPvpe1RQmedSjO5rBKVYD&ust=1555600222168397');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'Bike', 'An old road bicycle in good shape', 1, 1, 3, 'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjdjNHGtdfhAhXmg1QKHZPQAPgQjRx6BAgBEAU&url=http%3A%2F%2Fcolbikes.com%2Fused-bikes.html&psig=AOvVaw3wmyfd6Q0e-KfPzmdknnka&ust=1555600456619793');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', 1, 3, 2, 'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjs0MbPwdfhAhWPrZ4KHfJQALAQjRx6BAgBEAU&url=https%3A%2F%2Fus.letgo.com%2Fen%2Fi%2Fmacbook-air-used-in-excellent-condition_d5940ac1-3a31-4cf6-8319-3621752ebfd0&psig=AOvVaw113Bog7MzK4GGCf-1Vu4Rp&ust=1555603726756108');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (5, 'test item', 'a test item', 1, 4, 1, 'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjktprKttfhAhWP3lQKHTluCJcQjRx6BAgBEAU&url=http%3A%2F%2Fcollinalpert.me%2Ffjallraven-kanken-ochre%2Fbackpack-used-ochre-fjallraven-kanken-ebay%2F&psig=AOvVaw39P7kiO1GIznjXaCHMoCKC&ust=1555600640617280');
 
 COMMIT;
 
@@ -230,5 +229,3 @@ INSERT INTO `category` (`id`, `name`) VALUES (5, 'clothing');
 
 COMMIT;
 
-=======
->>>>>>> ec667c2f9ec2a20f07d6342b1a0d26c12dee961a
