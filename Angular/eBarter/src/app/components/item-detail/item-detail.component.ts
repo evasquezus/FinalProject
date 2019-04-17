@@ -77,6 +77,8 @@ export class ItemDetailComponent implements OnInit {
   }
 
   submitOffer(desc: string, imgUrl: string) {
+    console.log('imgUrl: ' + imgUrl);
+
     this.offer = {
       id: 0, description: desc, item: this.item, offerStatus: 1, user: this.bidder, imgUrl: imgUrl};
     console.log('submit offer: ' + this.offer);

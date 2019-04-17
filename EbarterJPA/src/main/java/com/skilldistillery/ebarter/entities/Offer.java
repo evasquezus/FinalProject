@@ -50,16 +50,16 @@ public class Offer {
 	private User user;
 	
 	@Column(name="image_url")
-	private String imageUrl;
+	private String imgUrl;
 
 
 
-	public String getImageUrl() {
-		return imageUrl;
+	public String getImgUrl() {
+		return imgUrl;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 	public int getId() {
