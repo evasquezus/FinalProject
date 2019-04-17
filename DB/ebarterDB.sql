@@ -81,19 +81,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `category`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `category` ;
-
-CREATE TABLE IF NOT EXISTS `category` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `item`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `item` ;
@@ -102,22 +89,15 @@ CREATE TABLE IF NOT EXISTS `item` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   `description` VARCHAR(200) NULL DEFAULT NULL,
-  `end_date` DATETIME NOT NULL,
   `item_status` TINYINT(4) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
   `category_id` INT NOT NULL,
   `image_url` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`),
   INDEX `seller_id_idx` (`user_id` ASC),
-  INDEX `category_id_idx` (`category_id` ASC),
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `category_id`
-    FOREIGN KEY (`category_id`)
-    REFERENCES `category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -148,27 +128,13 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `offer_image`
+-- Table `category`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `offer_image` ;
+DROP TABLE IF EXISTS `category` ;
 
-CREATE TABLE IF NOT EXISTS `offer_image` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `offer_id` INT(11) NOT NULL,
-  `offer_image_url` VARCHAR(500) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `item_image`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `item_image` ;
-
-CREATE TABLE IF NOT EXISTS `item_image` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `item_image_url` VARCHAR(1000) NOT NULL,
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` INT(11) NOT NULL,
+  `name` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -217,35 +183,7 @@ INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `las
 INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (2, 'jmoney', 'jmoney', true, 'Eric', 'Evasquezus', 'eric@ebarter.com', '2019-10-04', 1, 2, NULL);
 INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (3, 'emoney', 'emoney', true, 'John', 'Overberg', 'john@ebarter.com', '2019-10-04', 1, 3, NULL);
 INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (4, 'testUser', '$2a$10$YUFXDUPQTu8cIEchxikbYedir5zm6cRPHPNKC8P6GKqLnJXrThPTi', true, 'test', 'user', 'test@gmail.com', '2019-10-04', 1, 4, NULL);
-
-COMMIT;
-
-
--- -----------------------------------------------------
-<<<<<<< Updated upstream
-
--- Data for table `item_image`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ebarterDB`;
-
-
-COMMIT;
-
-
--- -----------------------------------------------------
-
-=======
->>>>>>> Stashed changes
--- Data for table `category`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ebarterDB`;
-INSERT INTO `category` (`id`, `name`) VALUES (1, 'furniture');
-INSERT INTO `category` (`id`, `name`) VALUES (2, 'electronic');
-INSERT INTO `category` (`id`, `name`) VALUES (3, 'outdoor');
-INSERT INTO `category` (`id`, `name`) VALUES (4, 'pets');
-INSERT INTO `category` (`id`, `name`) VALUES (5, 'clothing');
+INSERT INTO `user` (`id`, `user_name`, `password`, `enabled`, `first_name`, `last_name`, `email`, `register_date`, `role_id`, `address_id`, `authenticated`) VALUES (5, 'offeruser', '$2a$10$Q0VRQjr7CF4iUl6xbPX8kO3Z4uTFPY5CM30vsgQLG4BlhSyBw3Nli', true, 'offer', 'user', 'offeruser@ebarter.com', '2019-10-04', 2, NULL, NULL);
 
 COMMIT;
 
@@ -255,10 +193,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'computer desk', 'A dark wood computer desk', '2019-10-04', 1, 1, 1, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A tv stand', '2019-10-04', 1, 2, 1, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'snowboard', 'An old snowboard in good shape', '2019-10-04', 1, 1, 3, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', '2019-10-04', 1, 3, 2, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'computer desk', 'A dark wood computer desk', 1, 1, 1, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A tv stand', 1, 2, 1, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'snowboard', 'An old snowboard in good shape', 1, 1, 3, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', 1, 3, 2, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (5, 'test item', 'a test item', 1, 4, 1, NULL);
 
 COMMIT;
 
@@ -268,40 +207,25 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (1, 1, 'I will offer you a chair', 1, 1, NULL);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (2, 1, 'I will offer you a chicken ', 1, 1, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (1, 1, 'I will offer you a chair', 1, 2, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (2, 1, 'I will offer you a chicken ', 1, 3, NULL);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (3, 1, 'I will offer a piece of gold', 1, 2, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (4, 1, 'test', 1, 1, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (5, 5, 'offer to test item 5', 1, 2, NULL);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `offer_image`
+-- Data for table `category`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `offer_image` (`id`, `offer_id`, `offer_image_url`) VALUES (1, 1, 'image.com');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `item_image`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `ebarterDB`;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (1, 'https://i5.walmartimages.com/dfw/4ff9c6c9-bda4/k2-_3116e9d1-dc49-4894-a444-9848c59cac16.v1.jpg');
-INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (2, 'https://www.royaloakindia.com/subcatimages/ROYIND-entertainment-units-4.jpg');
-INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (3, 'https://summitsports.scene7.com/is/image/SummitSports/158524_158524_1?$256$');
-INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (4, 'https://c1.neweggimages.com/ProductImage/A8A1_130871576090458906twjovYE66t.jpg');
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
+INSERT INTO `category` (`id`, `name`) VALUES (1, 'furniture');
+INSERT INTO `category` (`id`, `name`) VALUES (2, 'electronic');
+INSERT INTO `category` (`id`, `name`) VALUES (3, 'outdoor');
+INSERT INTO `category` (`id`, `name`) VALUES (4, 'pets');
+INSERT INTO `category` (`id`, `name`) VALUES (5, 'clothing');
 
 COMMIT;
 
