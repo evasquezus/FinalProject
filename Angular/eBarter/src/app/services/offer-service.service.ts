@@ -36,13 +36,27 @@ export class OfferServiceService {
     return this.http.get<Offer[]>(this.offerUrl, httpOptions);
   }
 
-  postNewOffer(offer: Offer) {
+  getSpecificItemOffers(item: Item | number): Observable<Offer[]> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
-    return this.http.get<Offer[]>(this.offerUrl, httpOptions);
+    const id = typeof item === 'number' ? item : item.id;
+    const url = `${this.offerUrl}/${id}/offers`;
+    return this.http.get<Offer[]>(url, httpOptions);
+  }
+
+  postNewOffer(offer: Offer) {
+    console.log('in offer service: ' + offer);
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${this.auth.getCredentials()}`
+      })
+    };
+    return this.http.post<Offer>(this.offerUrl, offer, httpOptions);
   }
 }

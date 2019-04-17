@@ -7,15 +7,19 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ProfileComponent } from './components/profile/profile.component';
 import { CompletedComponent } from './components/completed/completed.component';
 import { LoginComponent } from './components/login/login.component';
+import { ItemsWonComponent } from './components/items-won/items-won.component';
+import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
 
 const routes: Routes = [
   { path: 'completed', component: CompletedComponent },
   { path: 'home', component: HomepageComponent },
-  { path: 'item', component: ItemDetailComponent},
+  { path: 'item', component: ItemDetailComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'listitem', component: ListItemComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'itemsWon', component: ItemsWonComponent },
+  { path: 'biddingOn', component: ItemsImBiddingOnComponent },
   { path: '', component: HomepageComponent }
 ];
 

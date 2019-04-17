@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.ebarter.entities.Item;
+import com.skilldistillery.ebarter.entities.Offer;
 import com.skilldistillery.ebarter.repositories.ItemRepository;
 import com.skilldistillery.ebarter.repositories.UserRepository;
 
@@ -53,7 +54,7 @@ public class ItemServiceImpl implements ItemService {
 //			managed.setCategory(item.getCategory());
 			managed.setDescription(item.getDescription());
 			managed.setName(item.getName());
-			managed.setEndDate(item.getEndDate());
+//			managed.setEndDate(item.getEndDate());
 			repo.saveAndFlush(item);
 		}
 		return null;
