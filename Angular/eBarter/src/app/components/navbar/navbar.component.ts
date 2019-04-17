@@ -37,7 +37,9 @@ export class NavbarComponent implements OnInit {
 
   setNavbar() {
     if (this.auth.checkLogin()) {
+
       this.displayName = this.auth.getCredName();
+
       this.loginnavbar = false;
       this.mainnavbar = true;
 
