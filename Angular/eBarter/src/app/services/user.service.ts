@@ -2,7 +2,7 @@ import { AuthService } from './auth.service';
 import { User } from './../models/user';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { throwError, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
@@ -14,8 +14,8 @@ import { Offer } from '../models/offer';
   providedIn: 'root'
 })
 export class UserService {
-  // private baseUrl = environment.baseUrl;
-  private baseUrl = 'http://localhost:8085/';
+  private baseUrl = environment.baseUrl;
+  // private baseUrl = 'http://localhost:8085/';
   private url = this.baseUrl + 'api/users/';
   private offerUrl = this.baseUrl + 'api/offers/';
 
@@ -27,6 +27,7 @@ export class UserService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         'Authorization': `Basic ${credentials}`
       })
     };
@@ -43,29 +44,31 @@ export class UserService {
     );
   }
 
-register(user: User) {
-  const credentials = this.as.getCredentials();
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Basic ${credentials}`
-    })
-  };
-  console.log(user.firstName);
-  return this.http.post(`${this.url}${user.id}`, user, httpOptions).pipe(
-    catchError((err: any) => {
-      console.error('UserService.register(): Error');
-      console.error(err);
-      return throwError('Error in UserService.update()');
-    })
-  );
-}
+  register(user: User) {
+    const credentials = this.as.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Authorization': `Basic ${credentials}`
+      })
+    };
+    console.log(user.firstName);
+    return this.http.post(`${this.url}${user.id}`, user, httpOptions).pipe(
+      catchError((err: any) => {
+        console.error('UserService.register(): Error');
+        console.error(err);
+        return throwError('Error in UserService.update()');
+      })
+    );
+  }
 
   update(user: User) {
     const credentials = this.as.getCredentials();
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         'Authorization': `Basic ${credentials}`
       })
     };
@@ -93,7 +96,7 @@ register(user: User) {
       headers: {
         Authorization: `Basic ${credentials}`,
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
+        'X-Requested-With': 'XMLHttpRequest',
       }
     };
   }
@@ -113,6 +116,7 @@ register(user: User) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${credentials}`
       })
     };

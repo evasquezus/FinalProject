@@ -1,3 +1,138 @@
+<<<<<<< HEAD
+<br>
+<br>
+<div class="container">
+
+  <div id="rig">
+
+    <h1>Register</h1>
+  </div>
+  <form [formGroup]="angForm" novalidate>
+    <tr>
+      <td>
+        <div class="form-group" id="firstName">
+          <label class="center-block">First Name <span class="warningText"
+              *ngIf="angForm.controls['firstName'].invalid && (angForm.controls['firstName'].dirty || angForm.controls['firstName'].touched)">
+              is Required.
+            </span></label>
+          <input class="form-control" type="text" formControlName="firstName" [(ngModel)]="newUser.firstName">
+
+
+        </div>
+      </td>
+
+      <td>
+        <div class="form-group" id="lastName">
+          <label class="center-block">Last name <span class="warningText"
+              *ngIf="angForm.controls['lastName'].invalid && (angForm.controls['lastName'].dirty || angForm.controls['lastName'].touched)">
+              is Required.</span></label>
+          <input class="form-control" type="text" formControlName="lastName" [(ngModel)]="newUser.lastName" />
+
+        </div>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group" id="username">
+          <label class="center-block">Username <span class="warningText"
+              *ngIf="angForm.controls['username'].invalid && (angForm.controls['username'].dirty || angForm.controls['username'].touched)">
+              is Required.</span></label>
+          <input class="form-control" type="text" formControlName="username" [(ngModel)]="newUser.username" />
+
+
+
+        </div>
+
+      </td>
+      <td>
+        <div class="form-group" id="password">
+          <label class="center-block">Password<span
+              *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)"
+              class="warningText"> is Required.</span></label>
+          <input class="form-control" type="password" formControlName="password" [(ngModel)]="newUser.password" />
+
+        </div>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group" id="email">
+          <label class="center-block">Email<span
+              *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)"
+              class="warningText"> is Required.</span></label>
+          <input class="form-control" type="text" formControlName="email" [(ngModel)]="newUser.email" />
+
+
+        </div>
+
+      </td>
+      <td>
+        <div class="form-group" id="street">
+          <label class="center-block">Street <span
+              *ngIf="angForm.controls['street'].invalid && (angForm.controls['street'].dirty || angForm.controls['street'].touched)"
+              class="warningText"> is Required.</span></label>
+          <input class="form-control" type="text" formControlName="street" [(ngModel)]="newUser.address.street" />
+
+        </div>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group" id="city">
+          <label class="center-block">City<span
+              *ngIf="angForm.controls['city'].invalid && (angForm.controls['city'].dirty || angForm.controls['city'].touched)"
+              class="warningText"> is Required.</span></label>
+          <input class="form-control" type="text" formControlName="city" [(ngModel)]="newUser.address.city" />
+        </div>
+      </td>
+      <td>
+        <div class="form-group" id="state">
+          <label class="center-block">State<span
+              *ngIf="angForm.controls['state'].invalid && (angForm.controls['state'].dirty || angForm.controls['state'].touched)"
+              class="warningText"> is Required.</span></label>
+          <input class="form-control" type="text" formControlName="state" [(ngModel)]="newUser.address.state" />
+
+
+        </div>
+
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group" id="zipcode">
+          <label class="center-block">Zipcode <span
+              *ngIf="angForm.controls['zipcode'].invalid && (angForm.controls['zipcode'].dirty || angForm.controls['zipcode'].touched)"
+              class="warningText">is Required</span></label>
+          <input class="form-control" type="number" formControlName="zipcode" [(ngModel)]="newUser.address.zipCode" />
+
+
+        </div>
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>
+        <div class="form-group" id="submit">
+          <input type='submit' (click)='onSubmit()' class="btn btn-primary">
+          <a routerLink="/login" class="btn btn-link">Cancel</a>
+        </div>
+      </td>
+    </tr>
+
+  </form>
+</div>
+<br>
+<br>
+<div class="container">
+=======
 <br>
 <br>
 <div class="container">
@@ -140,3 +275,4 @@
 
       </form>
     </div>
+>>>>>>> parent of eb45101... Most of the conflicts fixed item Status not working agian

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skilldistillery.ebarter.data.CategoryService;
 import com.skilldistillery.ebarter.data.ItemService;
 import com.skilldistillery.ebarter.data.UserService;
 import com.skilldistillery.ebarter.entities.Item;
@@ -21,8 +20,8 @@ public class ItemControllerNoAuth {
 	@Autowired
 	ItemService service;
 
-	@Autowired
-	CategoryService catService;
+//	@Autowired
+//	CategoryService catService;
 
 	@Autowired
 	UserService userService;

@@ -12,14 +12,21 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ItemNoAuthService {
+  private baseUrl = environment.baseUrl;
 
-  private baseUrl = 'http://localhost:8085/';
+  // private baseUrl = 'http://localhost:8085/';
   itemUrlNoAuth = this.baseUrl + 'landing/items';
 
   constructor(private http: HttpClient) { }
 
   getItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.itemUrlNoAuth);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      })
+    };
+    return this.http.get<Item[]>(this.itemUrlNoAuth, httpOptions);
   }
 
   popUpEnsureUserRegisters() {

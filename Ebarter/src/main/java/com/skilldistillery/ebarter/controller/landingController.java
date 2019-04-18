@@ -22,8 +22,8 @@ public class landingController {
 		@Autowired
 		ItemService service;
 
-		@Autowired
-		CategoryService catService;
+//		@Autowired
+//		CategoryService catService;
 
 		@Autowired
 		UserService userService;

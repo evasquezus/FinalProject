@@ -4,13 +4,15 @@ import { AuthenticationService } from './authentication.service';
 import { Offer } from '../models/offer';
 import { Observable } from 'rxjs';
 import { Item } from '../models/item';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfferServiceService {
 
-  private baseUrl = 'http://localhost:8085/';
+  private baseUrl = environment.baseUrl;
+  // private baseUrl = 'http://localhost:8085/';
 
 
   offerUrl = this.baseUrl + 'api/offers';
@@ -30,6 +32,7 @@ export class OfferServiceService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
@@ -40,6 +43,7 @@ export class OfferServiceService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
@@ -54,6 +58,7 @@ export class OfferServiceService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };

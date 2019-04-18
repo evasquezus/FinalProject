@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 public class Item {
@@ -34,11 +36,13 @@ public class Item {
 	@Column(name = "item_status")
 	private int itemStatus;
 
-	@JsonIgnore
+////	@JsonIgnore
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
-//
+	
+
 //	@ManyToOne(cascade = { CascadeType.ALL })
 //	@JsonIgnore
 	@ManyToOne
@@ -104,14 +108,6 @@ public class Item {
 		this.itemStatus = status;
 	}
 
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -128,12 +124,11 @@ public class Item {
 //		this.itemImage = itemImage;
 //	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((category == null) ? 0 : category.hashCode());
+//		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + id;
@@ -162,11 +157,11 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		Item other = (Item) obj;
-		if (category == null) {
-			if (other.category != null)
-				return false;
-		} else if (!category.equals(other.category))
-			return false;
+//		if (category == null) {
+//			if (other.category != null)
+//				return false;
+//		} else if (!category.equals(other.category))
+//			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -223,6 +218,14 @@ public class Item {
 		this.user = user;
 		this.offers = offers;
 		this.imageUrl = imageUrl;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public Item() {
