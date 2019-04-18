@@ -51,50 +51,53 @@
     </aside>
     <aside class="col-sm-7">
       <article class="p-5">
-        <h3 class="title mb-3">Original Version of Some product name</h3>
+        <h3 class="title mb-3">{{item.name}}</h3>
         <div class="mb-3">
 
-          <br>
-          <br>
-          <br>
-              <ul class="list-group" id="information-on-item">
-                <li *ngIf='!won && showOffer' class="list-group-item bold">Offer Details:</li>
-                <li *ngIf='!won && !showOffer' class="list-group-item bold">Item Details:</li>
-                <li *ngIf='won' class="list-group-item bold">Your Offer Was Accepted!</li>
-                <li *ngIf='!showOffer' class="list-group-item">Item: {{item.name}}</li>
-                <li *ngIf='!showOffer' class="list-group-item">Description: {{item.description}}</li>
-                <li *ngIf='showOffer' class="list-group-item">{{offer.description}}</li>
-                <li *ngIf='won' class="list-group-item bold">Contact the seller to complete the deal!</li>
-                <li *ngIf='won' class="list-group-item">Seller: {{item.user.firstName}} {{item.user.lastName}}</li>
-                <li *ngIf='won' class="list-group-item">Email: {{item.user.email}}</li>
-                <div *ngIf='!won'>
-                  <br>
-                  <div *ngIf='!selling'>
-                    <app-ngbd-modal-config></app-ngbd-modal-config>
-                  </div>
-                  <br>
-                </div>
-              </ul>
+
         </div> <!-- price-detail-wrap .// -->
-        <dl>
-          <dt>Description</dt>
-          <dd>
-            <p>Here goes description consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco </p>
-          </dd>
-        </dl>
-        <dl class="row">
-          <dt class="col-sm-3">Model#</dt>
-          <dd class="col-sm-9">12345611</dd>
+        <!-- <dl class="row" id="information-on-item">
+            <dt class="col-sm-3" *ngIf='!won && showOffer' class="list-group-item bold">Offer Details:</dt>
+            <dd class="col-sm-9" *ngIf='!won && !showOffer' class="list-group-item bold">Item Details:</dd>
 
-          <dt class="col-sm-3">Color</dt>
-          <dd class="col-sm-9">Black and white </dd>
+            <dt class="col-sm-3" *ngIf='won' class="list-group-item bold">Your Offer Was Accepted!>Color</dt>
+            <dd class="col-sm-9" *ngIf='!showOffer' class="list-group-item">{{item.name}}</dd>
 
-          <dt class="col-sm-3">Delivery</dt>
-          <dd class="col-sm-9">Russia, USA, and Europe </dd>
-        </dl>
-        <div class="rating-wrap">
+            <dt class="col-sm-3"*ngIf='!showOffer' class="list-group-item" >Description: {{item.description}}</dt>
+            <dd class="col-sm-9" *ngIf='showOffer' class="list-group-item">{{offer.description}}</dd>
+
+            <dt class="col-sm-3"  *ngIf='won' class="list-group-item bold" >Contact the seller to complete the deal!</dt>
+            <dd class="col-sm-9"  *ngIf='won' class="list-group-item">Seller: {{item.user.firstName}} {{item.user.lastName}}/dd>
+
+            <dt class="col-sm-3"  *ngIf='won' class="list-group-item" >Email: {{item.user.email}}</dt>
+            <div *ngIf='!won'>
+                <br>
+                <div *ngIf='!selling'>
+                  <app-ngbd-modal-config></app-ngbd-modal-config>
+                </div>
+                <br>
+              </div>
+          </dl> -->
+        <ul class="list-group" id="information-on-item">
+          <li *ngIf='!won && showOffer' class="list-group-item bold">Offer Details:</li>
+          <li *ngIf='!won && !showOffer' class="list-group-item bold">Item Details:</li>
+          <li *ngIf='won' class="list-group-item bold">Your Offer Was Accepted!</li>
+          <li *ngIf='!showOffer' class="list-group-item">Item: {{item.name}}</li>
+          <li *ngIf='!showOffer' class="list-group-item">Description: {{item.description}}</li>
+          <li *ngIf='showOffer' class="list-group-item">{{offer.description}}</li>
+          <li *ngIf='won' class="list-group-item bold">Contact the seller to complete the deal!</li>
+          <li *ngIf='won' class="list-group-item">Seller: {{item.user.firstName}} {{item.user.lastName}}</li>
+          <li *ngIf='won' class="list-group-item">Email: {{item.user.email}}</li>
+          <div *ngIf='!won'>
+            <br>
+            <div *ngIf='!selling'>
+              <app-ngbd-modal-config></app-ngbd-modal-config>
+            </div>
+            <br>
+          </div>
+        </ul>
+
+        <!-- <div class="rating-wrap">
 
             <ul class="rating-stars">
               <li style="width:80%" class="stars-active">
@@ -108,13 +111,13 @@
                 <i class="fa fa-star"></i>
               </li>
             </ul>
-            <!-- <div class="label-rating">132 reviews</div>
+            <div class="label-rating">132 reviews</div>
             <div class="label-rating">154 orders </div> -->
-        </div>
+        <!-- </div>  -->
         <div class="row">
           <!-- <div class="col-sm-5"> -->
-            <!-- <dl class="dlist-inline"> -->
-              <!-- <dt>Quantity: </dt>
+          <!-- <dl class="dlist-inline"> -->
+          <!-- <dt>Quantity: </dt>
               <dd>
                 <select class="form-control form-control-sm" style="width:70px;" data-fillr-id="1704878544"
                   data-fillr="bound" autocomplete="off">
@@ -123,50 +126,168 @@
                   <option> 3 </option>
                 </select>
               </dd> -->
-            <!-- </dl>  -->
+          <!-- </dl>  -->
           <!-- </div>  -->
           <div class="col-sm-7">
             <dl class="dlist-inline">
-
-
-
             </dl>
           </div>
         </div>
         <hr>
-        <div *ngIf='!won'>
-            <div id='no-offers' *ngIf='offers.length === 0'>
-              <h2>This item has no offers yet! Be the first to make an offer!</h2>
-            </div>
-            <div class="container" *ngFor="let offer of offers" id="tableForOffers">
-              <table class="table table-sm">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">UserName</th>
-                    <th scope="col">Offer Description</th>
-                    <th scope="col">Location</th>
-                    <th scope="col" hidden>Accept</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>{{offer.id}}</th>
-                    <td>{{offer.user.username}}</td>
-                    <td>{{offer.description}}</td>
-                    <td>{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}</td>
 
-                    <td><button (click)="changeOfferStatus(offer)" class=" btn btn-success"
-                        *ngIf="item.user.id === bidder.id">Accept Bid</button></td>
-                    <button *ngIf='selling' (click)='viewOffer(offer)' class="btn btn-success">View Offer</button>
-                    <span class='spacer'></span>
-                    <button class="btn btn-success">Accept</button>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <br>
+<div class="card">
+    <table class="table table-hover shopping-cart-wrap">
+    <thead class="text-muted">
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col" width="120">Quantity</th>
+      <th scope="col" width="200" class="text-right">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+    <figure class="media">
+      <div class="img-wrap"><img src="images/items/1.jpg" class="img-thumbnail img-sm"></div>
+      <figcaption class="media-body">
+        <h6 class="title text-truncate">Product name goes here </h6>
+        <dl class="dlist-inline small">
+        </dl>
+        <dl class="dlist-inline small">
+          <dt>Color: </dt>
+          <dd>Orange color</dd>
+        </dl>
+      </figcaption>
+    </figure>
+      </td>
+      <td>
+        <select class="form-control" data-fillr-id="1697918083" data-fillr="bound" autocomplete="off">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </td>
+      <td>
+        <!-- <div class="price-wrap">
+          <var class="price">USD 145</var>
+          <small class="text-muted">(USD5 each)</small>
+        </div> price-wrap .// -->
+      </td>
+      <td class="text-right">
+      <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a>
+      <a href="" class="btn btn-outline-danger"> × Remove</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+    <figure class="media">
+      <div class="img-wrap"><img src="images/items/2.jpg" class="img-thumbnail img-sm"></div>
+      <figcaption class="media-body">
+        <h6 class="title text-truncate">Product name goes here </h6>
+        <dl class="dlist-inline small">
+          <dt>Size: </dt>
+          <dd>XXL</dd>
+        </dl>
+        <dl class="dlist-inline small">
+          <dt>Color: </dt>
+          <dd>Orange color</dd>
+        </dl>
+      </figcaption>
+    </figure>
+      </td>
+      <td>
+        <select class="form-control" data-fillr-id="152068255" data-fillr="bound" autocomplete="off">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </td>
+      <td>
+        <div class="price-wrap">
+          <var class="price">USD 35</var>
+          <small class="text-muted">(USD10 each)</small>
+        </div> <!-- price-wrap .// -->
+      </td>
+      <td class="text-right">
+      <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a>
+      <a href="" class="btn btn-outline-danger btn-round"> × Remove</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+    <figure class="media">
+      <div class="img-wrap"><img src="images/items/3.jpg" class="img-thumbnail img-sm"></div>
+      <figcaption class="media-body">
+        <h6 class="title text-truncate">Product name goes here </h6>
+        <dl class="dlist-inline small">
+          <dt>Size: </dt>
+          <dd>XXL</dd>
+        </dl>
+        <dl class="dlist-inline small">
+          <dt>Color: </dt>
+          <dd>Orange color</dd>
+        </dl>
+      </figcaption>
+    </figure>
+      </td>
+      <td>
+        <select class="form-control" data-fillr-id="950145859" data-fillr="bound" autocomplete="off">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </td>
+      <td>
+        <div class="price-wrap">
+          <var class="price">USD 45</var>
+          <small class="text-muted">(USD15 each)</small>
+        </div> <!-- price-wrap .// -->
+      </td>
+      <td class="text-right">
+        <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Wishlist"> <i class="fa fa-heart"></i></a>
+        <a href="" class="btn btn-outline-danger btn-round"> × Remove</a>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+    </div> <!-- card.// -->
+
+        <div *ngIf='!won'>
+          <div id='no-offers' *ngIf='offers.length === 0'>
+            <h2>This item has no offers yet! Be the first to make an offer!</h2>
           </div>
+          <div class="container" *ngFor="let offer of offers" id="tableForOffers">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">UserName</th>
+                  <th scope="col">Offer Description</th>
+                  <th scope="col">Location</th>
+                  <th scope="col" hidden>Accept</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>{{offer.id}}</th>
+                  <td>{{offer.user.username}}</td>
+                  <td>{{offer.description}}</td>
+                  <td>{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}
+                  </td>
+                  <td><button (click)="changeOfferStatus(offer)" class=" btn btn-success"
+                      *ngIf="item.user.id === bidder.id">Accept Bid</button></td>
+                  <button *ngIf='selling' (click)='viewOffer(offer)' class="btn btn-success">View Offer</button>
+                  <span class='spacer'></span>
+                  <button class="btn btn-success">Accept</button>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+        </div>
       </article> <!-- card-body.// -->
     </aside> <!-- col.// -->
   </div> <!-- row.// -->

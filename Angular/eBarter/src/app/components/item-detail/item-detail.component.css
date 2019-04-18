@@ -1,17 +1,4 @@
-/* form {
-  text-align: center;
-  position: relative;
-  bottom: 320px;
-  width: 425px;
-  height: 300px;
-  /* margin: 30px auto 0; */
-/* margin-left: 70%;
-  background-color: #e2e2e2;
-  -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
-  -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
-  box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43); */
-
-/* }  */
+/*
 
 img {
   width: 300px;
@@ -31,10 +18,10 @@ ul {
   margin-left: 50%;
   width: 425px;
   /* height: 300px; */
-  margin-top: 3%;
-}
+  /* margin-top: 3%; */
 
-#currentOffers{
+
+/* #currentOffers{
 width: 925px;
 margin-left: 20%;
 text-align: left;
@@ -74,4 +61,4 @@ body{
 
 .spacer {
   padding-left: 15px;
-}
+}  */

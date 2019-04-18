@@ -44,24 +44,24 @@ export class UserService {
     );
   }
 
-register(user: User) {
-  const credentials = this.as.getCredentials();
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Authorization': `Basic ${credentials}`
-    })
-  };
-  console.log(user.firstName);
-  return this.http.post(`${this.url}${user.id}`, user, httpOptions).pipe(
-    catchError((err: any) => {
-      console.error('UserService.register(): Error');
-      console.error(err);
-      return throwError('Error in UserService.update()');
-    })
-  );
-}
+  register(user: User) {
+    const credentials = this.as.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Authorization': `Basic ${credentials}`
+      })
+    };
+    console.log(user.firstName);
+    return this.http.post(`${this.url}${user.id}`, user, httpOptions).pipe(
+      catchError((err: any) => {
+        console.error('UserService.register(): Error');
+        console.error(err);
+        return throwError('Error in UserService.update()');
+      })
+    );
+  }
 
   update(user: User) {
     const credentials = this.as.getCredentials();
