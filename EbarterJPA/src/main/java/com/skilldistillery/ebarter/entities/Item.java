@@ -62,14 +62,6 @@ public class Item {
 //	@OneToMany(mappedBy="item")
 //	private List<Item_Image> itemImage;
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
 	public List<Offer> getOffers() {
 		return offers;
 	}
