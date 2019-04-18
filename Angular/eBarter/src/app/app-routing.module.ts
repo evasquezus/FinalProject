@@ -1,3 +1,4 @@
+import { ItemsSellingComponent } from './components/items-selling/items-selling.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NgModule } from '@angular/core';
@@ -23,7 +24,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dummy', component: DummyComponent},
   { path: 'itemsWon', component: ItemsWonComponent },
-  { path: 'biddingOn', component: ItemsImBiddingOnComponent },
+  { path: 'selling', component: ItemsSellingComponent },
   { path: '', component: HomepageComponent }
 ];
 

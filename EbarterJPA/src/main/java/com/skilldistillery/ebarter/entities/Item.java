@@ -144,6 +144,14 @@ public class Item {
 		return result;
 	}
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

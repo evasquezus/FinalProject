@@ -1,13 +1,4 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 <!-- <div id="showOffersForItemsThisUserIsbiddingOn"class="card-deck" style="width: 70rem;" *ngFor="let item of items">
   <div class="card">
@@ -49,30 +40,53 @@
     </div>
   </div>
 </div> -->
+<div id='title'>
+<h1>My Accepted Offers</h1>
+</div>
 
-<div id="showOffersForItemsThisUserHasWon" class="card-deck" style="width: 70rem;" *ngFor="let item of items">
 
-    <div *ngIf="item.itemStatus == 1">
-      <!-- <h1>{{item.description}}</h1> -->
-      <div *ngIf="item.offers.length > 0">
+<div *ngFor="let item of items" id="showOffersForItemsThisUserHasWon" class="card-deck" style="width: 70rem;">
+
+  <div *ngIf="item.itemStatus == 2">
+      <h1>{{item.name}}</h1>
+      <!-- <div *ngIf="item.offers.length > 0"> -->
         <div *ngFor="let offer of item.offers">
-            <div *ngIf="offer.offerStatus == 1">
+            <div *ngIf="offer.offerStatus == 2">
+              <br>
+              <br>
+              <br>
+          <!-- <div *ngIf="offer.offer_status_id == 2">
+          <h1>{{offer.offer_status_id}}</h1> -->
+          <div *ngIf="offer.user.id == isBidder.id">
+          <img class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap" href="#/">
+          <span>{{item.name}}</span>
           <br>
+          <span>{{item.description}}</span>
           <br>
-          <br>
-          <!-- <div *ngIf="offer.offer_status_id == 2"> -->
-          <!-- <h1>{{offer.offer_status_id}}</h1> -->
-          <h1>Items I won</h1>
-          <img class="card-img-top" *ngIf="offer.user.id == isBidder.id"
-            src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
-            alt="Card image cap" href="#/">
-          <span *ngIf="offer.user.id == isBidder.id">{{item.name}}</span>
-          <br>
-          <span *ngIf="offer.user.id == isBidder.id">{{item.description}}</span>
-          <br>
-          <span *ngIf="offer.user.id == isBidder.id">{{offer.description}}</span>
-          <br>
+          <button (click)='navItem(item)' class="btn btn-success" id='register-button' type="submit">View Item</button>
         </div>
       </div>
-    </div>
+      </div>
+    <!-- </div> -->
   </div>
+</div>
+
+
+
+  <!-- <h1>Items I won</h1>
+  <div *ngFor="let item of items"></div>
+    <div *ngIf="item.itemStatus == 2">
+            <br>
+            <br>
+            <br>
+            <img class="card-img-top" *ngIf="offer.user.id == isBidder.id"
+              src="{{item.imageUrl}}"
+              alt="Card image cap" href="#/">
+            <span *ngIf="offer.user.id == isBidder.id">{{item.name}}</span>
+            <br>
+            <span *ngIf="offer.user.id == isBidder.id">{{item.description}}</span>
+            <br>
+            <span *ngIf="offer.user.id == isBidder.id">{{offer.description}}</span>
+            <br>
+      </div>
+    </div>  -->

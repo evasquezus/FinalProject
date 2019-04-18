@@ -24,6 +24,7 @@ import { NgbdAlertSelfclosingComponent } from './components/ngbd-alert-selfclosi
 import { DummyComponent } from './components/dummy/dummy.component';
 import { ItemsWonComponent } from './components/items-won/items-won.component';
 import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
+import { ItemsSellingComponent } from './components/items-selling/items-selling.component';
 
 
 
@@ -48,6 +49,7 @@ import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/item
     DummyComponent,
     ItemsWonComponent,
     ItemsImBiddingOnComponent,
+    ItemsSellingComponent,
   ],
   imports: [
     BrowserModule,
