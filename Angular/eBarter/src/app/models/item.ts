@@ -7,7 +7,7 @@ export class Item {
   name?: string;
   itemStatus?: number;
   user?: User;
-  imageUrl?: string
+  // imageUrl?: string
   offers?: Offer [];
   imageUrl?: string;
 
