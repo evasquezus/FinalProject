@@ -7,11 +7,6 @@ export class Item {
   name?: string;
   itemStatus?: number;
   user?: User;
-<<<<<<< HEAD
-  // imageUrl?: string
-=======
-  imageUrl?: string
->>>>>>> parent of eb45101... Most of the conflicts fixed item Status not working agian
   offers?: Offer [];
   imageUrl?: string;
 
@@ -24,8 +19,7 @@ export class Item {
     user?: User,
     offers?: Offer [],
     imageUrl?: string
-    imageUrl?: string,
-    offers?: Offer []
+
 
   ) {
     this.id = id;
