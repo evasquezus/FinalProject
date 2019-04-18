@@ -55,6 +55,11 @@ h2 {
 #rig{
   margin-left: 37%;
 }
+.warningText{
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}
 
 
 
