@@ -9,6 +9,7 @@ export class Item {
   user?: User;
   imageUrl?: string
   offers?: Offer [];
+  imageUrl?: string;
 
   constructor(
     id?: number,
@@ -18,6 +19,7 @@ export class Item {
     user?: User,
     imageUrl?: string,
     offers?: Offer []
+
   ) {
     this.id = id;
     this.description = description;
@@ -26,6 +28,7 @@ export class Item {
     this.user = user;
     this.imageUrl = imageUrl;
     this.offers = offers;
+    this.imageUrl = imageUrl;
   }
 
 }
