@@ -2,6 +2,7 @@ package com.skilldistillery.ebarter.data;
 
 import java.util.List;
 
+import com.skilldistillery.ebarter.entities.Item;
 import com.skilldistillery.ebarter.entities.Offer;
 
 public interface OfferService {
@@ -17,5 +18,7 @@ public interface OfferService {
 	boolean deleteOffer(int id);
 	
 	Offer updateOfferStatus(int id, Offer offer);
+	
+    public List<Offer> getAllOffersForSpecificItem(Item item);
 	
 }
