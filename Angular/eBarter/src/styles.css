@@ -95,3 +95,8 @@ h2{
   max-width: 500px;
 
 }
+
+#no-offers{
+  margin-left: 0% !important;
+  text-align: center;
+}

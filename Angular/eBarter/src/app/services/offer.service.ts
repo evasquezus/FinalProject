@@ -20,6 +20,8 @@ export class OfferService {
     private http: HttpClient, private auth: AuthenticationService) { }
 
   makeNewOffer(offer: Offer) {
+
+
     const credentials = this.authService.getCredentials();
     const httpOptions = {
       headers: new HttpHeaders({
@@ -28,7 +30,7 @@ export class OfferService {
       })
     };
     return this.http.post<Offer>(this.url, offer, httpOptions).pipe(
-      catchError((err: any) => {
+        catchError((err: any) => {
         console.error('UserService.update(): Error');
         console.error(err);
         return throwError('Error in UserService.update()');

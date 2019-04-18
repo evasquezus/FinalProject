@@ -26,8 +26,13 @@ export class ItemDetailComponent implements OnInit {
   address: Address;
   bidder: User;
   message: string;
+
   itemTest: Item = new Item();
   // offerStatus: Offer['offerStatus'] = 1;
+  won = false;
+  selling = false;
+  showOffer = false;
+
 
 
 
@@ -38,9 +43,24 @@ export class ItemDetailComponent implements OnInit {
               private authService: AuthService) { }
 
   ngOnInit() {
+    let id;
     this.getCurrentUser();
-    const id = parseInt(localStorage.getItem('selectedId'));
+    if(parseInt(localStorage.getItem('sellingSelectedId')) > 0) {
+      console.log('selling');
+      id = parseInt(localStorage.getItem('sellingSelectedId'));
+      localStorage.removeItem('sellingSelectedId');
+      this.selling = true;
+    }
+      else if(parseInt(localStorage.getItem('wonSelectedId')) > 0) {
+        console.log('won');
+        id = parseInt(localStorage.getItem('wonSelectedId'));
+        localStorage.removeItem('wonSelectedId');
+        this.won = true;
+      }
+    else {
+    id = parseInt(localStorage.getItem('selectedId'));
     localStorage.removeItem('selectedId');
+    }
     this.itemService.getSpecificItem(id).subscribe(
       item => {
         this.item = item;
@@ -58,6 +78,11 @@ export class ItemDetailComponent implements OnInit {
         localStorage.setItem('itemName', item.name);
         localStorage.setItem('sellerName', item.user.username);
       }
+
+        // localStorage.setItem('itemId', item.id.toString());
+        // localStorage.setItem('itemName', item.name);
+        // localStorage.setItem('sellerName', item.user.username);
+              }
     );
     this.itemService.getItems().subscribe(items => {
       this.items = items;
@@ -79,6 +104,8 @@ export class ItemDetailComponent implements OnInit {
   }
 
   submitOffer(desc: string, imgUrl: string) {
+    console.log('imgUrl: ' + imgUrl);
+
     this.offer = {
       id: 0, description: desc, item: this.item, offerStatus: 1, user: this.bidder, imgUrl: imgUrl
     };
@@ -143,6 +170,10 @@ export class ItemDetailComponent implements OnInit {
       error => {
         this.message = 'Error submitting update offer';
       });
+  viewOffer(offer) {
+    console.log('offer: ' + offer.description);
+    this.offer = offer;
+    this.showOffer = true;
 
   }
 }

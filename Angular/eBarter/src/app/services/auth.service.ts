@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 
 export class AuthService {
 
+
   private baseUrl = 'http://localhost:8085/';
   private noAuthUrl = this.baseUrl + 'auth/register';
   // private baseUrl = environment.baseUrl;

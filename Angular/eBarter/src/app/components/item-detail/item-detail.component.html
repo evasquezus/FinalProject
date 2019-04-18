@@ -25,26 +25,46 @@
 
 
 <div class="imageLocation">
-  ​<picture>
+  ​<picture *ngIf='!showOffer'>
     <source
-      srcset="https://www.dunkindonuts.com/content/dam/dd/img/heros-lifestyle/standard/hero-ddcard-lp-donuts-card-640x640.jpg"
+      srcset={{item.imageUrl}}
       type="image/svg+xml">
     <img src="..." class="img-fluid img-thumbnail" alt="...">
   </picture>
+  ​<picture *ngIf='showOffer'>
+      <source
+        srcset={{offer.imgUrl}}
+        type="image/svg+xml">
+      <img src="..." class="img-fluid img-thumbnail" alt="...">
+    </picture>
   <ul class="list-group" id="information-on-item">
-    <li class="list-group-item">{{item.description}}</li>
-    <li class="list-group-item">{{item.name}}</li>
+    <li *ngIf='!won && showOffer' class="list-group-item bold">Offer Details:</li>
+    <li *ngIf='!won && !showOffer' class="list-group-item bold">Item Details:</li>
+    <li *ngIf='won' class="list-group-item bold">Your Offer Was Accepted!</li>
+    <li *ngIf='!showOffer' class="list-group-item">Item: {{item.name}}</li>
+    <li *ngIf='!showOffer' class="list-group-item">Description: {{item.description}}</li>
+    <li *ngIf='showOffer' class="list-group-item">{{offer.description}}</li>
+    <li *ngIf='won' class="list-group-item bold">Contact the seller to complete the deal!</li>
+    <li *ngIf='won' class="list-group-item">Seller: {{item.user.firstName}} {{item.user.lastName}}</li>
+    <li *ngIf='won' class="list-group-item">Email: {{item.user.email}}</li>
     <!-- <li class="list-group-item">{{item.endDate}}</li> -->
+    <div *ngIf='!won'>
     <br>
-    <app-ngbd-modal-config></app-ngbd-modal-config>
+    <div *ngIf='!selling'>
+      <app-ngbd-modal-config></app-ngbd-modal-config>
+    </div>
     <br>
-
+    </div>
   <!-- <button class="btn btn-success" data-toggle="modal" id="SubmitOffer">Submit My Offer</button> -->
    </ul>
 </div>
 
 <br>
 <br>
+<div *ngIf='!won'>
+    <div id='no-offers' *ngIf='offers.length === 0'>
+       <h2>This item has no offers yet!  Be the first to make an offer!</h2>
+    </div>
  <div class="container" *ngFor="let offer of offers" id="tableForOffers">
    <!-- <h1>{{offer.id}}</h1> -->
 <!-- //*ngFor="let item of items" -->
@@ -64,9 +84,17 @@
         <td >{{offer.user.username}}</td>
         <td >{{offer.description}}</td>
         <td >{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}</td>
+
         <td><button  (click)="changeOfferStatus(offer)" class=" btn btn-success" *ngIf="item.user.id === bidder.id">Accept Bid</button></td>
         <!-- <button  (click)="changeOfferStatus(offer)"  [(ngModel)]="offerStatus.offerStatus" name="offerStatus" #offerStatus  [(ngModel)]="offer.offerStatus" name="offerStatus" #offerStatus  class=" btn btn-success" *ngIf="item.user.id === bidder.id">Accept Bid</button> -->
         <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
+
+        <!-- <td *ngFor="let item of items"> -->
+          <!-- <p *ngFor="let user of users"></p> -->
+          <button *ngIf='selling' (click)='viewOffer(offer)' class="btn btn-success">View Offer</button>
+          <span class='spacer'></span>
+          <button class="btn btn-success">Accept</button>
+          <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
       </tr>
     </tbody>
   </table>
@@ -84,6 +112,7 @@
 
 
 
+</div>
 <!-- <br>
 <br>
 <div class="container" *ngFor="let user of users" id="tableForOffers">

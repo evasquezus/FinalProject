@@ -2,204 +2,110 @@
     <div class="row">
       <div class="col-sm-3"></div>
       <div id="box" class="col-sm-7">
-          <h2>User Profile</h2>
-          <br>
-          <table class="table table-striped">
-            <tr>
-              <td>
-                <h4>Username:</h4>
-              </td>
-              <td *ngIf='!isAdmin'>
-                <input type='text' [(ngModel)]='user.username'/>
-              </td>
-              <td *ngIf='isAdmin'>
-                <select (change)='getSelectedUser($event)'>
-                  <option *ngFor='let user of userList' value={{user.username}}>{{user.username}}</option>
-                </select>
-                <span class='spacer-sm'></span>
-                <span id='active-flag' [ngClass]='activeFormat'>{{displayActive}}</span>
-                </td>
-            </tr>
-            <tr>
-              <td>First Name:</td>
-              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.firstName'/></td>
-              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.firstName'/></td>
+        <h2>User Profile</h2>
+        <br>
+        <table class="table table-striped">
+          <tr>
+            <td>
+              <h4>Username:</h4>
+            </td>
+            <td *ngIf='!isAdmin'>
+              <input type='text' [(ngModel)]='user.username' />
+            </td>
+            <td *ngIf='isAdmin'>
+              <select (change)='getSelectedUser($event)'>
+                <option *ngFor='let user of userList' value={{user.username}}>{{user.username}}</option>
+              </select>
+              <span class='spacer-sm'></span>
+              <span id='active-flag' [ngClass]='activeFormat'>{{displayActive}}</span>
+            </td>
+          </tr>
+        </table>
 
-            </tr>
-            <tr>
-              <td>Last Name:</td>
-              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.lastName'/></td>
-              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.lastName'/></td>
-
-            </tr>
-            <tr>
-              <td>Email:</td>
-              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.email'/></td>
-              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.email'/></td>
-
-            </tr>
-            <tr>
-              <td>Street:</td>
-              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.street'/></td>
-              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.street'/></td>
-
-            </tr>
-            <tr>
-              <td>Street 2:</td>
-              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.street2'/></td>
-              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.street2'/></td>
-
-            </tr>
-            <tr>
-              <td>City:</td>
-              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.city'/></td>
-              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.city'/></td>
-
-            </tr>
-            <tr>
-            <tr>
-              <td>State:</td>
-              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.state'/></td>
-              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.state'/></td>
-
-            </tr>
-            <tr>
-              <td>Zipcode:</td>
-              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.zipCode'/></td>
-              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.zipCode'/></td>
-
-            </tr>
-            <tr>
-              <td>phone:</td>
-              <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.phone'/></td>
-              <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.phone'/></td>
-
-            </tr>
-          </table>
-          <br>
-          <button *ngIf='!isAdmin'(click)="updateUser()" class="btn btn-primary">Submit Changes</button>
-          <button *ngIf='isAdmin'(click)="updateSelectedUser()" class="btn btn-primary">Submit Changes</button>
-          <span class='spacer-sm'></span>
-          <button *ngIf='isAdmin' (click)="deactivateUser()" class="btn btn-danger">Deactivate User</button>
-          <span *ngIf='isAdmin' class='spacer-sm'></span>
-          <button *ngIf='isAdmin' (click)="activateUser()" class="btn btn-warning">Activate User</button>
-          <span *ngIf='isAdmin' class='spacer-sm'></span>
-          <button (click)="navHome()" class="btn btn-primary">Cancel</button>
-        </div>
-  </div>
-  </div>
-
-
-<!-- <body>
-  <div class='container'>
-    <div class="row">
-      <div class="col-sm-3"></div>
-      <div id="box" class="col-sm-7">
-        <div id="info" *ngIf="!editUser">
-          <h2>User Profile</h2>
-
-          <br>
-          <table class="table table-striped">
-            <tr>
-              <td>
-                <h4>Username:</h4>
-              </td>
-              <td class="rightTable">{{user.username}}</td>
-            </tr>
-            <tr>
-              <td>First Name:</td>
-              <td class="rightTable">{{user.firstName}}</td>
-            </tr>
-            <tr>
-              <td>Last Name:</td>
-              <td class="rightTable">{{user.lastName}}</td>
-            </tr>
-            <tr>
-              <td>Email:</td>
-              <td class="rightTable">{{user.email}}</td>
-            </tr>
-            <tr>
-              <td>Street:</td>
-              <td class="rightTable">{{user.address.street}}</td>
-            </tr>
-            <tr>
-              <td>States:</td>
-              <td class="rightTable">{{user.address.state}}</td>
-            </tr>
-            <tr>
-              <td>Zipcode:</td>
-              <td class="rightTable">{{user.address.zipCode}}</td>
-            </tr>
-
-          </table>
-        </div>
-
-
-        <button (click)="selectEditUser()" class="btn btn-primary">Submit Changes</button>
-        <button (click)="navHome()" class="btn btn-primary">Cancel</button>
-
-        <div id="info" *ngIf='editUser'>
-          <form>
+        <tr>
+          <td>
             <table class="table table-striped">
-              <tbody>
+              <div id="info">
                 <tr>
                   <td>First Name:</td>
-                  <td><input type='text' name='firstName' value='{{user.firstName}}' [(ngModel)]='user.firstName'></td>
-                </tr>
+                  <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.firstName' /></td>
+                  <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.firstName' /></td>
 
+                </tr>
                 <tr>
                   <td>Last Name:</td>
-                  <td><input type='text' name='lastName' value='{{user.lastName}}' [(ngModel)]='user.lastName'></td>
-                </tr>
+                  <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.lastName' /></td>
+                  <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.lastName' /></td>
 
-                <tr>
-                  <td>Username:</td>
-                  <td><input type='text' name='userName' value='{{user.userName}}' [(ngModel)]='user.userName'></td>
                 </tr>
-
-                <tr>
-                  <td>Password:</td>
-                  <td><input type='password' name='password' value='{{user.password}}' [(ngModel)]='user.password'></td>
-                </tr>
-
                 <tr>
                   <td>Email:</td>
-                  <td><input type='email' name='email' value='{{user.email}}' [(ngModel)]='user.email'></td>
+                  <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.email' /></td>
+                  <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.email' /></td>
                 </tr>
-
                 <tr>
-                  <td>Street:</td>
-                  <td><input type='text' name='street' value='{{user.address.street}}'
-                      [(ngModel)]='user.address.street'>
-                  </td>
-                </tr>
+                  <td>phone:</td>
+                  <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.phone' /></td>
+                  <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.phone' /></td>
 
-                <tr>
-                  <td>States:</td>
-                  <td><input type='text' name='states' value='{{user.address.state}}'
-                      [(ngModel)]='user.address.state'>
-                  </td>
                 </tr>
-
-                <tr>
-                  <td>Zipcode:</td>
-                  <td><input type='text' name='firstName' value='{{user.address.zipCode}}'
-                      [(ngModel)]='user.address.zipCode'></td>
-                </tr>
-              </tbody>
+              </div>
             </table>
-          </form>
+          </td>
+          <span class='spacer-sm'></span>
+
+          <td>
+            <table class="table table-striped">
+              <tr>
+                <td>Street:</td>
+                <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.street' /></td>
+                <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.street' /></td>
+
+              </tr>
+              <tr>
+                <td>Street2:</td>
+                <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.street2' /></td>
+                <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.street2' /></td>
+
+              </tr>
+              <tr>
+                <td>City:</td>
+                <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.city' /></td>
+                <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.city' /></td>
+
+              </tr>
+
+              <tr>
+                <td>State:</td>
+                <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.state' /></td>
+                <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.state' /></td>
+
+              </tr>
+              <tr>
+                <td>Zipcode:</td>
+                <td *ngIf='!isAdmin'><input type='text' [(ngModel)]='user.address.zipCode' /></td>
+                <td *ngIf='isAdmin'><input type='text' [(ngModel)]='selectedUser.address.zipCode' /></td>
+
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <br>
+        <button *ngIf='!isAdmin' (click)="updateUser()" class="btn btn-primary">Submit Changes</button>
+        <button *ngIf='isAdmin' (click)="updateSelectedUser()" class="btn btn-primary">Submit Changes</button>
+        <span class='spacer-sm'></span>
+        <button *ngIf='isAdmin' (click)="deactivateUser()" class="btn btn-danger">Deactivate User</button>
+        <span *ngIf='isAdmin' class='spacer-sm'></span>
+
+        <div id="activeuser">
+          <button *ngIf='isAdmin' (click)="activateUser()" class="btn btn-warning">Activate User</button>
+        </div>
+
+        <span *ngIf='isAdmin' class='spacer-sm'></span>
+        <div id="cancel">
+          <button (click)="navHome()" class="btn btn-primary">Cancel</button>
         </div>
       </div>
     </div>
-    <div class="row" id="matchRow">
-      <div class="col-sm-2"></div>
-      <div class="col-lg-8">
-      </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
   </div>
-</body> -->

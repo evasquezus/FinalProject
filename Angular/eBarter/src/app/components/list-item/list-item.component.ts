@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { User } from 'src/app/models/user';
 import { Item } from 'src/app/models/item';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-list-item',
@@ -13,6 +14,9 @@ import { Item } from 'src/app/models/item';
   styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent implements OnInit {
+
+  angForm: FormGroup;
+
   item = new Item();
   items: Item[];
   user = new User();
