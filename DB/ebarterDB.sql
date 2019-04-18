@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   `description` VARCHAR(200) NULL DEFAULT NULL,
+  `end_date` DATETIME NOT NULL,
   `item_status` TINYINT(4) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
   `category_id` INT NOT NULL,
@@ -189,10 +190,44 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+
+-- Data for table `item_image`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ebarterDB`;
+
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+
+-- Data for table `category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ebarterDB`;
+INSERT INTO `category` (`id`, `name`) VALUES (1, 'furniture');
+INSERT INTO `category` (`id`, `name`) VALUES (2, 'electronic');
+INSERT INTO `category` (`id`, `name`) VALUES (3, 'outdoor');
+INSERT INTO `category` (`id`, `name`) VALUES (4, 'pets');
+INSERT INTO `category` (`id`, `name`) VALUES (5, 'clothing');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `item`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'computer desk', 'A dark wood computer desk', 1, 1, 1, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A tv stand', 1, 2, 1, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'snowboard', 'An old snowboard in good shape', 1, 1, 3, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', 1, 3, 2, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (5, 'test item', 'a test item', 1, 4, 1, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A tv stand', '2019-10-04', 1, 2, 1, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'snowboard', 'An old snowboard in good shape', '2019-10-04', 1, 1, 3, NULL);
+INSERT INTO `item` (`id`, `name`, `description`, `end_date`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', '2019-10-04', 1, 3, 2, NULL);
 INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'computer desk', 'A dark wood computer desk', 1, 1, 1, 'https://hips.hearstapps.com/clv.h-cdn.co/assets/15/29/2560x1659/gallery-1436821476-desk6.jpg?resize=480:*');
 INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A tv stand', 1, 2, 1, 'https://www.pier1.com/dis/dw/image/v2/AAID_PRD/on/demandware.static/-/Sites-pier1_master/default/dw221cb890/images/3568596/3568596_1.jpg?sw=400&sh=400');
 INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'Bike', 'An old road bicycle in good shape', 1, 1, 3, 'https://images-na.ssl-images-amazon.com/images/I/719IoilO2aL._CR0,204,1224,1224_UX256.jpg');
@@ -207,8 +242,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (1, 1, 'I will offer you a chair', 1, 2, NULL);
-INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (2, 1, 'I will offer you a chicken ', 1, 3, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (1, 1, 'I will offer you a chair', 1, 1, NULL);
+INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (2, 1, 'I will offer you a chicken ', 1, 1, NULL);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (3, 1, 'I will offer a piece of gold', 1, 2, NULL);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (4, 1, 'test', 1, 1, NULL);
 INSERT INTO `offer` (`id`, `item_id`, `description`, `offer_status_id`, `user_offer_id`, `image_url`) VALUES (5, 5, 'offer to test item 5', 1, 2, NULL);
@@ -226,6 +261,12 @@ INSERT INTO `category` (`id`, `name`) VALUES (2, 'electronic');
 INSERT INTO `category` (`id`, `name`) VALUES (3, 'outdoor');
 INSERT INTO `category` (`id`, `name`) VALUES (4, 'pets');
 INSERT INTO `category` (`id`, `name`) VALUES (5, 'clothing');
+
+INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (1, 'https://i5.walmartimages.com/dfw/4ff9c6c9-bda4/k2-_3116e9d1-dc49-4894-a444-9848c59cac16.v1.jpg');
+INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (2, 'https://www.royaloakindia.com/subcatimages/ROYIND-entertainment-units-4.jpg');
+INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (3, 'https://summitsports.scene7.com/is/image/SummitSports/158524_158524_1?$256$');
+INSERT INTO `item_image` (`id`, `item_image_url`) VALUES (4, 'https://c1.neweggimages.com/ProductImage/A8A1_130871576090458906twjovYE66t.jpg');
+
 
 COMMIT;
 

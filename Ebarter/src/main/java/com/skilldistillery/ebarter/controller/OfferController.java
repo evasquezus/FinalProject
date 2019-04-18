@@ -17,10 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.ebarter.data.ItemService;
 import com.skilldistillery.ebarter.data.OfferService;
-import com.skilldistillery.ebarter.entities.Category;
 import com.skilldistillery.ebarter.entities.Item;
 import com.skilldistillery.ebarter.entities.Offer;
-import com.skilldistillery.ebarter.repositories.OfferRepository;
 
 @RestController
 @RequestMapping("api")
