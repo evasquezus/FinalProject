@@ -1,156 +1,157 @@
+
 <br>
 <br>
 <div class="container">
-
-  <div id="rig">
-
-    <h1>Register</h1>
-  </div>
-
-
-  <form [formGroup]="angForm" novalidate>
-    <tr>
-      <td>
-        <div class="form-group" id="firstName">
-          <label class="center-block">First Name</label>
-          <input class="form-control" type="text" formControlName="firstName" [(ngModel)]="newUser.firstName">
-
-          <div
-            *ngIf="angForm.controls['firstName'].invalid && (angForm.controls['firstName'].dirty || angForm.controls['firstName'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['firstName'].errors.required">First name is Required.</div>
-          </div>
-        </div>
-      </td>
-
-      <td>
-        <div class="form-group" id="lastName">
-          <label class="center-block">Last Name</label>
-          <input class="form-control" type="text" formControlName="lastName" [(ngModel)]="newUser.lastName" />
-
-          <div
-            *ngIf="angForm.controls['lastName'].invalid && (angForm.controls['lastName'].dirty || angForm.controls['lastName'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['lastName'].errors.required">Last name is Required.</div>
-          </div>
-        </div>
-
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <div class="form-group" id="username">
-          <label class="center-block">Username</label>
-          <input class="form-control" type="text" formControlName="username" [(ngModel)]="newUser.username" />
-
-          <div
-            *ngIf="angForm.controls['username'].invalid && (angForm.controls['username'].dirty || angForm.controls['username'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['username'].errors.required">User name is Required.</div>
-          </div>
-        </div>
-
-      </td>
-      <td>
-        <div class="form-group" id="password">
-          <label class="center-block">Password</label>
-          <input class="form-control" type="password" formControlName="password" [(ngModel)]="newUser.password" />
-
-          <div
-            *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['password'].errors.required">Password is Required.</div>
-          </div>
-        </div>
-
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <div class="form-group" id="email">
-          <label class="center-block">Email</label>
-          <input class="form-control" type="text" formControlName="email" [(ngModel)]="newUser.email" />
-
-          <div
-            *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['email'].errors.required">Email is Required.</div>
-          </div>
-        </div>
-
-      </td>
-      <td>
-        <div class="form-group" id="street">
-          <label class="center-block">Street</label>
-          <input class="form-control" type="text" formControlName="street" [(ngModel)]="newUser.address.street" />
-
-          <div
-            *ngIf="angForm.controls['street'].invalid && (angForm.controls['street'].dirty || angForm.controls['street'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['street'].errors.required">Street is Required.</div>
-          </div>
-        </div>
-      </td>
-
-    </tr>
-
-    <tr>
-      <td>
-        <div class="form-group" id="city">
-          <label class="center-block">City</label>
-          <input class="form-control" type="text" formControlName="city" [(ngModel)]="newUser.address.city" />
-
-          <div
-            *ngIf="angForm.controls['city'].invalid && (angForm.controls['city'].dirty || angForm.controls['city'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['city'].errors.required">City is Required.</div>
-          </div>
-        </div>
-      </td>
-      <td>
-        <div class="form-group" id="state">
-          <label class="center-block">State</label>
-          <input class="form-control" type="text" formControlName="state" [(ngModel)]="newUser.address.state" />
-
-          <div
-            *ngIf="angForm.controls['state'].invalid && (angForm.controls['state'].dirty || angForm.controls['state'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['state'].errors.required">State is Required.</div>
-          </div>
-        </div>
-
-      </td>
-
-    </tr>
-
-    <tr>
-      <td>
-        <div class="form-group" id="zipcode">
-          <label class="center-block">Zipcode</label>
-          <input class="form-control" type="number" formControlName="zipcode" [(ngModel)]="newUser.address.zipCode" />
-
-          <div
-            *ngIf="angForm.controls['zipcode'].invalid && (angForm.controls['zipcode'].dirty || angForm.controls['zipcode'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['zipcode'].errors.required">Required</div>
-          </div>
-        </div>
-      </td>
-    </tr>
-
-
-    <br>
-    <tr>
-      <td>
-        <div class="form-group" id="submit">
-          <input type='submit' (click)='onSubmit()' class="btn btn-primary">
-          <!-- ng-click="reloadPage();"  -->
-          <a routerLink="/login" class="btn btn-link">Cancel</a>
-        </div>
-      </td>
-    </tr>
-
-  </form>
+​
+ <div id="rig">
+​
+  <h1>Register</h1>
+ </div>
+​
+​
+ <form [formGroup]="angForm" novalidate>
+  <tr>
+   <td>
+    <div class="form-group" id="firstName">
+     <label class="center-block">First Name</label>
+     <input class="form-control" type="text" formControlName="firstName" [(ngModel)]="newUser.firstName">
+​
+     <div
+      *ngIf="angForm.controls['firstName'].invalid && (angForm.controls['firstName'].dirty || angForm.controls['firstName'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['firstName'].errors.required">First name is Required.</div>
+     </div>
+    </div>
+   </td>
+​
+   <td>
+    <div class="form-group" id="lastName">
+     <label class="center-block">Last Name</label>
+     <input class="form-control" type="text" formControlName="lastName" [(ngModel)]="newUser.lastName" />
+​
+     <div
+      *ngIf="angForm.controls['lastName'].invalid && (angForm.controls['lastName'].dirty || angForm.controls['lastName'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['lastName'].errors.required">Last name is Required.</div>
+     </div>
+    </div>
+​
+   </td>
+  </tr>
+​
+  <tr>
+   <td>
+    <div class="form-group" id="username">
+     <label class="center-block">Username</label>
+     <input class="form-control" type="text" formControlName="username" [(ngModel)]="newUser.username" />
+​
+     <div
+      *ngIf="angForm.controls['username'].invalid && (angForm.controls['username'].dirty || angForm.controls['username'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['username'].errors.required">User name is Required.</div>
+     </div>
+    </div>
+​
+   </td>
+   <td>
+    <div class="form-group" id="password">
+     <label class="center-block">Password</label>
+     <input class="form-control" type="password" formControlName="password" [(ngModel)]="newUser.password" />
+​
+     <div
+      *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['password'].errors.required">Password is Required.</div>
+     </div>
+    </div>
+​
+   </td>
+  </tr>
+​
+  <tr>
+   <td>
+    <div class="form-group" id="email">
+     <label class="center-block">Email</label>
+     <input class="form-control" type="text" formControlName="email" [(ngModel)]="newUser.email" />
+​
+     <div
+      *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['email'].errors.required">Email is Required.</div>
+     </div>
+    </div>
+​
+   </td>
+   <td>
+    <div class="form-group" id="street">
+     <label class="center-block">Street</label>
+     <input class="form-control" type="text" formControlName="street" [(ngModel)]="newUser.address.street" />
+​
+     <div
+      *ngIf="angForm.controls['street'].invalid && (angForm.controls['street'].dirty || angForm.controls['street'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['street'].errors.required">Street is Required.</div>
+     </div>
+    </div>
+   </td>
+​
+  </tr>
+​
+  <tr>
+   <td>
+    <div class="form-group" id="city">
+     <label class="center-block">City</label>
+     <input class="form-control" type="text" formControlName="city" [(ngModel)]="newUser.address.city" />
+​
+     <div
+      *ngIf="angForm.controls['city'].invalid && (angForm.controls['city'].dirty || angForm.controls['city'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['city'].errors.required">City is Required.</div>
+     </div>
+    </div>
+   </td>
+   <td>
+    <div class="form-group" id="state">
+     <label class="center-block">State</label>
+     <input class="form-control" type="text" formControlName="state" [(ngModel)]="newUser.address.state" />
+​
+     <div
+      *ngIf="angForm.controls['state'].invalid && (angForm.controls['state'].dirty || angForm.controls['state'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['state'].errors.required">State is Required.</div>
+     </div>
+    </div>
+​
+   </td>
+​
+  </tr>
+​
+  <tr>
+   <td>
+    <div class="form-group" id="zipcode">
+     <label class="center-block">Zipcode</label>
+     <input class="form-control" type="number" formControlName="zipcode" [(ngModel)]="newUser.address.zipCode" />
+​
+     <div
+      *ngIf="angForm.controls['zipcode'].invalid && (angForm.controls['zipcode'].dirty || angForm.controls['zipcode'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angForm.controls['zipcode'].errors.required">Required</div>
+     </div>
+    </div>
+   </td>
+  </tr>
+​
+​
+  <br>
+  <tr>
+   <td>
+    <div class="form-group" id="submit">
+     <input type='submit' (click)='onSubmit()' class="btn btn-primary">
+     <!-- ng-click="reloadPage();" -->
+     <a routerLink="/login" class="btn btn-link">Cancel</a>
+    </div>
+   </td>
+  </tr>
+​
+ </form>
 </div>

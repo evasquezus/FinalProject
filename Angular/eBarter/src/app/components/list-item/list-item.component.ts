@@ -7,6 +7,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { User } from 'src/app/models/user';
 import { Item } from 'src/app/models/item';
 import { FormGroup } from '@angular/forms';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-list-item',
@@ -53,6 +54,7 @@ export class ListItemComponent implements OnInit {
       this.itemService.saveItem(item).subscribe
         (item => {
           console.log(item);
+          this.router.navigate(['/dummy']);
           // location.reload();
         }
         );

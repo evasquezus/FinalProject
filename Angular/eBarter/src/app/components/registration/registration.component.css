@@ -1,65 +1,59 @@
 form {
-    padding-right: 450px;
-    padding-left: 300px;
+  padding-right: 450px;
+  padding-left: 300px;
 }
-
 h2 {
-  padding-right: 500px;
-  padding-left: 350px;
+padding-right: 500px;
+padding-left: 350px;
 }
-
-
 #firstName{
-  margin-left: -50%;
-  margin-right: 10%
+margin-left: -50%;
+margin-right: 10%
 }
 #lastName{
-  margin-left: 30%;
-  margin-right: -60%
+margin-left: 30%;
+margin-right: -60%
 }
 #username{
-  margin-left: -50%;
-  margin-right: 10%
+margin-left: -50%;
+margin-right: 10%
 }
 #password{
-  margin-left: 30%;
-  margin-right: -60%
+margin-left: 30%;
+margin-right: -60%
 }
 #email{
-  margin-left: -50%;
-  margin-right: 10%
+margin-left: -50%;
+margin-right: 10%
 }
 #street{
-  margin-left: 30%;
-  margin-right: -60%
+margin-left: 30%;
+margin-right: -60%
 }
 #city{
-  margin-left: -50%;
-  margin-right: 10%
+margin-left: -50%;
+margin-right: 10%
 }
 #state{
-  margin-left: 30%;
-  margin-right: -60%
+margin-left: 30%;
+margin-right: -60%
 }
 #zipcode{
-  margin-left: -50%;
-  margin-right: 10%
+margin-left: -50%;
+margin-right: 10%
 }
 #submit{
-  margin-left: 15%;
-  margin-right: -35%
+margin-left: 15%;
+margin-right: -35%
 }
 #register{
-  margin-left: 10%;
+margin-left: 10%;
 }
 #rig{
-  margin-left: 37%;
+margin-left: 37%;
 }
 .warningText{
-  color: red;
-  font-weight: bold;
-  font-style: italic;
+color: red;
+font-weight: bold;
+font-style: italic;
 }
-
-
-

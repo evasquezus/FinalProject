@@ -54,7 +54,7 @@ export class RegistrationComponent implements OnInit {
         this.authService.login(this.newUser.username, this.newUser.password).subscribe(
           date2 => {
             // this.router.navigate([{outlets: {home: 'home', user: null}}])
-            this.router.navigateByUrl('/home');
+            this.router.navigate(['/dummy']);
         },
           err2 => console.log(err2)
         );
