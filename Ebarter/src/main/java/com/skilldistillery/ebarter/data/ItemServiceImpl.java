@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.ebarter.entities.Category;
 import com.skilldistillery.ebarter.entities.Item;
 import com.skilldistillery.ebarter.repositories.ItemRepository;
 import com.skilldistillery.ebarter.repositories.UserRepository;
@@ -18,7 +19,10 @@ public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	UserRepository userRepo;
-
+	
+//	@Autowired
+//	CategoryService catService;
+	
 	@Override
 	public List<Item> getAllItems() {
 		List<Item> allItems = repo.findAll();
@@ -50,9 +54,12 @@ public class ItemServiceImpl implements ItemService {
 		Optional<Item> opt = repo.findById(id);
 		if (opt.isPresent()) {
 			Item managed = opt.get();
-//			managed.setCategory(item.getCategory());
+			managed.setItemStatus(item.getItemStatus());
 			managed.setDescription(item.getDescription());
 			managed.setName(item.getName());
+			System.out.println("*****************************************************");
+			System.out.println("item: " + item);
+			System.out.println("*****************************************************");
 //			managed.setEndDate(item.getEndDate());
 			repo.saveAndFlush(item);
 		}

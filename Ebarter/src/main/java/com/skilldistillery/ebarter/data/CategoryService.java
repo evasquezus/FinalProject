@@ -4,5 +4,5 @@ import com.skilldistillery.ebarter.entities.Category;
 
 public interface CategoryService {
 
-	public Category getCategoryById(int id);
+//	public Category getCategoryById(int id);
 }
