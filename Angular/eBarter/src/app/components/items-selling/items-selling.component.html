@@ -1,3 +1,75 @@
+<!-- <div id='title'>
+    <h1>Items I Am Selling</h1>
+    </div>
+    <div *ngFor="let item of items" id="showOffersForItemsThisUserHasWon" class="card-deck" style="width: 70rem;">
+
+      <div *ngIf="item.itemStatus == 1">
+          <h1>{{item.name}}</h1>
+                  <br>
+                  <br>
+                  <br>
+              <div *ngIf="item.user.id == isUser.id">
+              <img class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap" href="#/">
+              <span>{{item.name}}</span>
+              <br>
+              <span>{{item.description}}</span>
+              <br>
+              <button (click)='navItem(item)' class="btn btn-success" id='register-button' type="submit">View Item</button>
+            </div>
+
+      </div>
+    </div> -->
+
+
+
+<br>
+<br>
+<br>
+<div class="container" *ngFor="let item of items" id="showOffersForItemsThisUserHasWon">
+  <div *ngIf="item.itemStatus == 1" class="col-md-14">
+    <div *ngIf="item.user.id == isUser.id" class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <img *ngIf="item.user.id == isUser.id" class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap"
+              href="#/">
+            <br>
+            <br>
+          </div>
+          <div *ngIf="item.user.id == isUser.id" class="col-sm-4">
+            <br>
+            <h3>Item Name: </h3>
+            <li>{{item.name}}</li>
+
+            <br>
+            <h3>Item Description: </h3>
+            <li>{{item.description}}</li>
+
+          </div>
+          <div *ngIf="item.user.id == isUser.id" class="col-sm-4">
+            <!-- <div class="card">
+              <div class="card-body"> -->
+            <br>
+            <br>
+            <button (click)='navItem(item)' class="btn btn-warning" id='register-button' type="submit">View
+              Item</button>
+            <br>
+            <br>
+            <!-- </div>
+            </div> -->
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 
 
 <!-- <div id="showOffersForItemsThisUserIsbiddingOn"class="card-deck" style="width: 70rem;" *ngFor="let item of items">
@@ -40,7 +112,7 @@
     </div>
   </div>
 </div> -->
-<div id='title'>
+<!-- <div id='title'>
     <h1>Items I Am Selling</h1>
     </div>
 
@@ -49,14 +121,11 @@
 
       <div *ngIf="item.itemStatus == 1">
           <h1>{{item.name}}</h1>
-          <!-- <div *ngIf="item.offers.length > 0"> -->
-            <!-- <div *ngFor="let offer of item.offers">
-                <div *ngIf="offer.offerStatus == 2"> -->
+
                   <br>
                   <br>
                   <br>
-              <!-- <div *ngIf="offer.offer_status_id == 2">
-              <h1>{{offer.offer_status_id}}</h1> -->
+
               <div *ngIf="item.user.id == isUser.id">
               <img class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap" href="#/">
               <span>{{item.name}}</span>
@@ -65,15 +134,27 @@
               <br>
               <button (click)='navItem(item)' class="btn btn-success" id='register-button' type="submit">View Item</button>
             </div>
-          <!-- </div>
-          </div> -->
-        <!-- </div> -->
+
       </div>
-    </div>
+    </div> -->
 
 
 
-      <!-- <h1>Items I won</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>Items I won</h1>
       <div *ngFor="let item of items"></div>
         <div *ngIf="item.itemStatus == 2">
                 <br>
@@ -91,3 +172,31 @@
           </div>
         </div>  -->
 
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>Items I won</h1>
+      <div *ngFor="let item of items"></div>
+        <div *ngIf="item.itemStatus == 2">
+                <br>
+                <br>
+                <br>
+                <img class="card-img-top" *ngIf="offer.user.id == isUser.id"
+                  src="{{item.imageUrl}}"
+                  alt="Card image cap" href="#/">
+                <span *ngIf="offer.user.id == isUser.id">{{item.name}}</span>
+                <br>
+                <span *ngIf="offer.user.id == isUser.id">{{item.description}}</span>
+                <br>
+                <span *ngIf="offer.user.id == isUser.id">{{offer.description}}</span>
+                <br>
+          </div>
+        </div>  -->

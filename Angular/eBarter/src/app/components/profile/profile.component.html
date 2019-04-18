@@ -100,12 +100,14 @@
 
         <div id="activeuser">
           <button *ngIf='isAdmin' (click)="activateUser()" class="btn btn-warning">Activate User</button>
+          <span class='spacer-sm'></span>
+          <button *ngIf='isAdmin'(click)="navHome()" class="btn btn-primary">Cancel</button>
         </div>
 
-        <span *ngIf='isAdmin' class='spacer-sm'></span>
+        <!-- <span *ngIf='isAdmin' class='spacer-sm'></span>
         <div id="cancel">
-          <button (click)="navHome()" class="btn btn-primary">Cancel</button>
-        </div>
+          <button *ngIf='isAdmin'(click)="navHome()" class="btn btn-primary">Cancel</button> -->
+
       </div>
     </div>
   </div>
