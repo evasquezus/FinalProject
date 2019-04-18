@@ -100,3 +100,9 @@ h2{
   margin-left: 0% !important;
   text-align: center;
 }
+
+.card-img-top[_ngcontent-c3] {
+  width: 90%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
