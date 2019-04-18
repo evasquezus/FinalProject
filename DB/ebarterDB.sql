@@ -88,7 +88,7 @@ DROP TABLE IF EXISTS `item` ;
 CREATE TABLE IF NOT EXISTS `item` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
-  `description` VARCHAR(200) NULL DEFAULT NULL,
+  `description` VARCHAR(300) NULL DEFAULT NULL,
   `item_status` TINYINT(4) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
   `category_id` INT NOT NULL,
@@ -193,11 +193,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'Computer desk', 'A dark wood computer desk', 1, 1, 1, 'https://hips.hearstapps.com/clv.h-cdn.co/assets/15/29/2560x1659/gallery-1436821476-desk6.jpg?resize=480:*');
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'TV stand', 'A tv stand', 1, 2, 1, 'https://www.pier1.com/dis/dw/image/v2/AAID_PRD/on/demandware.static/-/Sites-pier1_master/default/dw221cb890/images/3568596/3568596_1.jpg?sw=400&sh=400');
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'Bike', 'An old road bicycle in good shape', 1, 1, 3, 'https://images-na.ssl-images-amazon.com/images/I/719IoilO2aL._CR0,204,1224,1224_UX256.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'Mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', 1, 3, 2, 'https://i.pinimg.com/originals/31/00/8a/31008a2772d0509fb1c53ad7d4cfcb08.jpg');
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (5, 'Back Pack', 'A dark green backpack with red lether ', 1, 4, 4, 'http://www.wanderkagu.com/image/data/items%20image/1610648_1.JPG');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'Computer desk', 'Offering my 2 years old computer desk, in great condition, minor paint problem.', 1, 1, 1, 'https://hips.hearstapps.com/clv.h-cdn.co/assets/15/29/2560x1659/gallery-1436821476-desk6.jpg?resize=480:*');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'TV stand', 'Large top panel holds up to 50-Inch flat screen TV.Open shelves and closed compartments are great for display and storage of entertainment equipment.', 1, 2, 1, 'https://www.pier1.com/dis/dw/image/v2/AAID_PRD/on/demandware.static/-/Sites-pier1_master/default/dw221cb890/images/3568596/3568596_1.jpg?sw=400&sh=400');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'Bike', 'With 21 speeds to conquer the trails, the Huffy Summit Ridge is ready for outdoor adventures; just follow the steps in our product manual', 1, 1, 3, 'https://images-na.ssl-images-amazon.com/images/I/719IoilO2aL._CR0,204,1224,1224_UX256.jpg');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'Mac book', 'Working condition mac book from skill distillery, barely used in great condition, cover pretected since in use.', 1, 3, 2, 'https://i.pinimg.com/originals/31/00/8a/31008a2772d0509fb1c53ad7d4cfcb08.jpg');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (5, 'Back Pack', 'DIMENSIONS for our BUSSINESS & FASHIONAL style DAYPACK:20 x 12.2 x 5.7 inch with dedicated Laptop compartment holds Laptops less than 17 Inch as well as 15.6 inch, 15 Inch,14 Inch and 13 Inch Macbook/Laptopsuch as for Dell HP, Asus, Lenovo, Acer, Samsung, Sony, MacBook, Notebook', 1, 4, 4, 'http://www.wanderkagu.com/image/data/items%20image/1610648_1.JPG');
 
 COMMIT;
 
