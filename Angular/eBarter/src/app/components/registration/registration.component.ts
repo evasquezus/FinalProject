@@ -31,7 +31,15 @@ export class RegistrationComponent implements OnInit {
   }
   createForm() {
     this.angForm = this.fb.group({
-      name: ['', Validators.required ]
+      firstName: ['', Validators.required ],
+      lastName: ['', Validators.required ],
+      username: ['', Validators.required ],
+      password: ['', Validators.required ],
+      email: ['', Validators.required ],
+      street: ['', Validators.required ],
+      city: ['', Validators.required ],
+      state: ['', Validators.required ],
+      zipcode: ['', Validators.required ]
     });
   }
 

@@ -10,40 +10,40 @@ h2 {
 
 
 #firstName{
-  margin-left: 10%;
-  margin-right: -15%
+  margin-left: -50%;
+  margin-right: 10%
 }
 #lastName{
   margin-left: 30%;
-  margin-right: -35%
+  margin-right: -60%
 }
 #username{
-  margin-left: 10%;
-  margin-right: -15%
+  margin-left: -50%;
+  margin-right: 10%
 }
 #password{
   margin-left: 30%;
-  margin-right: -35%
+  margin-right: -60%
 }
 #email{
-  margin-left: 10%;
-  margin-right: -15%
+  margin-left: -50%;
+  margin-right: 10%
 }
 #street{
   margin-left: 30%;
-  margin-right: -35%
-}
-#state{
-  margin-left: 10%;
-  margin-right: -15%
+  margin-right: -60%
 }
 #city{
+  margin-left: -50%;
+  margin-right: 10%
+}
+#state{
   margin-left: 30%;
-  margin-right: -3%
+  margin-right: -60%
 }
 #zipcode{
-  margin-left: 10%;
-  margin-right: -15%
+  margin-left: -50%;
+  margin-right: 10%
 }
 #submit{
   margin-left: 15%;
@@ -52,5 +52,6 @@ h2 {
 #register{
   margin-left: 10%;
 }
+
 
 

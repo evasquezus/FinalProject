@@ -229,3 +229,4 @@ INSERT INTO `category` (`id`, `name`) VALUES (5, 'clothing');
 
 COMMIT;
 
+
