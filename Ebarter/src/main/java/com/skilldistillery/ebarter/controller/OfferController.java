@@ -15,12 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skilldistillery.ebarter.data.ItemService;
 import com.skilldistillery.ebarter.data.OfferService;
-<<<<<<< HEAD
-import com.skilldistillery.ebarter.entities.Category;
 import com.skilldistillery.ebarter.entities.Item;
-=======
->>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 import com.skilldistillery.ebarter.entities.Offer;
 
 @RestController
@@ -30,12 +27,9 @@ public class OfferController {
 
 	@Autowired
 	OfferService service;
-<<<<<<< HEAD
 
 	@Autowired
 	ItemService itemService;
-=======
->>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 
 	@GetMapping(path = "offers")
 	public List<Offer> index() {
@@ -49,7 +43,6 @@ public class OfferController {
 		response.setStatus(200);
 		return offerRetrived;
 	}
-<<<<<<< HEAD
 
 	@GetMapping(path = "items/{id}/offers")
 	public List<Offer> getOffersForItem(@PathVariable("id") int id, HttpServletResponse response) {
@@ -58,8 +51,6 @@ public class OfferController {
 		response.setStatus(200);
 		return offersForItem;
 	}
-=======
->>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 
 	@DeleteMapping(path = "offers/{id}")
 	public void deleteOffer(@PathVariable("id") int id, HttpServletResponse response) {
