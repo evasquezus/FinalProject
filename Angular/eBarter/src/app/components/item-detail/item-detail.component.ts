@@ -45,21 +45,22 @@ export class ItemDetailComponent implements OnInit {
   ngOnInit() {
     let id;
     this.getCurrentUser();
+
     if (parseInt(localStorage.getItem('sellingSelectedId')) > 0) {
       console.log('selling');
       id = parseInt(localStorage.getItem('sellingSelectedId'));
-      localStorage.removeItem('sellingSelectedId');
+      // localStorage.removeItem('sellingSelectedId');
       this.selling = true;
     }
     else if (parseInt(localStorage.getItem('wonSelectedId')) > 0) {
       console.log('won');
       id = parseInt(localStorage.getItem('wonSelectedId'));
-      localStorage.removeItem('wonSelectedId');
+      // localStorage.removeItem('wonSelectedId');
       this.won = true;
     }
     else {
       id = parseInt(localStorage.getItem('selectedId'));
-      localStorage.removeItem('selectedId');
+      // localStorage.removeItem('selectedId');
     }
     this.itemService.getSpecificItem(id).subscribe(
       item => {
@@ -122,6 +123,8 @@ export class ItemDetailComponent implements OnInit {
 
 
   getCurrentUser() {
+    console.log('in get current user');
+
     const userName = this.authService.getCredName();
     let response = this.userService.getUserByUserName(userName);
     response.subscribe(
@@ -129,6 +132,11 @@ export class ItemDetailComponent implements OnInit {
         this.bidder = data;
         localStorage.setItem('bidderName', this.bidder.username);
         console.log('bidder: ' + this.bidder);
+        console.log('bidder id: ' + this.bidder.id + ' item.user.id: ' + this.item.user.id);
+
+        if(this.bidder.id === this.item.user.id) {
+          this.selling = true;
+        }
 
       },
       error => {

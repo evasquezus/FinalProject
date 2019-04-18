@@ -1,7 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 body {
   font-family: 'Ubuntu', serif;
-
 }
 img {
   display: block;
@@ -11,14 +10,12 @@ img {
   width: 50%;
   border-style: solid black;
 }
-
 .carousel {
   margin-left: 5%;
   max-width: 500px;
   max-height: 500px;
   vertical-align: middle;
 }
-
 .card-deck[_ngcontent-c2] .card[_ngcontent-c2] {
   display: -webkit-box;
   flex: 1 0 0%;
@@ -29,19 +26,15 @@ img {
   max-width: 320px;
   margin-top: 30px;
 }
-
 .card-deck {
   margin-left: 30%;
   bottom: 710px;
   position: relative;
   text-align: center;
-
 }
-
 body {
   background-color: #edeff0 ;
 }
-
 button{
 /* text-align: center; */
 position: relative;
@@ -62,14 +55,11 @@ form {
   -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
   -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
   box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.43);
-
 } */
-
 form img,
 form input {
   display: inline-block;
 }
-
 h2{
   position: relative;
   bottom: 210px;
@@ -84,7 +74,6 @@ h2{
   bottom: 150px;
   margin-left: 3%;
 }
-
 .card-deck .card {
   display: -webkit-box;
   flex: 1 0 0%;
@@ -93,14 +82,11 @@ h2{
   margin-bottom: 10px;
   margin-left: 15px;
   max-width: 500px;
-
 }
-
 #no-offers{
   margin-left: 0% !important;
   text-align: center;
 }
-
 .card-img-top[_ngcontent-c3] {
   width: 90%;
   border-top-left-radius: calc(0.25rem - 1px);

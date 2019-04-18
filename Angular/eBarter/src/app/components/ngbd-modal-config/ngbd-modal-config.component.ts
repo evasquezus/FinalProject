@@ -5,6 +5,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { ItemDetailComponent } from '../item-detail/item-detail.component';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ngbd-modal-config',
@@ -24,7 +25,8 @@ export class NgbdModalConfigComponent implements OnInit {
               private modalService: NgbModal,
               private itemDetailComp: ItemDetailComponent,
               private userService: UserService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private router: Router) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
     config.keyboard = false;
@@ -51,7 +53,7 @@ export class NgbdModalConfigComponent implements OnInit {
     const imgUrl = form.value.imgUrl;
     console.log('modal form: ' + desc + ' ' + imgUrl);
     this.itemDetailComp.submitOffer(desc, imgUrl);
-
+    this.router.navigate(['/dummy2']);
     this.showResult = true;
   }
 
