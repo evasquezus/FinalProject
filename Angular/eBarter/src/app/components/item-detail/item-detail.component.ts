@@ -176,7 +176,10 @@ export class ItemDetailComponent implements OnInit {
       console.log('offer: ' + offer.description);
       this.offer = offer;
       this.showOffer = true;
+    }
 
+    back() {
+      this.showOffer = false;
     }
   }
 

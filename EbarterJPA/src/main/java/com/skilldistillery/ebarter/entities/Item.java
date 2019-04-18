@@ -30,17 +30,18 @@ public class Item {
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "end_date")
-	private Date endDate;
+//	@Column(name = "end_date")
+//	private Date endDate;
 
 	@Column(name = "item_status")
 	private int itemStatus;
 
 ////	@JsonIgnore
-	@JsonProperty(access = Access.WRITE_ONLY)
-	@ManyToOne
-	@JoinColumn(name = "category_id")
-	private Category category;
+//	@JsonProperty(access = Access.WRITE_ONLY)
+//	@ManyToOne
+//	@JoinColumn(name = "category_id")
+	@Column(name="category_id")
+	private int categoryId;
 	
 
 //	@ManyToOne(cascade = { CascadeType.ALL })
@@ -92,13 +93,13 @@ public class Item {
 		this.name = name;
 	}
 
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
+//	public Date getEndDate() {
+//		return endDate;
+//	}
+//
+//	public void setEndDate(Date endDate) {
+//		this.endDate = endDate;
+//	}
 
 	public int getItemStatus() {
 		return itemStatus;
@@ -130,7 +131,7 @@ public class Item {
 		int result = 1;
 //		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
+//		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((imageUrl == null) ? 0 : imageUrl.hashCode());
 		result = prime * result + itemStatus;
@@ -167,11 +168,11 @@ public class Item {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (endDate == null) {
-			if (other.endDate != null)
-				return false;
-		} else if (!endDate.equals(other.endDate))
-			return false;
+//		if (endDate == null) {
+//			if (other.endDate != null)
+//				return false;
+//		} else if (!endDate.equals(other.endDate))
+//			return false;
 		if (id != other.id)
 			return false;
 		if (imageUrl == null) {
@@ -201,31 +202,30 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", description=" + description + ", name=" + name + ", endDate=" + endDate
-				+ ", active=" + itemStatus + ", category=" + category + ", user=" + user + ", offer=" + offers
+		return "Item [id=" + id + ", description=" + description + ", name=" + name + ", endDate=" + ", active=" + itemStatus + ", user=" + user + ", offer=" + offers
 				+ ", itemImage=" + "]";
 	}
 
-	public Item(int id, String description, String name, Date endDate, int itemStatus, Category category, User user,
+	public Item(int id, String description, String name, Date endDate, int itemStatus, int categoryId, User user,
 			List<Offer> offer) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.name = name;
-		this.endDate = endDate;
+//		this.endDate = endDate;
 		this.itemStatus = itemStatus;
-		this.category = category;
+		this.categoryId = categoryId;
 		this.user = user;
 		this.offers = offers;
 		this.imageUrl = imageUrl;
 	}
 
-	public Category getCategory() {
-		return category;
+	public int getCategoryId() {
+		return categoryId;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public Item() {

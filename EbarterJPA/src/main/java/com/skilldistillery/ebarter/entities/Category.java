@@ -19,8 +19,8 @@ public class Category {
 	@Column(name = "name")
 	private String name;
 
-	@OneToMany(mappedBy = "category")
-	private List<Item> items;
+//	@OneToMany(mappedBy = "category")
+//	private List<Item> items;
 
 	public int getId() {
 		return id;
@@ -54,12 +54,14 @@ public class Category {
 		super();
 		this.id = id;
 		this.name = name;
-		this.items = null;
+//		this.items = null;
 	}
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", items=" + items + "]";
+		return "Category [id=" + id + ", name=" + name + "]";
 	}
+
+
 
 }
