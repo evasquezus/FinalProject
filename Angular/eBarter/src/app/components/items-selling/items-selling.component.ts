@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { ItemService } from 'src/app/services/item.service';
-import { OfferServiceService } from 'src/app/services/offer-service.service';
-import { UserService } from 'src/app/services/user.service';
 import { Item } from 'src/app/models/item';
 import { Offer } from 'src/app/models/offer';
 import { User } from 'src/app/models/user';
+import { ItemService } from 'src/app/services/item.service';
+import { OfferServiceService } from 'src/app/services/offer-service.service';
+import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-items-won',
-  templateUrl: './items-won.component.html',
-  styleUrls: ['./items-won.component.css']
+  selector: 'app-items-selling',
+  templateUrl: './items-selling.component.html',
+  styleUrls: ['./items-selling.component.css']
 })
-export class ItemsWonComponent implements OnInit {
+export class ItemsSellingComponent implements OnInit {
 
   item: Item;
   items: Item[];
   offers: Offer[] = [];
   offer: Offer;
   users: User[];
-  isBidder: User;
+  isUser: User;
 
   constructor(private itemService: ItemService,
               private offerService: OfferServiceService,
@@ -30,7 +30,7 @@ export class ItemsWonComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrentUser();
-    console.log(this.isBidder);
+    console.log(this.isUser);
     this.itemService.getItems().subscribe(items => {
       this.items = items;
       console.log(this.items);
@@ -44,9 +44,9 @@ export class ItemsWonComponent implements OnInit {
     let response = this.userService.getUserByUserName(userName);
     response.subscribe(
       data => {
-        this.isBidder = data;
-        localStorage.setItem('bidderName', this.isBidder.username);
-        console.log('bidder: ' + this.isBidder);
+        this.isUser = data;
+        localStorage.setItem('bidderName', this.isUser.username);
+        console.log('bidder: ' + this.isUser);
 
       },
       error=> {
@@ -57,7 +57,7 @@ export class ItemsWonComponent implements OnInit {
   navItem(item: Item) {
     console.log('navitem: ' + item.id);
     const id = item.id.toString();
-    localStorage.setItem('wonSelectedId', id);
+    localStorage.setItem('sellingSelectedId', id);
     this.router.navigate(['/item']);
     }
   }

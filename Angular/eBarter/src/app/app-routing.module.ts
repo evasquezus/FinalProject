@@ -1,3 +1,4 @@
+import { ItemsSellingComponent } from './components/items-selling/items-selling.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NgModule } from '@angular/core';
@@ -7,8 +8,11 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ProfileComponent } from './components/profile/profile.component';
 import { CompletedComponent } from './components/completed/completed.component';
 import { LoginComponent } from './components/login/login.component';
+import { DummyComponent } from './components/dummy/dummy.component';
 import { ItemsWonComponent } from './components/items-won/items-won.component';
 import { ItemsImBiddingOnComponent } from './components/items-im-bidding-on/items-im-bidding-on.component';
+
+
 
 const routes: Routes = [
   { path: 'completed', component: CompletedComponent },
@@ -18,8 +22,9 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'listitem', component: ListItemComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'dummy', component: DummyComponent},
   { path: 'itemsWon', component: ItemsWonComponent },
-  { path: 'biddingOn', component: ItemsImBiddingOnComponent },
+  { path: 'selling', component: ItemsSellingComponent },
   { path: '', component: HomepageComponent }
 ];
 

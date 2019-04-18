@@ -193,11 +193,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ebarterDB`;
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'computer desk', 'A dark wood computer desk', 1, 1, 1, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A tv stand', 1, 2, 1, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'snowboard', 'An old snowboard in good shape', 1, 1, 3, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', 1, 3, 2, NULL);
-INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (5, 'test item', 'a test item', 1, 4, 1, NULL);
+
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (1, 'computer desk', 'A dark wood computer desk', 1, 1, 1, 'https://hips.hearstapps.com/clv.h-cdn.co/assets/15/29/2560x1659/gallery-1436821476-desk6.jpg?resize=480:*');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (2, 'tv stand', 'A tv stand', 1, 2, 1, 'https://www.pier1.com/dis/dw/image/v2/AAID_PRD/on/demandware.static/-/Sites-pier1_master/default/dw221cb890/images/3568596/3568596_1.jpg?sw=400&sh=400');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (3, 'Bike', 'An old road bicycle in good shape', 1, 1, 3, 'https://images-na.ssl-images-amazon.com/images/I/719IoilO2aL._CR0,204,1224,1224_UX256.jpg');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (4, 'mac book', 'Working condition mac book from skill distillery, time to get a new one with the money', 1, 3, 2, 'https://i.pinimg.com/originals/31/00/8a/31008a2772d0509fb1c53ad7d4cfcb08.jpg');
+INSERT INTO `item` (`id`, `name`, `description`, `item_status`, `user_id`, `category_id`, `image_url`) VALUES (5, 'test item', 'a test item', 1, 4, 1, 'http://www.wanderkagu.com/image/data/items%20image/1610648_1.JPG');
+
 
 COMMIT;
 

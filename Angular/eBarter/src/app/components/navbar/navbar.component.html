@@ -8,16 +8,14 @@
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <button (click)='navList()'ngbDropdownItem>List New Item</button>
           <button (click)='navHome()'ngbDropdownItem>View All Available Items</button>
-          <button (click)='navBidding()'ngbDropdownItem>View Items I Bid On</button>
           <button (click)='navSelling()'ngbDropdownItem>View Items I Am Selling</button>
-          <button (click)='navWon()'ngbDropdownItem>View Items I Won</button>
-          <button (click)='navCompleted()'ngbDropdownItem>View My Completed Deals</button>
+          <button (click)='navWon()'ngbDropdownItem>View My Accepted Offers</button>
           <button (click)='navProfile()'ngbDropdownItem>My Profile</button>
           <button (click)='navLogout()'ngbDropdownItem>Logout</button>
         </div>
       </span>
     </span>
-      <span>The Web's Most Exciting Marketplace!</span>
+      <span>Denver's Most Exciting Marketplace!</span>
       <span class='float-right welcome'>Welcome {{displayName}}</span>
   </div>
 
@@ -25,7 +23,7 @@
       <span class='float-left'>
         <span (click)='navHome()'>eBarter!</span>
       </span>
-      <span class='welcome'>The Web's Most Exciting Marketplace!</span>
+      <span class='welcome'>Denver's Most Exciting Marketplace!</span>
       <span class='float-right'>
           <form loginform>
             <input class='login-box' type='text' placeholder='username' name='username' id='namebox' [(ngModel)]='logincombo.username'>
