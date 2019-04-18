@@ -56,14 +56,6 @@ public class Item {
 //	@OneToMany(mappedBy="item")
 //	private List<Item_Image> itemImage;
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
 	public List<Offer> getOffers() {
 		return offers;
 	}
@@ -136,14 +128,6 @@ public class Item {
 //		this.itemImage = itemImage;
 //	}
 
-	
-
-	@Override
-	public String toString() {
-		return "Item [id=" + id + ", description=" + description + ", name=" + name + ", itemStatus=" + itemStatus
-				+ ", category=" + category + ", user=" + user + ", offers=" + offers + ", imageUrl=" + imageUrl + "]";
-	}
-
 
 	@Override
 	public int hashCode() {
@@ -151,10 +135,7 @@ public class Item {
 		int result = 1;
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-<<<<<<< HEAD
-=======
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
->>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 		result = prime * result + id;
 		result = prime * result + ((imageUrl == null) ? 0 : imageUrl.hashCode());
 		result = prime * result + itemStatus;
@@ -191,14 +172,11 @@ public class Item {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-<<<<<<< HEAD
-=======
 		if (endDate == null) {
 			if (other.endDate != null)
 				return false;
 		} else if (!endDate.equals(other.endDate))
 			return false;
->>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 		if (id != other.id)
 			return false;
 		if (imageUrl == null) {
@@ -226,10 +204,6 @@ public class Item {
 		return true;
 	}
 
-<<<<<<< HEAD
-	public Item(int id, String description, String name, int itemStatus, Category category, User user,
-			List<Offer> offers, String imageUrl) {
-=======
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", description=" + description + ", name=" + name + ", endDate=" + endDate
@@ -239,15 +213,11 @@ public class Item {
 
 	public Item(int id, String description, String name, Date endDate, int itemStatus, Category category, User user,
 			List<Offer> offer) {
->>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 		super();
 		this.id = id;
 		this.description = description;
 		this.name = name;
-<<<<<<< HEAD
-=======
 		this.endDate = endDate;
->>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 		this.itemStatus = itemStatus;
 		this.category = category;
 		this.user = user;
