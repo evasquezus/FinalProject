@@ -150,37 +150,42 @@
 <br>
 
 <div *ngIf='!won'>
-  <div id='no-offers' *ngIf='offers.length === 0 && !selling'>
-    <h2>This item has no offers yet! Be the first to make an offer!</h2>
-  </div>
-  <div class="container" *ngFor="let offer of offers" id="tableForOffers">
+    <div id='no-offers' *ngIf='offers.length === 0'>
+       <h2>This item has no offers yet!  Be the first to make an offer!</h2>
+    </div>
+ <div class="container" *ngFor="let offer of offers" id="tableForOffers">
+    <h1>{{offer.id}}</h1> -->
+<!-- //*ngFor="let item of items" -->
+  <table class="table table-sm"  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">UserName</th>
+        <th scope="col">Offer Description</th>
+        <th scope="col">Location</th>
+        <th scope="col" hidden>Accept</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th >{{offer.id}}</th>
+        <td >{{offer.user.username}}</td>
+        <td >{{offer.description}}</td>
+        <td >{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}</td>
 
-    <table class="table table-sm">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">UserName</th>
-          <th scope="col">Offer Description</th>
-          <th scope="col">Location</th>
-          <th scope="col" hidden>Accept</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>{{offer.id}}</th>
-          <td>{{offer.user.username}}</td>
-          <td>{{offer.description}}</td>
-          <td>{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}</td>
+        <td><button  (click)="changeOfferStatus(offer)" class=" btn btn-success" *ngIf="item.user.id === bidder.id">Accept Bid</button></td>
+        <!-- <button  (click)="changeOfferStatus(offer)"  [(ngModel)]="offerStatus.offerStatus" name="offerStatus" #offerStatus  [(ngModel)]="offer.offerStatus" name="offerStatus" #offerStatus  class=" btn btn-success" *ngIf="item.user.id === bidder.id">Accept Bid</button> -->
+        <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
 
-          <td><button (click)="changeOfferStatus(offer)" class=" btn btn-success"
-              *ngIf="item.user.id === bidder.id">Accept Bid</button></td>
+        <!-- <td *ngFor="let item of items"> -->
+          <!-- <p *ngFor="let user of users"></p> -->
           <button *ngIf='selling' (click)='viewOffer(offer)' class="btn btn-success">View Offer</button>
           <span class='spacer'></span>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <br>
+          <button class="btn btn-success">Accept</button>
+          <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 
