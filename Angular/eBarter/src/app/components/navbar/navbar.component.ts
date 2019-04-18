@@ -71,21 +71,20 @@ export class NavbarComponent implements OnInit {
 
   // click methods for item sorting
   // --------------------------------------------------
-  navBidding() {
-    this.router.navigate(['/biddingOn']);
-  }
+
 
   navSelling() {
-
+    if(!this.share.showWarning) {
+    this.router.navigate(['/selling']);
+    }
   }
 
   navWon() {
+    if(!this.share.showWarning) {
     this.router.navigate(['/itemsWon']);
+    }
   }
 
-  navCompleted() {
-    this.router.navigate(['/completed']);
-  }
   // ----------------------------------------------------
   navLogout() {
     this.auth.logout();
@@ -136,7 +135,7 @@ export class NavbarComponent implements OnInit {
     // DELETE THIS CRAP BELOW
 
   checkEnabled() {
-    let response = this.us.getUserByUserName('testuser');
+    let response = this.us.getUserByUserName(this.auth.getCredName);
     response.subscribe(
       data => {
         const user = data;

@@ -20,6 +20,7 @@ export class HomepageComponent implements OnInit {
   itemsNoAuth: Item[];
   selectedItem: Item;
   showWarning: boolean;
+  showSuspended: boolean;
 
   constructor(private itemService: ItemService,
               private itemNoAuthService: ItemNoAuthService,
@@ -30,6 +31,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
     console.log('HOME INIT');
+    this.showSuspended = this.share.showSuspended;
     this.showWarning = this.share.showWarning;
     this.itemService.getItems().subscribe(items => {
       this.items = items;

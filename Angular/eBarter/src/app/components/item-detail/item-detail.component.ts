@@ -26,6 +26,10 @@ export class ItemDetailComponent implements OnInit {
   address: Address;
   bidder: User;
   message: string;
+  won = false;
+  selling = false;
+  showOffer = false;
+
 
 
 
@@ -36,9 +40,24 @@ export class ItemDetailComponent implements OnInit {
               private authService: AuthService) { }
 
   ngOnInit() {
+    let id;
     this.getCurrentUser();
-    const id = parseInt(localStorage.getItem('selectedId'));
+    if(parseInt(localStorage.getItem('sellingSelectedId')) > 0) {
+      console.log('selling');
+      id = parseInt(localStorage.getItem('sellingSelectedId'));
+      localStorage.removeItem('sellingSelectedId');
+      this.selling = true;
+    }
+      else if(parseInt(localStorage.getItem('wonSelectedId')) > 0) {
+        console.log('won');
+        id = parseInt(localStorage.getItem('wonSelectedId'));
+        localStorage.removeItem('wonSelectedId');
+        this.won = true;
+      }
+    else {
+    id = parseInt(localStorage.getItem('selectedId'));
     localStorage.removeItem('selectedId');
+    }
     this.itemService.getSpecificItem(id).subscribe(
       item => {
         this.item = item;
@@ -52,9 +71,9 @@ export class ItemDetailComponent implements OnInit {
           }
         );
 
-        localStorage.setItem('itemId', item.id.toString());
-        localStorage.setItem('itemName', item.name);
-        localStorage.setItem('sellerName', item.user.username);
+        // localStorage.setItem('itemId', item.id.toString());
+        // localStorage.setItem('itemName', item.name);
+        // localStorage.setItem('sellerName', item.user.username);
               }
     );
     this.itemService.getItems().subscribe(items => {
@@ -107,5 +126,11 @@ export class ItemDetailComponent implements OnInit {
         console.log('error in auth.service.getCurrentUser()');
 
       });
+  }
+  viewOffer(offer) {
+    console.log('offer: ' + offer.description);
+    this.offer = offer;
+    this.showOffer = true;
+
   }
 }
