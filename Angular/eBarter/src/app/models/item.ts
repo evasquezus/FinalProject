@@ -7,7 +7,6 @@ export class Item {
   name?: string;
   itemStatus?: number;
   user?: User;
-  imageUrl?: string
   offers?: Offer [];
   imageUrl?: string;
 
@@ -17,8 +16,6 @@ export class Item {
     name?: string,
     itemStatus?: number,
     user?: User,
-    offers?: Offer [],
-    imageUrl?: string
     imageUrl?: string,
     offers?: Offer []
 

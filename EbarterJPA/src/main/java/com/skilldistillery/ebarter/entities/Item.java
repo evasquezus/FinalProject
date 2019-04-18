@@ -46,12 +46,12 @@ public class Item {
 	private User user;
 
 //	@JsonIgnore
-	@OneToMany (mappedBy = "item")
+	@OneToMany(mappedBy = "item")
 	private List<Offer> offers;
-	
-	@Column(name="image_url")
+
+	@Column(name = "image_url")
 	private String imageUrl;
-	
+
 //	@JsonIgnore
 //	@OneToMany(mappedBy="item")
 //	private List<Item_Image> itemImage;
@@ -136,14 +136,11 @@ public class Item {
 //		this.itemImage = itemImage;
 //	}
 
-	
-
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", description=" + description + ", name=" + name + ", itemStatus=" + itemStatus
 				+ ", category=" + category + ", user=" + user + ", offers=" + offers + ", imageUrl=" + imageUrl + "]";
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -158,14 +155,6 @@ public class Item {
 		result = prime * result + ((offers == null) ? 0 : offers.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
 	}
 
 	@Override

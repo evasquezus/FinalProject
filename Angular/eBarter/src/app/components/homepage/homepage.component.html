@@ -1,23 +1,4 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <!-- <div class="container float-left"> -->
 <!-- <img src="http://placehold.it/820x320" class="img-fluid" alt="Responsive image"> -->
 <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -44,8 +25,6 @@
 
 <br>
 <br>
-<br>
-<br>
 
 <!-- <div class="col-md-3" id="sideBarLeft">
 </div> -->
@@ -55,29 +34,30 @@
 <div class="col-md-3" id="sideBarLeft">
   <br>
   <br>
-  <!-- <p class="lead">Brand</p> -->
-  <div class="list-group">
-    <!-- <a class="list-group-item" href="#/">All</a>
+   <p class="lead">Brand</p> -->
+<div class="list-group">
+  <!-- <a class="list-group-item" href="#/">All</a>
     <a class="list-group-item ng-binding ng-scope" >Test
     </a> -->
-  </div>
-  <!-- <p class="lead">Colors</p> -->
-  <div class="list-group">
-    <!-- <a class="list-group-item" href="#/" href="#/">All</a>
+</div>
+<!-- <p class="lead">Colors</p> -->
+<div class="list-group">
+  <!-- <a class="list-group-item" href="#/" href="#/">All</a>
     <a class="list-group-item ng-binding ng-scope" ng-class="{'active': color === vm.params.color}"
       ng-repeat="color in vm.colors" href="#/">Silver
     </a><a class="list-group-item ng-binding ng-scope" href="#/">White
     </a> -->
-  </div>
-  <!-- <p class="lead">Items</p> -->
-  <div class="list-group">
-    <!-- <a class="list-group-item"href="#/">All</a>
+</div>
+<!-- <p class="lead">Items</p> -->
+<div class="list-group">
+  <!-- <a class="list-group-item"href="#/">All</a>
     <a class="list-group-item ng-binding ng-scope" href="#/" >Current Offers On Items
        ngIf: category === vm.params.value </a> end ngRepeat: category in vm.categories <a
       class="list-group-item ng-binding ng-scope"href="#/">Items Won</a> -->
-      <!-- ngIf: category === vm.params.value --><!-- end ngRepeat: category in vm.categories -->
-  </div>
+  <!-- ngIf: category === vm.params.value -->
+  <!-- end ngRepeat: category in vm.categories -->
 </div>
+
 
 <div class="col-md-3" id="sideBarLeft">
   <br>
@@ -102,14 +82,14 @@
     <a class="list-group-item ng-binding ng-scope" href="#/" >Current Offers On Items
        ngIf: category === vm.params.value </a> end ngRepeat: category in vm.categories <a
       class="list-group-item ng-binding ng-scope"href="#/">Items Won</a> -->
-      <!-- ngIf: category === vm.params.value --><!-- end ngRepeat: category in vm.categories -->
+    <!-- ngIf: category === vm.params.value -->
+    <!-- end ngRepeat: category in vm.categories -->
   </div>
 
 </div>
 
 
-<div *ngIf='!showWarning && !showSuspended'>
-<div class="card-deck" style="width: 70rem;" *ngFor="let item of itemsNoAuth">
+<!-- <div class="card-deck" style="width: 70rem;" *ngFor="let item of itemsNoAuth">
   <div class="card">
     <img class="card-img-top"
       src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
@@ -128,65 +108,65 @@
     </div>
   </div>
 </div> -->
-</div>
-</div>
-<div *ngIf='showWarning' class='warningDiv'>
-  <h1>You must login to continue!</h1>
-</div>
-<div *ngIf='showSuspended' class='warningDiv'>
-  <h1>Your account has been suspended!</h1>
-</div>
-<br>
+<div *ngIf='!showWarning && !showSuspended'>
+  <br>
 
-<div class="container" *ngFor="let item of itemsNoAuth">
-  <!-- <div class="row justify-content-center"> -->
-  <div class="col-md-14">
-    <div class="card">
-      <!-- <div class="card-header"></div> -->
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <img class="card-img-top"
-                  src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
-                  alt="Card image cap" href="#/">
-                <br>
-                <br>
-                <br>
-                <br>
+  <div class="container" *ngFor="let item of itemsNoAuth">
+    <!-- <div class="row justify-content-center"> -->
+    <div class="col-md-14">
+      <div class="card">
+        <!-- <div class="card-header"></div> -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <img class="card-img-top"
+                    src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
+                    alt="Card image cap" href="#/">
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <br>
+                  <a>{{item.name}}</a>
+                  <hr>
+                  <br>
+                  <a>{{item.description}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <br>
+                  <br>
+                  <button (click)='navItem(item)' class="btn btn-warning" id='register-button' type="submit">Make
+                    Offer</button>
+                  <br>
+                  <br>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <br>
-                <a>{{item.name}}</a>
-                <hr>
-                <br>
-                <a>{{item.description}}</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <br>
-                <br>
-                <button (click)='navItem(item)' class="btn btn-warning" id='register-button' type="submit">Make
-                  Offer</button>
-                <br>
-                <br>
-              </div>
-            </div>
-          </div>
+          <hr>
         </div>
-        <hr>
       </div>
     </div>
   </div>
 </div>
+<div *ngIf='showWarning' class='warningDiv'>
+    <h1>You must login to continue!</h1>
+  </div>
+  <div *ngIf='showSuspended' class='warningDiv'>
+    <h1>Your account has been suspended!</h1>
+  </div>
 <!-- </div> -->
 <!-- <div class="container">
     <div class="row justify-content-center">

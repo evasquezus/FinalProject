@@ -62,7 +62,7 @@
 <br>
 <br>
 <div *ngIf='!won'>
-    <div id='no-offers' *ngIf='offers.length === 0'>
+    <div id='no-offers' *ngIf='offers.length === 0 && !selling'>
        <h2>This item has no offers yet!  Be the first to make an offer!</h2>
     </div>
  <div class="container" *ngFor="let offer of offers" id="tableForOffers">
@@ -91,9 +91,9 @@
 
         <!-- <td *ngFor="let item of items"> -->
           <!-- <p *ngFor="let user of users"></p> -->
-          <button *ngIf='selling' (click)='viewOffer(offer)' class="btn btn-success">View Offer</button>
+          <button *ngIf='selling'  (click)='viewOffer(offer)' class="btn btn-success">View Offer</button>
           <span class='spacer'></span>
-          <button class="btn btn-success">Accept</button>
+          <!-- <button class="btn btn-success">Accept</button> -->
           <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
       </tr>
     </tbody>
