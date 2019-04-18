@@ -53,12 +53,42 @@ body{
   background-color: #f0eeec!important;
 }
 
+
+  */
+
+img {
+  max-width: 30%;
+  height: auto;
+}
+
+
 .bold {
   font-weight: bold;
   font-size: 110%;
   text-decoration: underline;
 }
 
+.list-group-item {
+  text-align: center;
+}
+
+#no-offers {
+  color: red;
+}
+
 .spacer {
-  padding-left: 15px;
-}  */
+  margin-left: 15px;
+}
+
+.col1 {
+  width:5%;
+}
+.col2 {
+  width:15%;
+}
+.col3 {
+  width:30%;
+}
+.col4 {
+  width:30%;
+}

@@ -57,7 +57,7 @@ public class ItemServiceImpl implements ItemService {
 			managed.setItemStatus(item.getItemStatus());
 			managed.setDescription(item.getDescription());
 			managed.setName(item.getName());
-			managed.setEndDate(item.getEndDate());
+//			managed.setEndDate(item.getEndDate());
 			System.out.println("*****************************************************");
 			System.out.println("item: " + item);
 			System.out.println("*****************************************************");
