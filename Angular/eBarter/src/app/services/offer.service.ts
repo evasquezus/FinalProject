@@ -15,8 +15,9 @@ export class OfferService {
   private url = this.baseUrl + 'api/offers/';
   private offerUrl = this.baseUrl + 'api/items/';
 
+
   constructor(private authService: AuthService,
-              private http: HttpClient,private auth: AuthenticationService) { }
+    private http: HttpClient, private auth: AuthenticationService) { }
 
   makeNewOffer(offer: Offer) {
 
@@ -48,6 +49,24 @@ export class OfferService {
     const url = `${this.offerUrl}${id}/offers`;
     console.log(url);
     return this.http.get<Offer[]>(url, httpOptions);
+  }
+
+  updateOffer(offer: Offer, item: Item): Observable<Offer> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${this.auth.getCredentials()}`
+      })
+    };
+    const id = offer.id;
+
+    console.log(offer.item.description);
+    console.log(item.description);
+    // const itemId = item;
+    const url = `${this.url}${id}`;
+    console.log(url);
+    return this.http.put<Offer>(url, offer, httpOptions);
+
   }
 
 }

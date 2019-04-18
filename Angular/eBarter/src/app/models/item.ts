@@ -17,6 +17,8 @@ export class Item {
     name?: string,
     itemStatus?: number,
     user?: User,
+    offers?: Offer [],
+    imageUrl?: string
     imageUrl?: string,
     offers?: Offer []
 
