@@ -93,7 +93,7 @@ export class NavbarComponent implements OnInit {
   }
 
   navRegister() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['/register'])
   }
 
   navLogin(form: NgForm) {

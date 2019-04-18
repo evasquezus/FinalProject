@@ -74,7 +74,15 @@ export class ItemDetailComponent implements OnInit {
           }
         );
 
+        localStorage.setItem('itemId', item.id.toString());
+        localStorage.setItem('itemName', item.name);
+        localStorage.setItem('sellerName', item.user.username);
       }
+
+      // localStorage.setItem('itemId', item.id.toString());
+      // localStorage.setItem('itemName', item.name);
+      // localStorage.setItem('sellerName', item.user.username);
+
     );
     this.itemService.getItems().subscribe(items => {
       this.items = items;
@@ -162,11 +170,13 @@ export class ItemDetailComponent implements OnInit {
       error => {
         this.message = 'Error submitting update offer';
       });
-  }
-  viewOffer(offer) {
-    console.log('offer: ' + offer.description);
-    this.offer = offer;
-    this.showOffer = true;
+    }
 
+    viewOffer(offer) {
+      console.log('offer: ' + offer.description);
+      this.offer = offer;
+      this.showOffer = true;
+
+    }
   }
-}
+

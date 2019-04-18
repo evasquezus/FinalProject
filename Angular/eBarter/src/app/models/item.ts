@@ -7,7 +7,6 @@ export class Item {
   name?: string;
   itemStatus?: number;
   user?: User;
-  // imageUrl?: string
   offers?: Offer [];
   imageUrl?: string;
 
@@ -18,8 +17,9 @@ export class Item {
     name?: string,
     itemStatus?: number,
     user?: User,
-    imageUrl?: string,
-    offers?: Offer []
+    offers?: Offer [],
+    imageUrl?: string
+
 
   ) {
     this.id = id;

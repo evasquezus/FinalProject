@@ -76,63 +76,6 @@
                 </div>
               </ul>
         </div> <!-- price-detail-wrap .// -->
-        <dl>
-          <dt>Description</dt>
-          <dd>
-            <p>Here goes description consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco </p>
-          </dd>
-        </dl>
-        <dl class="row">
-          <dt class="col-sm-3">Model#</dt>
-          <dd class="col-sm-9">12345611</dd>
-
-          <dt class="col-sm-3">Color</dt>
-          <dd class="col-sm-9">Black and white </dd>
-
-          <dt class="col-sm-3">Delivery</dt>
-          <dd class="col-sm-9">Russia, USA, and Europe </dd>
-        </dl>
-        <div class="rating-wrap">
-
-            <ul class="rating-stars">
-              <li style="width:80%" class="stars-active">
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </li>
-              <li>
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </li>
-            </ul>
-            <!-- <div class="label-rating">132 reviews</div>
-            <div class="label-rating">154 orders </div> -->
-        </div>
-        <div class="row">
-          <!-- <div class="col-sm-5"> -->
-            <!-- <dl class="dlist-inline"> -->
-              <!-- <dt>Quantity: </dt>
-              <dd>
-                <select class="form-control form-control-sm" style="width:70px;" data-fillr-id="1704878544"
-                  data-fillr="bound" autocomplete="off">
-                  <option> 1 </option>
-                  <option> 2 </option>
-                  <option> 3 </option>
-                </select>
-              </dd> -->
-            <!-- </dl>  -->
-          <!-- </div>  -->
-          <div class="col-sm-7">
-            <dl class="dlist-inline">
-
-
-
-            </dl>
-          </div>
-        </div>
         <hr>
         <div *ngIf='!won'>
             <div id='no-offers' *ngIf='offers.length === 0'>
@@ -207,38 +150,42 @@
 <br>
 
 <div *ngIf='!won'>
-  <div id='no-offers' *ngIf='offers.length === 0 && !selling'>
-    <h2>This item has no offers yet! Be the first to make an offer!</h2>
-  </div>
-  <div class="container" *ngFor="let offer of offers" id="tableForOffers">
+    <div id='no-offers' *ngIf='offers.length === 0'>
+       <h2>This item has no offers yet!  Be the first to make an offer!</h2>
+    </div>
+ <div class="container" *ngFor="let offer of offers" id="tableForOffers">
+    <h1>{{offer.id}}</h1> -->
+<!-- //*ngFor="let item of items" -->
+  <table class="table table-sm"  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">UserName</th>
+        <th scope="col">Offer Description</th>
+        <th scope="col">Location</th>
+        <th scope="col" hidden>Accept</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th >{{offer.id}}</th>
+        <td >{{offer.user.username}}</td>
+        <td >{{offer.description}}</td>
+        <td >{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}</td>
 
-    <table class="table table-sm">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">UserName</th>
-          <th scope="col">Offer Description</th>
-          <th scope="col">Location</th>
-          <th scope="col" hidden>Accept</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>{{offer.id}}</th>
-          <td>{{offer.user.username}}</td>
-          <td>{{offer.description}}</td>
-          <td>{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}</td>
+        <td><button  (click)="changeOfferStatus(offer)" class=" btn btn-success" *ngIf="item.user.id === bidder.id">Accept Bid</button></td>
+        <!-- <button  (click)="changeOfferStatus(offer)"  [(ngModel)]="offerStatus.offerStatus" name="offerStatus" #offerStatus  [(ngModel)]="offer.offerStatus" name="offerStatus" #offerStatus  class=" btn btn-success" *ngIf="item.user.id === bidder.id">Accept Bid</button> -->
+        <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
 
-          <td><button (click)="changeOfferStatus(offer)" class=" btn btn-success"
-              *ngIf="item.user.id === bidder.id">Accept Bid</button></td>
+        <!-- <td *ngFor="let item of items"> -->
+          <!-- <p *ngFor="let user of users"></p> -->
           <button *ngIf='selling' (click)='viewOffer(offer)' class="btn btn-success">View Offer</button>
           <span class='spacer'></span>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <br>
-</div>
+          <button class="btn btn-success">Accept</button>
+          <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
+      </tr>
+    </tbody>
+  </table>
 
 
 

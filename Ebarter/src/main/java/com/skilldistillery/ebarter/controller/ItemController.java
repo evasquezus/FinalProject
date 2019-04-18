@@ -20,6 +20,7 @@ import com.skilldistillery.ebarter.data.ItemService;
 import com.skilldistillery.ebarter.data.UserService;
 //import com.skilldistillery.ebarter.entities.Category;
 import com.skilldistillery.ebarter.entities.Item;
+import com.skilldistillery.ebarter.entities.Offer;
 
 @RestController
 @RequestMapping("api")
@@ -62,7 +63,30 @@ public class ItemController {
 	public Item updateItem(@PathVariable("id") int id, @RequestBody Item itemToBeUpdated,
 			HttpServletResponse response) {
 		try {
+<<<<<<< HEAD
 			itemToBeUpdated.setItemStatus(2);
+=======
+			Category category = catService.getCategoryById(id);
+			itemToBeUpdated.setCategory(category);
+			itemToBeUpdated = service.updateItem(id, itemToBeUpdated);
+			response.setStatus(200);
+			return itemToBeUpdated;
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.setStatus(400);
+		}
+		return null;
+
+	}
+	
+	@PutMapping(path = "items/{id}")
+	public Item updateItemStatus(@PathVariable("id") int id, @RequestBody Item itemToBeUpdated,
+			HttpServletResponse response) {
+		itemToBeUpdated.setItemStatus(2);
+		System.out.println("*************************************************");
+		try {
+
+>>>>>>> parent of eb45101... Most of the conflicts fixed item Status not working agian
 			itemToBeUpdated = service.updateItem(id, itemToBeUpdated);
 			response.setStatus(200);
 			return itemToBeUpdated;
