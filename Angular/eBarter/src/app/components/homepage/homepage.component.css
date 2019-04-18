@@ -31,6 +31,12 @@
   border: hidden;
   border-radius: 0.25rem;
 }
+
+.card-img-top[_ngcontent-c2] {
+  width: 90%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
 /* .card-deck[_ngcontent-c2] .card[_ngcontent-c2] {
   display: -webkit-box;
   flex: 1 0 0%;
