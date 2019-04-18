@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skilldistillery.ebarter.data.CategoryService;
+//import com.skilldistillery.ebarter.data.CategoryService;
 import com.skilldistillery.ebarter.data.ItemService;
 import com.skilldistillery.ebarter.data.UserService;
-import com.skilldistillery.ebarter.entities.Category;
+//import com.skilldistillery.ebarter.entities.Category;
 import com.skilldistillery.ebarter.entities.Item;
 
 @RestController
@@ -29,8 +29,8 @@ public class ItemController {
 	@Autowired
 	ItemService service;
 
-	@Autowired
-	CategoryService catService;
+//	@Autowired
+//	CategoryService catService;
 
 	@Autowired
 	UserService userService;
@@ -62,8 +62,6 @@ public class ItemController {
 	public Item updateItem(@PathVariable("id") int id, @RequestBody Item itemToBeUpdated,
 			HttpServletResponse response) {
 		try {
-//			Category category = catService.getCategoryById(id);
-//			itemToBeUpdated.setCategory(category);
 			itemToBeUpdated.setItemStatus(2);
 			itemToBeUpdated = service.updateItem(id, itemToBeUpdated);
 			response.setStatus(200);
@@ -80,8 +78,8 @@ public class ItemController {
 	public Item addItem(@RequestBody Item itemToBeAdded, HttpServletResponse response) {
 
 		try {
-			Category category = catService.getCategoryById(1);
-			itemToBeAdded.setCategory(category);
+//			Category category = catService.getCategoryById(1);
+//			itemToBeAdded.setCategory(category);
 			Item newItem = service.createItem(itemToBeAdded);
 			response.setStatus(201);
 			return newItem;

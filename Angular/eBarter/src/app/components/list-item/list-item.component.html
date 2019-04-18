@@ -7,17 +7,17 @@
 <br>
 <div class="container">
   <form>
-    <div class="form-group">
+    <div class="form-group" id="desc">
       <br>
       <label>Description</label>
       <!-- <input type="text" class="form-control" name="description" #description> -->
       <input type="text" class="form-control" name="description" #description [(ngModel)]="item.description">
     </div>
-    <div class="form-group">
+    <div class="form-group" id="itemname">
       <label> Name</label>
       <input type="text" class="form-control" name="name" #name [(ngModel)]="item.name">
     </div>
-    <div class="form-group">
+    <div class="form-group" id="image">
       <label> Image Url</label>
       <input type="text" class="form-control" name="imageUrl" #imageUrl [(ngModel)]="item.imageUrl">
     </div>
