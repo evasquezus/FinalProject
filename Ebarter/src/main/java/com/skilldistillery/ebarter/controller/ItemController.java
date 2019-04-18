@@ -31,8 +31,8 @@ public class ItemController {
 	@Autowired
 	ItemService service;
 
-	@Autowired
-	CategoryService catService;
+//	@Autowired
+//	CategoryService catService;
 
 	@Autowired
 	UserService userService;
@@ -78,23 +78,23 @@ public class ItemController {
 
 	}
 	
-	@PutMapping(path = "items/{id}")
-	public Item updateItemStatus(@PathVariable("id") int id, @RequestBody Item itemToBeUpdated,
-			HttpServletResponse response) {
-		itemToBeUpdated.setItemStatus(2);
-		System.out.println("*************************************************");
-		try {
-
-			itemToBeUpdated = service.updateItem(id, itemToBeUpdated);
-			response.setStatus(200);
-			return itemToBeUpdated;
-		} catch (Exception e) {
-			e.printStackTrace();
-			response.setStatus(400);
-		}
-		return null;
-
-	}
+//	@PutMapping(path = "items/{id}")
+//	public Item updateItemStatus(@PathVariable("id") int id, @RequestBody Item itemToBeUpdated,
+//			HttpServletResponse response) {
+//		itemToBeUpdated.setItemStatus(2);
+//		System.out.println("*************************************************");
+//		try {
+//
+//			itemToBeUpdated = service.updateItem(id, itemToBeUpdated);
+//			response.setStatus(200);
+//			return itemToBeUpdated;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			response.setStatus(400);
+//		}
+//		return null;
+//
+//	}
 
 	@PostMapping(path = "items")
 	public Item addItem(@RequestBody Item itemToBeAdded, HttpServletResponse response) {
