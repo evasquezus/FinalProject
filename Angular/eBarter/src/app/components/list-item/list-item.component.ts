@@ -32,6 +32,7 @@ export class ListItemComponent implements OnInit {
   ngOnInit() {
     this.itemService.getItems().subscribe(items => {
       this.items = items;
+      console.log(items);
     });
     this.getCurrentUser();
   }
@@ -39,13 +40,13 @@ export class ListItemComponent implements OnInit {
 
   // addItem(name: string, description: string, endDate: Date, user_id: number) {
   addItem(item: Item) {
-    console.log(item.name, item.description, item.user);
+    console.log(item.name, item.description, item.user, item.imageUrl);
     // this.user.id
     // TODO: when new Item model class pulled, uncomment:
     // this.item.user = this.getCurrentUser();
     this.item.user = this.bidder;
     this.item.itemStatus = 1;
-    if (!item.name && !item.description && !item.user) {
+    if (!item.name && !item.description && !item.user && !item.imageUrl) {
       alert('Please fill in the form completly');
     } else {
       // this.itemService.saveItem({ na;me, description, endDate, user_id} as Item).subscribe
@@ -57,22 +58,6 @@ export class ListItemComponent implements OnInit {
         );
     }
   }
-  // getCurrentUser() {
-  //   const userName = this.auth.getCredName();
-  //   let response =  this.userService.getUserByUserName(userName);
-  //   // let response = this.userService.getUserByUserName(userName);
-  //   response.subscribe(
-  //     data => {
-  //      this.user = data;
-  //      console.log('role id: ' + this.user.role.id);
-  //      console.log(data);
-  //     //  return this.userService.getUserByUserName(userName);
-  //     },
-  //     error => {
-  //     }
-  //   );
-
-  // }
 
   getCurrentUser() {
     const userName = this.authService.getCredName();

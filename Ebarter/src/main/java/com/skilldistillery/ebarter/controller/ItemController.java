@@ -62,8 +62,9 @@ public class ItemController {
 	public Item updateItem(@PathVariable("id") int id, @RequestBody Item itemToBeUpdated,
 			HttpServletResponse response) {
 		try {
-			Category category = catService.getCategoryById(id);
-			itemToBeUpdated.setCategory(category);
+//			Category category = catService.getCategoryById(id);
+//			itemToBeUpdated.setCategory(category);
+			itemToBeUpdated.setItemStatus(2);
 			itemToBeUpdated = service.updateItem(id, itemToBeUpdated);
 			response.setStatus(200);
 			return itemToBeUpdated;

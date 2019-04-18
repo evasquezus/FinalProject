@@ -22,10 +22,13 @@ export class ItemDetailComponent implements OnInit {
   items: Item[] = [];
   offers: Offer[] = [];
   offer: Offer;
-  users: User[];
+  users: User[] = [];
   address: Address;
   bidder: User;
   message: string;
+
+  itemTest: Item = new Item();
+  // offerStatus: Offer['offerStatus'] = 1;
   won = false;
   selling = false;
   showOffer = false;
@@ -34,34 +37,34 @@ export class ItemDetailComponent implements OnInit {
 
 
   constructor(private itemService: ItemService,
-              private offerService: OfferService,
-              private offerOfferService: OfferServiceService,
-              private userService: UserService,
-              private authService: AuthService) { }
+    private offerService: OfferService,
+    private offerOfferService: OfferServiceService,
+    private userService: UserService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     let id;
     this.getCurrentUser();
-    if(parseInt(localStorage.getItem('sellingSelectedId')) > 0) {
+    if (parseInt(localStorage.getItem('sellingSelectedId')) > 0) {
       console.log('selling');
       id = parseInt(localStorage.getItem('sellingSelectedId'));
       localStorage.removeItem('sellingSelectedId');
       this.selling = true;
     }
-      else if(parseInt(localStorage.getItem('wonSelectedId')) > 0) {
-        console.log('won');
-        id = parseInt(localStorage.getItem('wonSelectedId'));
-        localStorage.removeItem('wonSelectedId');
-        this.won = true;
-      }
+    else if (parseInt(localStorage.getItem('wonSelectedId')) > 0) {
+      console.log('won');
+      id = parseInt(localStorage.getItem('wonSelectedId'));
+      localStorage.removeItem('wonSelectedId');
+      this.won = true;
+    }
     else {
-    id = parseInt(localStorage.getItem('selectedId'));
-    localStorage.removeItem('selectedId');
+      id = parseInt(localStorage.getItem('selectedId'));
+      localStorage.removeItem('selectedId');
     }
     this.itemService.getSpecificItem(id).subscribe(
       item => {
         this.item = item;
-        console.log(this.item);
+        console.log(this.item.description);
         console.log("*********************************");
         this.offerService.getSpecificItemOffers(this.item).subscribe(
           offers => {
@@ -71,10 +74,7 @@ export class ItemDetailComponent implements OnInit {
           }
         );
 
-        // localStorage.setItem('itemId', item.id.toString());
-        // localStorage.setItem('itemName', item.name);
-        // localStorage.setItem('sellerName', item.user.username);
-              }
+      }
     );
     this.itemService.getItems().subscribe(items => {
       this.items = items;
@@ -99,7 +99,8 @@ export class ItemDetailComponent implements OnInit {
     console.log('imgUrl: ' + imgUrl);
 
     this.offer = {
-      id: 0, description: desc, item: this.item, offerStatus: 1, user: this.bidder, imgUrl: imgUrl};
+      id: 0, description: desc, item: this.item, offerStatus: 1, user: this.bidder, imgUrl: imgUrl
+    };
     console.log('submit offer: ' + this.offer);
     let response = this.offerOfferService.postNewOffer(this.offer);
     response.subscribe(
@@ -109,7 +110,7 @@ export class ItemDetailComponent implements OnInit {
       error => {
         this.message = 'Error submitting your offer';
       });
-    }
+  }
 
 
   getCurrentUser() {
@@ -125,6 +126,41 @@ export class ItemDetailComponent implements OnInit {
       error => {
         console.log('error in auth.service.getCurrentUser()');
 
+      });
+  }
+  changeItemStatus(item: Item) {
+    item.itemStatus = 2;
+    this.item = item;
+    console.log(item.description);
+    console.log(typeof item);
+    let response = this.itemService.updateItemStatus(this.item);
+    response.subscribe(
+      data => {
+        this.item = item;
+        this.message = 'Your item update submitted!';
+      },
+      error => {
+        this.message = 'Error submitting update item';
+      });
+  }
+
+  changeOfferStatus(offer: Offer) {
+    offer.offerStatus = 2;
+
+    // offer.item.itemStatus = 2;
+    offer.item = this.item;
+    this.changeItemStatus(this.item);
+    console.log(offer.item.description);
+    console.log(offer.item.description);
+    console.log(typeof this.itemTest);
+    let response = this.offerService.updateOffer(offer, this.item);
+    response.subscribe(
+      data => {
+        this.offer = offer;
+        this.message = 'Your offer update submitted!';
+      },
+      error => {
+        this.message = 'Error submitting update offer';
       });
   }
   viewOffer(offer) {

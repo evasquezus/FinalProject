@@ -13,6 +13,7 @@ export class Offer {
     id: number,
     description: string,
     item: Item = null,
+    // offerStatus: number,
     offerStatus: number = 1,
     user: User,
     imgUrl: string

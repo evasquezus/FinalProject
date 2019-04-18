@@ -11,6 +11,7 @@ export class Item {
   offers?: Offer [];
   imageUrl?: string;
 
+
   constructor(
     id?: number,
     description?: string,
@@ -32,3 +33,4 @@ export class Item {
   }
 
 }
+

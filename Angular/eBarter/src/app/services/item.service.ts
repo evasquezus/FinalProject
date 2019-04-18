@@ -81,4 +81,16 @@ export class ItemService {
     return this.http.put<Item>(url, item, httpOptions);
   }
 
+  updateItemStatus(item: Item): Observable<Item> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${this.auth.getCredentials()}`
+      })
+    };
+    const url = `${this.itemUrl}/${item.id}`;
+
+    return this.http.put<Item>(url, item, httpOptions);
+  }
+
 }
