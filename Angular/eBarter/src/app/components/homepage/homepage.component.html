@@ -29,53 +29,106 @@
 <br>
 <br>
 <br>
-<div class="col-md-3" id="sideBarLeft">
-  <br>
-  <br>
-  <p class="lead">Brand</p>
-  <div class="list-group">
-    <a class="list-group-item" href="#/">All</a>
-    <a class="list-group-item ng-binding ng-scope" >Test
-    </a>
-  </div>
-  <p class="lead">Colors</p>
-  <div class="list-group">
-    <a class="list-group-item" href="#/" href="#/">All</a>
-    <a class="list-group-item ng-binding ng-scope" ng-class="{'active': color === vm.params.color}"
-      ng-repeat="color in vm.colors" href="#/">Silver
-    </a><a class="list-group-item ng-binding ng-scope" href="#/">White
-    </a>
-  </div>
-  <p class="lead">Items</p>
-  <div class="list-group">
-    <a class="list-group-item"href="#/">All</a>
-    <a class="list-group-item ng-binding ng-scope" href="#/" >Current Offers On Items
-      <!-- ngIf: category === vm.params.value --></a><!-- end ngRepeat: category in vm.categories --><a
-      class="list-group-item ng-binding ng-scope"href="#/">Items Won
-      <!-- ngIf: category === vm.params.value --></a><!-- end ngRepeat: category in vm.categories -->
-  </div>
-</div>
+<!-- <div class="col-md-3" id="sideBarLeft">
+</div> -->
 
-<div class="card-deck" style="width: 70rem;" *ngFor="let item of itemsNoAuth">
+<!-- <div class="card-deck" style="width: 70rem;" *ngFor="let item of itemsNoAuth">
   <div class="card">
     <img class="card-img-top"
       src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
-      alt="Card image cap"href="#/" >
+      alt="Card image cap" href="#/">
     <div class="card-body">
       <hr>
       <h5 class="card-title">{{item.id}}</h5>
       <p class="card-text">{{item.name}}</p>
       <p class="card-text">{{item.description}}</p>
-        <input type="hidden" value="{{item.id}}">
-        <button (click)='navItem(item)' class="btn btn-warning" id='register-button' type="submit">Make Offer</button>
+      <input type="hidden" value="{{item.id}}">
+      <button (click)='navItem(item)' class="btn btn-warning" id='register-button' type="submit">Make Offer</button>
 
       <br>
       <hr>
     </div>
   </div>
-</div>
+</div> -->
 <br>
 
+<div class="container" *ngFor="let item of itemsNoAuth">
+  <!-- <div class="row justify-content-center"> -->
+  <div class="col-md-14">
+    <div class="card">
+      <!-- <div class="card-header"></div> -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <img class="card-img-top"
+                  src="https://rukminim1.flixcart.com/image/332/398/watch/5/h/y/curren-8152-curren-original-imaecw9g7hqp85nw.jpeg?q=50"
+                  alt="Card image cap" href="#/">
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <br>
+                <a>{{item.name}}</a>
+                <hr>
+                <br>
+                <a>{{item.description}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <br>
+                <br>
+                <button (click)='navItem(item)' class="btn btn-warning" id='register-button' type="submit">Make
+                  Offer</button>
+                <br>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->
+<!-- <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">{{ __('menu.headings.add_menu') }}</div>
+            <div class="card-body">
+                <div class="card" style="width: 18rem;"  *ngFor="let item of itemsNoAuth">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+<div class="card" style="width: 18rem;"  *ngFor="let item of itemsNoAuth">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
 <!-- <div class="card-deck" style="width: 70rem;">
   <div class="card">
     <img class="card-img-top"

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.ebarter.entities.Item;
-import com.skilldistillery.ebarter.entities.Offer;
 import com.skilldistillery.ebarter.repositories.ItemRepository;
 import com.skilldistillery.ebarter.repositories.UserRepository;
 

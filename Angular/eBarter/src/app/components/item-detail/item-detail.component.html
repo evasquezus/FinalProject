@@ -55,7 +55,7 @@
         <th scope="col">UserName</th>
         <th scope="col">Offer Description</th>
         <th scope="col">Location</th>
-        <th scope="col">Accept</th>
+        <th scope="col" hidden>Accept</th>
       </tr>
     </thead>
     <tbody>
@@ -64,14 +64,25 @@
         <td >{{offer.user.username}}</td>
         <td >{{offer.description}}</td>
         <td >{{offer.user.address.city}} &nbsp;{{offer.user.address.state}}&nbsp;{{offer.user.address.zipCode}}</td>
-        <!-- <td *ngFor="let item of items"> -->
-          <!-- <p *ngFor="let user of users"></p> -->
-          <button class="btn btn-success">Accept</button>
-          <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
+        <td><button  (click)="changeOfferStatus(offer)" class=" btn btn-success" *ngIf="item.user.id === bidder.id">Accept Bid</button></td>
+        <!-- <button  (click)="changeOfferStatus(offer)"  [(ngModel)]="offerStatus.offerStatus" name="offerStatus" #offerStatus  [(ngModel)]="offer.offerStatus" name="offerStatus" #offerStatus  class=" btn btn-success" *ngIf="item.user.id === bidder.id">Accept Bid</button> -->
+        <!-- <button class="btn btn-success" *ngIf="user.offer.id == user.id">Accept</button> -->
       </tr>
     </tbody>
   </table>
 </div>
+
+<!-- <td *ngFor="let item of items"> -->
+    <!-- <p *ngFor="let user of users"> -->
+<br>
+
+<!-- <button  class="btn btn-success" *ngIf="item.user.id === bidder.id">Accept Bid</button> -->
+        <!-- <button  class="btn btn-success" *ngIf="item.user == bidder" >Accept Bid</button> -->
+    <!-- </p> -->
+  <!-- </td> -->
+
+
+
 
 <!-- <br>
 <br>

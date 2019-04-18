@@ -45,7 +45,7 @@ export class ItemsImBiddingOnComponent implements OnInit {
         console.log('bidder: ' + this.isBidder);
 
       },
-      error=> {
+      error => {
         console.log('error in auth.service.getCurrentUser()');
 
       });

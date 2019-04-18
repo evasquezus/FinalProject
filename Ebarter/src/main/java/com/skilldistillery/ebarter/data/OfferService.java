@@ -19,4 +19,6 @@ public interface OfferService {
 
 	boolean deleteOffer(int id);
 	
+	Offer updateOfferStatus(int id, Offer offer);
+	
 }

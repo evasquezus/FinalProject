@@ -52,6 +52,19 @@ public class OfferServiceImpl implements OfferService {
 		if (opt.isPresent()) {
 			Offer managed = opt.get();
 			managed.setDescription(offer.getDescription());
+			managed.setOfferStatus(offer.getOfferStatus());
+			managed.setItem(offer.getItem());
+			repo.saveAndFlush(offer);
+		}
+		return null;
+	}
+	
+	@Override
+	public Offer updateOfferStatus(int id, Offer offer) {
+		Optional<Offer> opt = repo.findById(id);
+		if (opt.isPresent()) {
+			Offer managed = opt.get();
+			managed.setOfferStatus(2);
 			repo.saveAndFlush(offer);
 		}
 		return null;

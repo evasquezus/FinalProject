@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.ebarter.data.ItemService;
 import com.skilldistillery.ebarter.data.OfferService;
+import com.skilldistillery.ebarter.entities.Category;
 import com.skilldistillery.ebarter.entities.Item;
 import com.skilldistillery.ebarter.entities.Offer;
 import com.skilldistillery.ebarter.repositories.OfferRepository;
@@ -28,10 +29,9 @@ public class OfferController {
 
 	@Autowired
 	OfferService service;
-	
+
 	@Autowired
 	ItemService itemService;
-	
 
 	@GetMapping(path = "offers")
 	public List<Offer> index() {
@@ -45,7 +45,7 @@ public class OfferController {
 		response.setStatus(200);
 		return offerRetrived;
 	}
-	
+
 	@GetMapping(path = "items/{id}/offers")
 	public List<Offer> getOffersForItem(@PathVariable("id") int id, HttpServletResponse response) {
 		Item itemRetrived = itemService.getItemById(id);
@@ -63,12 +63,56 @@ public class OfferController {
 			e.printStackTrace();
 		}
 	}
+//	@PutMapping(path = "items/{id}/offers/{offerid}")
+//	public Offer updateOfferForItem(@PathVariable("id") int id,@PathVariable("offerid") int offerid, @RequestBody Offer offerToBeUpdated,
+//			HttpServletResponse response) {
+//		Item itemRetrived = itemService.getItemById(id);
+//		itemRetrived.setId(itemRetrived.getId());
+//		offerToBeUpdated.setOfferStatus(2);
+//		try {
+//
+//			offerToBeUpdated = service.updateOfferStatus(offerid, offerToBeUpdated);
+//			response.setStatus(200);
+//			return offerToBeUpdated;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			response.setStatus(400);
+//		}
+//		return null;
+//
+//	}
+	
+//	@GetMapping(path = "items/{id}/offers/{offerid}")
+//	public Offer getOfferForItem(@PathVariable("id") int id,@PathVariable("offerid") int offerid, @RequestBody Offer offerToBeUpdated,
+//			HttpServletResponse response) {
+//		Item itemRetrived = itemService.getItemById(id);
+//		offerToBeUpdated = service.getOfferById(id);
+//		offerToBeUpdated.setOfferStatus(2);
+//		try {
+//
+//			offerToBeUpdated = service.updateOfferStatus(id, offerToBeUpdated);
+//			response.setStatus(200);
+//			return offerToBeUpdated;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			response.setStatus(400);
+//		}
+//		return offerToBeUpdated;
+//
+//	}
 
 	@PutMapping(path = "offers/{id}")
 	public Offer updateOffer(@PathVariable("id") int id, @RequestBody Offer offerToBeUpdated,
 			HttpServletResponse response) {
+		offerToBeUpdated.setOfferStatus(2);
+//		Item item = offerToBeUpdated.getItem();
+//		System.out.println(item.getDescription());
+		System.out.println("*************************************************");
+//		item.setId(item.getId());
 		try {
-			service.updateOffer(id, offerToBeUpdated);
+
+			offerToBeUpdated = service.updateOfferStatus(id, offerToBeUpdated);
+			response.setStatus(200);
 			return offerToBeUpdated;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,7 +128,5 @@ public class OfferController {
 		response.setStatus(201);
 		return offer;
 	}
-	
-
 
 }
