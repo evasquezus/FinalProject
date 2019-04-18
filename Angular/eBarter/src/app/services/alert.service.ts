@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AlertService {
+  private baseUrl = environment.baseUrl;
     private subject = new Subject<any>();
     private keepAfterNavigationChange = false;
 

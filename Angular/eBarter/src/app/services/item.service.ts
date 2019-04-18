@@ -13,8 +13,8 @@ import { Offer } from '../models/offer';
 })
 export class ItemService {
 
-
-  private baseUrl = 'http://localhost:8085/';
+  private baseUrl = environment.baseUrl;
+  // private baseUrl = 'http://localhost:8085/';
 
   itemUrl = this.baseUrl + 'api/items';
 
@@ -29,6 +29,7 @@ export class ItemService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
@@ -39,6 +40,7 @@ export class ItemService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
@@ -51,6 +53,7 @@ export class ItemService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
@@ -60,6 +63,7 @@ export class ItemService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
@@ -73,6 +77,7 @@ export class ItemService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
@@ -85,6 +90,7 @@ export class ItemService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };

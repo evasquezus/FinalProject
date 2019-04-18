@@ -60,7 +60,7 @@ import { ItemsSellingComponent } from './components/items-selling/items-selling.
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [,
+  providers: [
   DatePipe,
   CurrencyPipe],
 bootstrap: [AppComponent],

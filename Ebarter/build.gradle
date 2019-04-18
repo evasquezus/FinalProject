@@ -4,7 +4,12 @@ plugins {
 }
 
 apply plugin: 'io.spring.dependency-management'
-
+apply plugin: 'war'
+war {
+  enabled = true
+  archiveName = "${baseName}.war"     // Our app name, as defined in settings.gradle
+  destinationDir = file("../")        // Project workspace directory
+}
 group = 'com.skilldistillery.ebarter'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'

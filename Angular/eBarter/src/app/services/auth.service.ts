@@ -14,8 +14,8 @@ import { environment } from 'src/environments/environment';
 
 export class AuthService {
 
-
-  private baseUrl = 'http://localhost:8085/';
+  private baseUrl = environment.baseUrl;
+  // private baseUrl = 'http://localhost:8085/';
   private noAuthUrl = this.baseUrl + 'auth/register';
   // private baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/users/';
@@ -30,6 +30,7 @@ export class AuthService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         'Authorization': `Basic ${credentials}`,
       })
     };
@@ -53,10 +54,11 @@ export class AuthService {
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
           // 'Authorization': `Basic ${credentials}`
         })
       };
-      return this.http.post<User>(this.noAuthUrl, user).pipe(
+      return this.http.post<User>(this.noAuthUrl, user, httpOptions).pipe(
         tap((res) => {
           // const user2 = res;
           return res;

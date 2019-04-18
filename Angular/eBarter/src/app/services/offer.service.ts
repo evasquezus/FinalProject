@@ -6,12 +6,14 @@ import { catchError } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
 import { Item } from '../models/item';
 import { AuthenticationService } from './authentication.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfferService {
-  private baseUrl = 'http://localhost:8085/';
+  private baseUrl = environment.baseUrl;
+  // private baseUrl = 'http://localhost:8085/';
   private url = this.baseUrl + 'api/offers/';
   private offerUrl = this.baseUrl + 'api/items/';
 
@@ -26,6 +28,7 @@ export class OfferService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         'Authorization': `Basic ${credentials}`
       })
     };
@@ -42,6 +45,7 @@ export class OfferService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
@@ -55,6 +59,7 @@ export class OfferService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
         Authorization: `Basic ${this.auth.getCredentials()}`
       })
     };
