@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skilldistillery.ebarter.data.CategoryService;
 //import com.skilldistillery.ebarter.data.CategoryService;
 import com.skilldistillery.ebarter.data.ItemService;
 import com.skilldistillery.ebarter.data.UserService;
+import com.skilldistillery.ebarter.entities.Category;
 //import com.skilldistillery.ebarter.entities.Category;
 import com.skilldistillery.ebarter.entities.Item;
-import com.skilldistillery.ebarter.entities.Offer;
 
 @RestController
 @RequestMapping("api")
@@ -30,8 +31,8 @@ public class ItemController {
 	@Autowired
 	ItemService service;
 
-//	@Autowired
-//	CategoryService catService;
+	@Autowired
+	CategoryService catService;
 
 	@Autowired
 	UserService userService;
@@ -63,11 +64,9 @@ public class ItemController {
 	public Item updateItem(@PathVariable("id") int id, @RequestBody Item itemToBeUpdated,
 			HttpServletResponse response) {
 		try {
-<<<<<<< HEAD
 			itemToBeUpdated.setItemStatus(2);
-=======
-			Category category = catService.getCategoryById(id);
-			itemToBeUpdated.setCategory(category);
+//			Category category = catService.getCategoryById(id);
+//			itemToBeUpdated.setCategory(category);
 			itemToBeUpdated = service.updateItem(id, itemToBeUpdated);
 			response.setStatus(200);
 			return itemToBeUpdated;
@@ -86,7 +85,6 @@ public class ItemController {
 		System.out.println("*************************************************");
 		try {
 
->>>>>>> parent of eb45101... Most of the conflicts fixed item Status not working agian
 			itemToBeUpdated = service.updateItem(id, itemToBeUpdated);
 			response.setStatus(200);
 			return itemToBeUpdated;
