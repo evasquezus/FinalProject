@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 public class Item {
@@ -34,10 +36,14 @@ public class Item {
 	@Column(name = "item_status")
 	private int itemStatus;
 
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "category_id")
-	private Category category;
+////	@JsonIgnore
+//	@JsonProperty(access = Access.WRITE_ONLY)
+//	@ManyToOne
+//	@JoinColumn(name = "category_id")
+//	private Category category;
+	
+	@Column(name="category_id")
+	private int categoryId;
 //
 //	@ManyToOne(cascade = { CascadeType.ALL })
 //	@JsonIgnore
@@ -112,12 +118,12 @@ public class Item {
 		this.itemStatus = status;
 	}
 
-	public Category getCategory() {
-		return category;
+	public int getCategoryId() {
+		return categoryId;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategory(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public User getUser() {
@@ -139,14 +145,14 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", description=" + description + ", name=" + name + ", itemStatus=" + itemStatus
-				+ ", category=" + category + ", user=" + user + ", offers=" + offers + ", imageUrl=" + imageUrl + "]";
+				+ ", user=" + user + ", offers=" + offers + ", imageUrl=" + imageUrl + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((category == null) ? 0 : category.hashCode());
+//		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((imageUrl == null) ? 0 : imageUrl.hashCode());
@@ -166,11 +172,11 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		Item other = (Item) obj;
-		if (category == null) {
-			if (other.category != null)
-				return false;
-		} else if (!category.equals(other.category))
-			return false;
+//		if (category == null) {
+//			if (other.category != null)
+//				return false;
+//		} else if (!category.equals(other.category))
+//			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -210,7 +216,7 @@ public class Item {
 		this.description = description;
 		this.name = name;
 		this.itemStatus = itemStatus;
-		this.category = category;
+		this.categoryId = 1;
 		this.user = user;
 		this.offers = offers;
 		this.imageUrl = imageUrl;

@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-@Entity
+//@Entity
 public class Category {
 
 	@Id
@@ -38,16 +38,23 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<Item> getItems() {
-		return items;
-	}
-
-	public void setItems(List<Item> items) {
-		this.items = items;
-	}
+//	public List<Item> getItems() {
+//		return items;
+//	}
+//
+//	public void setItems(List<Item> items) {
+//		this.items = items;
+//	}
 
 	public Category() {
 		super();
+	}
+	
+	public Category(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.items = null;
 	}
 
 	@Override
