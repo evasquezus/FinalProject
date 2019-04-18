@@ -28,8 +28,8 @@ public class Item {
 	@Column(name = "name")
 	private String name;
 
-//	@Column(name = "end_date")
-//	private Date endDate;
+	@Column(name = "end_date")
+	private Date endDate;
 
 	@Column(name = "item_status")
 	private int itemStatus;
@@ -96,13 +96,13 @@ public class Item {
 		this.name = name;
 	}
 
-//	public Date getEndDate() {
-//		return endDate;
-//	}
-//
-//	public void setEndDate(Date endDate) {
-//		this.endDate = endDate;
-//	}
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
 
 	public int getItemStatus() {
 		return itemStatus;
@@ -151,6 +151,10 @@ public class Item {
 		int result = 1;
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
+<<<<<<< HEAD
+=======
+		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
+>>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 		result = prime * result + id;
 		result = prime * result + ((imageUrl == null) ? 0 : imageUrl.hashCode());
 		result = prime * result + itemStatus;
@@ -179,6 +183,14 @@ public class Item {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
+<<<<<<< HEAD
+=======
+		if (endDate == null) {
+			if (other.endDate != null)
+				return false;
+		} else if (!endDate.equals(other.endDate))
+			return false;
+>>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 		if (id != other.id)
 			return false;
 		if (imageUrl == null) {
@@ -206,12 +218,28 @@ public class Item {
 		return true;
 	}
 
+<<<<<<< HEAD
 	public Item(int id, String description, String name, int itemStatus, Category category, User user,
 			List<Offer> offers, String imageUrl) {
+=======
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", description=" + description + ", name=" + name + ", endDate=" + endDate
+				+ ", active=" + itemStatus + ", category=" + category + ", user=" + user + ", offer=" + offers
+				+ ", itemImage=" + "]";
+	}
+
+	public Item(int id, String description, String name, Date endDate, int itemStatus, Category category, User user,
+			List<Offer> offer) {
+>>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 		super();
 		this.id = id;
 		this.description = description;
 		this.name = name;
+<<<<<<< HEAD
+=======
+		this.endDate = endDate;
+>>>>>>> parent of 4bbbe98... Layed out changes for back-end added new route
 		this.itemStatus = itemStatus;
 		this.category = category;
 		this.user = user;

@@ -53,7 +53,7 @@ public class ItemServiceImpl implements ItemService {
 //			managed.setCategory(item.getCategory());
 			managed.setDescription(item.getDescription());
 			managed.setName(item.getName());
-//			managed.setEndDate(item.getEndDate());
+			managed.setEndDate(item.getEndDate());
 			repo.saveAndFlush(item);
 		}
 		return null;
