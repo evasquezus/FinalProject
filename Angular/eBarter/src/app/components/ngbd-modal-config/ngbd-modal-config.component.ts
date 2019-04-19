@@ -53,7 +53,7 @@ export class NgbdModalConfigComponent implements OnInit {
     const imgUrl = form.value.imgUrl;
     console.log('modal form: ' + desc + ' ' + imgUrl);
     this.itemDetailComp.submitOffer(desc, imgUrl);
-    this.router.navigate(['/dummy2']);
+    // this.router.navigate(['/dummy2']);
     this.showResult = true;
   }
 

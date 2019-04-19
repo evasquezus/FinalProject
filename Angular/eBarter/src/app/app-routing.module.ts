@@ -1,3 +1,4 @@
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { ItemsSellingComponent } from './components/items-selling/items-selling.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'dummy2', component: Dummy2Component},
   { path: 'itemsWon', component: ItemsWonComponent },
   { path: 'selling', component: ItemsSellingComponent },
+  { path: 'navbar', component: NavbarComponent },
   { path: '', component: HomepageComponent }
 ];
 

@@ -1,5 +1,5 @@
-
-<!-- <div id='title'>
+<!--
+<div id='title'>
 <h1>My Accepted Offers</h1>
 </div>
 <div *ngFor="let item of items" id="showOffersForItemsThisUserHasWon" class="card-deck" style="width: 70rem;">
@@ -8,9 +8,6 @@
       <h1>{{item.name}}</h1>
         <div *ngFor="let offer of item.offers">
             <div *ngIf="offer.offerStatus == 2">
-              <br>
-              <br>
-              <br>
           <div *ngIf="offer.user.id == isBidder.id">
           <img class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap" href="#/">
           <span>{{item.name}}</span>
@@ -33,16 +30,18 @@
   <br>
   <div class="container" *ngFor="let item of items" id="showOffersForItemsThisUserHasWon">
       <div *ngIf="item.itemStatus == 2" class="col-md-14">
-        <div *ngIf="item.user.id == isBidder.id" class="card">
+                <div *ngFor="let offer of item.offers">
+            <div *ngIf="offer.offerStatus == 2">
+        <div *ngIf="offer.user.id == isBidder.id" class="card">
           <div class="card-body">
             <div class="row">
               <div class="col-sm-4">
-                <img *ngIf="item.user.id == isBidder.id" class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap"
+                <img *ngIf="offer.user.id == isBidder.id" class="card-img-top" src="{{item.imageUrl}}" alt="Card image cap"
                   href="#/">
                 <br>
                 <br>
               </div>
-              <div *ngIf="item.user.id == isBidder.id" class="col-sm-4">
+              <div *ngIf="offer.user.id == isBidder.id" class="col-sm-4">
                 <br>
                 <h3>Item Name: </h3>
                 <li *ngIf="item.itemStatus == 2">{{item.name}}</li>
@@ -51,13 +50,15 @@
                 <li *ngIf="item.itemStatus == 2">{{item.description}}</li>
 
               </div>
-              <div *ngIf="item.user.id == isBidder.id" class="col-sm-4">
+              <div *ngIf="offer.user.id == isBidder.id" class="col-sm-4">
                 <br>
                 <br>
                 <button (click)='navItem(item)' class="btn btn-warning" id='register-button' type="submit">View
                   Offer</button>
                 <br>
                 <br>
+                <div>
+                  <div>
               </div>
             </div>
             <hr>
