@@ -33,7 +33,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.setNavbar();
-  }
+    if (localStorage.getItem('newUser') === 'true') {
+      localStorage.removeItem('newUser');
+      this.router.navigate(['/home']);
+    }
+}
 
   setNavbar() {
     if (this.auth.checkLogin()) {

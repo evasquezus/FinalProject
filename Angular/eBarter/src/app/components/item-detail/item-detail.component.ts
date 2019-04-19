@@ -49,19 +49,21 @@ export class ItemDetailComponent implements OnInit {
     if (parseInt(localStorage.getItem('sellingSelectedId')) > 0) {
       console.log('selling');
       id = parseInt(localStorage.getItem('sellingSelectedId'));
-      // localStorage.removeItem('sellingSelectedId');
+      localStorage.removeItem('sellingSelectedId');
       this.selling = true;
     }
     else if (parseInt(localStorage.getItem('wonSelectedId')) > 0) {
       console.log('won');
       id = parseInt(localStorage.getItem('wonSelectedId'));
-      // localStorage.removeItem('wonSelectedId');
+      localStorage.removeItem('wonSelectedId');
       this.won = true;
     }
     else {
       id = parseInt(localStorage.getItem('selectedId'));
-      // localStorage.removeItem('selectedId');
+      localStorage.removeItem('selectedId');
     }
+    console.log('id: ' + id);
+
     this.itemService.getSpecificItem(id).subscribe(
       item => {
         this.item = item;

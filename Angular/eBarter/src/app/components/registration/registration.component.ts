@@ -54,7 +54,9 @@ export class RegistrationComponent implements OnInit {
         this.authService.login(this.newUser.username, this.newUser.password).subscribe(
           date2 => {
             // this.router.navigate([{outlets: {home: 'home', user: null}}])
-            this.router.navigate(['/dummy']);
+            localStorage.setItem('newUser', 'true');
+
+            this.router.navigate(['/navbar']);
         },
           err2 => console.log(err2)
         );

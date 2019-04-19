@@ -46,7 +46,7 @@ export class ItemsWonComponent implements OnInit {
       data => {
         this.isBidder = data;
         localStorage.setItem('bidderName', this.isBidder.username);
-        console.log('bidder: ' + this.isBidder);
+        console.log('bidder: ' + this.isBidder.username);
 
       },
       error=> {
