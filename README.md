@@ -1,6 +1,6 @@
-# FinalProject EBARTER
+# EBARTER(In Progress)
 ## Overview
-Evented
+
 During this 7 day sprint we decided to build a e-commerse website. This website allows you to create, new items for people to offer on, depending on your preferences you can accept these offers or simply ignore them. Imagine wanting a item but not having cash to pay for it, Ebarter fixes this isssue, allowing buyers and sellers to offer other methods of payments for items.
 
 We used Angular for our front-end, ensuring we could hit our back-end and ensuring full CRUD/ ADMIN functionality was present.
